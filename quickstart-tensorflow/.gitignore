@@ -1,0 +1,84 @@
+# ignore secret files
+*.env
+*.env.local
+*.env.prod
+
+# notes
+notes.md
+doc/notes_cmd.md
+
+# Compiled Python files
+*.pyc
+
+# Compiled Python bytecode
+__pycache__
+
+# IDE files and directories
+.idea/
+*.iml
+*.ipr
+*.iws
+*.pdf
+*.xlsx
+
+# enviroment files
+.env.local
+
+# BUT include PDF files in tests/test_data/ directory
+!tests/test_data/*.pdf
+
+# Local configuration file (if using PyCharm)
+*.xml
+
+# Logs
+*.log
+*.log.json
+
+# CSVs
+*.csv
+
+# TAR files
+*.tar
+
+# Windows sp
+ecific files
+Thumbs.db
+
+# Test and data folders
+/datasets/
+/snipets/
+/exports/
+/inports/
+/Data/
+/yolo_model/
+/ocr_model/
+
+# enviromet files
+.venv/
+
+# todofiles
+TODO.md
+
+# makefile
+Makefile
+
+#lodal dev
+/.local_dev/
+
+# mlflow files
+/src/train_ml_model/mlruns/
+**/mlruns/
+mlflow.db
+
+# training inputs/outputs
+/src/tuning/output/**
+/src/tuning/input/**
+/src/tuning/log.txt
+
+/src/multi-objective-tuning/output/**
+/src/multi-objective-tuning/input/**
+/src/multi-objective-tuning/log.txt
+
+/POC/exports
+/POC/model_metdata
+/POC/model_weights
