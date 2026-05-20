@@ -1,5 +1,152 @@
-from sklearn.model_selection import train_test_split
+import pandas as pd
+import numpy as np
+from sklearn.utils import class_weight
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, \
+    classification_report
+from sklearn.preprocessing import StandardScaler
 
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.regularizers import l2
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Input, Concatenate, Conv1D, MaxPooling1D, \
+    Dropout, LSTM, Dense, BatchNormalization
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.utils import plot_model
+import tensorflow as tf
+
+import os
+import json
+import pickle
+
+
+# Load dataset
+def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
+    df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
+
+    print("Dataset loaded successfully")
+    print(f"Shape: {df.shape}")
+    print(f"\nColumns: {df.columns.tolist()}")
+    print(f"\nFirst few rows:")
+    df.head()
+
+    # In[ ]:
+
+    # In[6]:
+
+    # Dataset statistics
+    print("Dataset Statistics:")
+    print(df.describe())
+    print(f"\nMissing values:\n{df.isnull().sum()}")
+    # print(f"\nUnique persons: {df['person_id'].nunique()}")
+
+    # ### Test/Train split dataset
+
+    # In[7]:
+
+    # subjects you want in first dataset
+    subject_id = TEST_PERSON_IDS
+    df_test = df[df["person_id"].isin(subject_id)].copy()
+    df_train = df[~df["person_id"].isin(subject_id)].copy()
+
+    return df, df_train, df_test
+
+def inceptiontime_temporal(input_tensor, depth=6, nb_filters=32):
+        """
+        InceptionTime-inspired block for temporal feature extraction.
+        Uses multiple kernel sizes to capture different temporal patterns.
+
+        Args:
+            input_tensor: Input tensor
+            depth: Depth parameter (not used in this version)
+            nb_filters: Number of filters for each convolution
+
+        Returns:
+            Merged tensor from all parallel paths
+        """
+        # Parallel convolutions with different kernel sizes
+        print("JJJJJJJ")
+        print(nb_filters)
+        print(type(nb_filters))
+        conv1 = Conv1D(nb_filters, kernel_size=1, padding='same', activation='relu')(input_tensor)
+        conv3 = Conv1D(nb_filters, kernel_size=3, padding='same', activation='relu')(input_tensor)
+        conv5 = Conv1D(nb_filters, kernel_size=5, padding='same', activation='relu')(input_tensor)
+
+        # Maxpooling path
+        maxpool = MaxPooling1D(pool_size=3, strides=1, padding='same')(input_tensor)
+        convpool = Conv1D(nb_filters, kernel_size=1, padding='same', activation='relu')(maxpool)
+
+        # Concatenate all paths
+        merged = Concatenate()([conv1, conv3, conv5, convpool])
+
+        return merged
+
+
+def build_inception_lstm_dual_branch(feature1_len, feature2_len, lstm_units=(64, 32, 16),
+                                     depth=6, nb_filters=32, dropout_dense=(0.5, 0.4),
+                                     dropout_lstm=0.4, l2_reg=0.01):
+    """
+    Build dual-branch Inception-LSTM model for apnea detection.
+
+    Args:
+        feature1_len: Length of RR interval sequences
+        feature2_len: Length of SpO2 sequences
+        lstm_units: Tuple of LSTM layer units
+        depth: Depth of InceptionTime block
+        nb_filters: Number of filters in convolutional layers
+        dropout_dense: Dropout rates for dense layers
+        dropout_lstm: Dropout rate for LSTM layers
+        l2_reg: L2 regularization factor
+
+    Returns:
+        Compiled Keras model
+    """
+    # RR branch
+    feature1_input = Input(shape=(feature1_len, 1), name='feature1_input')
+    feature1_x = inceptiontime_temporal(feature1_input, depth=depth, nb_filters=nb_filters)
+    feature1_x = LSTM(lstm_units[0], return_sequences=True,
+                kernel_regularizer=l2(l2_reg),
+                recurrent_regularizer=l2(l2_reg))(feature1_x)
+    feature1_x = Dropout(dropout_lstm)(feature1_x)
+    feature1_x = LSTM(lstm_units[1], return_sequences=True,
+                kernel_regularizer=l2(l2_reg),
+                recurrent_regularizer=l2(l2_reg))(feature1_x)
+    feature1_x = Dropout(dropout_lstm)(feature1_x)
+    feature1_x = LSTM(lstm_units[2],
+                kernel_regularizer=l2(l2_reg),
+                recurrent_regularizer=l2(l2_reg))(feature1_x)
+    feature1_x = Dropout(dropout_lstm)(feature1_x)
+
+    # SpO2 branch
+    feature2_input = Input(shape=(feature2_len, 1), name='feature2_input')
+    feature2_x = inceptiontime_temporal(feature2_input, depth=depth, nb_filters=nb_filters)
+    feature2_x = LSTM(lstm_units[0], return_sequences=True,
+                  kernel_regularizer=l2(l2_reg),
+                  recurrent_regularizer=l2(l2_reg))(feature2_x)
+    feature2_x = Dropout(dropout_lstm)(feature2_x)
+    feature2_x = LSTM(lstm_units[1], return_sequences=True,
+                  kernel_regularizer=l2(l2_reg),
+                  recurrent_regularizer=l2(l2_reg))(feature2_x)
+    feature2_x = Dropout(dropout_lstm)(feature2_x)
+    feature2_x = LSTM(lstm_units[2],
+                  kernel_regularizer=l2(l2_reg),
+                  recurrent_regularizer=l2(l2_reg))(feature2_x)
+    feature2_x = Dropout(dropout_lstm)(feature2_x)
+
+    # Late fusion
+    combined = Concatenate()([feature1_x, feature2_x])
+
+    # Dense head with L2 regularization
+    z = Dense(64, activation='relu', kernel_regularizer=l2(l2_reg))(combined)
+    z = Dropout(dropout_dense[0])(z)
+    z = Dense(32, activation='relu', kernel_regularizer=l2(l2_reg))(z)
+    z = Dropout(dropout_dense[1])(z)
+    z = Dense(16, activation='relu', kernel_regularizer=l2(l2_reg))(z)
+    output = Dense(1, activation='sigmoid', name='apnea_output')(z)
+
+    model = Model(inputs=[feature1_input, feature2_input], outputs=output)
+
+    return model
 
 def train_model(settings, general_parameters, params):
     import os
@@ -107,152 +254,21 @@ def train_model(settings, general_parameters, params):
         print("💻 Currently using CPU")
 
 
-    # ## 2. Load and Explore Dataset
-
-    # In[5]:
-
-
-    # Load dataset
-    df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
-
-    print("Dataset loaded successfully")
-    print(f"Shape: {df.shape}")
-    print(f"\nColumns: {df.columns.tolist()}")
-    print(f"\nFirst few rows:")
-    df.head()
-
-
-    # In[ ]:
-
-
-
-
-
-    # In[6]:
-
-
-    # Dataset statistics
-    print("Dataset Statistics:")
-    print(df.describe())
-    print(f"\nMissing values:\n{df.isnull().sum()}")
-    # print(f"\nUnique persons: {df['person_id'].nunique()}")
-
-
-    # ### Test/Train split dataset
-
-    # In[7]:
-
-
-    # subjects you want in first dataset
-    subject_id = TEST_PERSON_IDS
-    df_test = df[df["person_id"].isin(subject_id)].copy()
-    df_train = df[~df["person_id"].isin(subject_id)].copy()
+    # ## 2. Load the dataset
+    df, df_train, df_test = load_dataset(INPUT_PATH, DATASET_FILENAME, TEST_PERSON_IDS)
 
 
     # ## 3. Model Architecture Functions
 
     # In[8]:
-
-
-    def inceptiontime_temporal(input_tensor, depth=6, nb_filters=32):
-        """
-        InceptionTime-inspired block for temporal feature extraction.
-        Uses multiple kernel sizes to capture different temporal patterns.
-
-        Args:
-            input_tensor: Input tensor
-            depth: Depth parameter (not used in this version)
-            nb_filters: Number of filters for each convolution
-
-        Returns:
-            Merged tensor from all parallel paths
-        """
-        # Parallel convolutions with different kernel sizes
-        conv1 = Conv1D(nb_filters, kernel_size=1, padding='same', activation='relu')(input_tensor)
-        conv3 = Conv1D(nb_filters, kernel_size=3, padding='same', activation='relu')(input_tensor)
-        conv5 = Conv1D(nb_filters, kernel_size=5, padding='same', activation='relu')(input_tensor)
-
-        # Maxpooling path
-        maxpool = MaxPooling1D(pool_size=3, strides=1, padding='same')(input_tensor)
-        convpool = Conv1D(nb_filters, kernel_size=1, padding='same', activation='relu')(maxpool)
-
-        # Concatenate all paths
-        merged = Concatenate()([conv1, conv3, conv5, convpool])
-
-        return merged
-
+    ### TODO Matej
     print("✅ InceptionTime temporal block defined")
 
 
     # In[9]:
 
 
-    def build_inception_lstm_dual_branch(feature1_len, feature2_len, lstm_units=(64, 32, 16),
-                                         depth=6, nb_filters=32, dropout_dense=(0.5, 0.4),
-                                         dropout_lstm=0.4, l2_reg=0.01):
-        """
-        Build dual-branch Inception-LSTM model for apnea detection.
-
-        Args:
-            feature1_len: Length of RR interval sequences
-            feature2_len: Length of SpO2 sequences
-            lstm_units: Tuple of LSTM layer units
-            depth: Depth of InceptionTime block
-            nb_filters: Number of filters in convolutional layers
-            dropout_dense: Dropout rates for dense layers
-            dropout_lstm: Dropout rate for LSTM layers
-            l2_reg: L2 regularization factor
-
-        Returns:
-            Compiled Keras model
-        """
-        # RR branch
-        feature1_input = Input(shape=(feature1_len, 1), name='feature1_input')
-        feature1_x = inceptiontime_temporal(feature1_input, depth=depth, nb_filters=nb_filters)
-        feature1_x = LSTM(lstm_units[0], return_sequences=True,
-                    kernel_regularizer=l2(l2_reg),
-                    recurrent_regularizer=l2(l2_reg))(feature1_x)
-        feature1_x = Dropout(dropout_lstm)(feature1_x)
-        feature1_x = LSTM(lstm_units[1], return_sequences=True,
-                    kernel_regularizer=l2(l2_reg),
-                    recurrent_regularizer=l2(l2_reg))(feature1_x)
-        feature1_x = Dropout(dropout_lstm)(feature1_x)
-        feature1_x = LSTM(lstm_units[2],
-                    kernel_regularizer=l2(l2_reg),
-                    recurrent_regularizer=l2(l2_reg))(feature1_x)
-        feature1_x = Dropout(dropout_lstm)(feature1_x)
-
-        # SpO2 branch
-        feature2_input = Input(shape=(feature2_len, 1), name='feature2_input')
-        feature2_x = inceptiontime_temporal(feature2_input, depth=depth, nb_filters=nb_filters)
-        feature2_x = LSTM(lstm_units[0], return_sequences=True,
-                      kernel_regularizer=l2(l2_reg),
-                      recurrent_regularizer=l2(l2_reg))(feature2_x)
-        feature2_x = Dropout(dropout_lstm)(feature2_x)
-        feature2_x = LSTM(lstm_units[1], return_sequences=True,
-                      kernel_regularizer=l2(l2_reg),
-                      recurrent_regularizer=l2(l2_reg))(feature2_x)
-        feature2_x = Dropout(dropout_lstm)(feature2_x)
-        feature2_x = LSTM(lstm_units[2],
-                      kernel_regularizer=l2(l2_reg),
-                      recurrent_regularizer=l2(l2_reg))(feature2_x)
-        feature2_x = Dropout(dropout_lstm)(feature2_x)
-
-        # Late fusion
-        combined = Concatenate()([feature1_x, feature2_x])
-
-        # Dense head with L2 regularization
-        z = Dense(64, activation='relu', kernel_regularizer=l2(l2_reg))(combined)
-        z = Dropout(dropout_dense[0])(z)
-        z = Dense(32, activation='relu', kernel_regularizer=l2(l2_reg))(z)
-        z = Dropout(dropout_dense[1])(z)
-        z = Dense(16, activation='relu', kernel_regularizer=l2(l2_reg))(z)
-        output = Dense(1, activation='sigmoid', name='apnea_output')(z)
-
-        model = Model(inputs=[feature1_input, feature2_input], outputs=output)
-
-        return model
-
+    # TODO Matej
     print("✅ Model builder function defined")
 
 

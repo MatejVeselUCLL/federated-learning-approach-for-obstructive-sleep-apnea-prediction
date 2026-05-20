@@ -33,27 +33,43 @@ v1 = 5 * factor
 v2 = 0.2 * (factor * 0.1)
 v3 = 0.005 * (factor * 0.001)
 v4 = 0.00005 * (factor * 0.00001)
+
 hyper_parameters = {
-    "window_size": [make_positive(75 - v1, 1), make_positive(75 + v1, 1)],
-    "lstm_units": [
-        [make_positive(64-v1, 1), make_positive(64+v1, 1)], # Lower
-        [make_positive(32-v1, 1), make_positive(32+v1, 1)],
-        [make_positive(16-v1, 1), make_positive(16+v1, 1)], # Higher
-    ],
-    "depth": [make_positive(6-v1, 1), make_positive(6+v1, 1)],
-    "nb_filters": [make_positive(32-v1, 1), make_positive(32+v1, 1)], # Higher
-    "dropout_dense": [
-        [make_positive(0.5-v2, 0.1), make_positive(0.5+v2, 0.1)],
-        [make_positive(0.4-v2, 0.1), make_positive(0.4+v2, 0.1)],
-    ],
-    "dropout_lstm": [make_positive(0.4-v2, 0.1), make_positive(0.4+v2, 0.1)],
-    "l2_reg": [make_positive(0.01-v3, 0.001), make_positive(0.01+v3, 0.001)], # It was log!
-    "learning_rate": [make_positive(0.0005-v4, 0.00001), make_positive(0.0005+v4, 0.00001)], # It was log!
-    "epochs": settings["epochs"],
-    "batch_size": [make_positive(128-v1, 1), make_positive(128+v1, 1)], # Lower
-    "prediction_threshold": [make_positive(0.5-v2, 0.1), make_positive(0.5+v2, 0.1)],
-    "validation_split": [make_positive(0.2-v2, 0.1), make_positive(0.2+v2, 0.1)] # Lower
+    "window_size": 75,
+    "lstm_units": [64, 32, 16],
+    "depth": 6,
+    "nb_filters": 32,
+    "dropout_dense": [0.5, 0.4],
+    "dropout_lstm": 0.4,
+    "l2_reg": 0.01,
+    "learning_rate": 0.0005,
+    "epochs": 50,
+    "batch_size": 128,
+    "validation_split": 0.2,
+    "prediction_threshold": 0.5,
 }
+
+# hyper_parameters = {
+#     "window_size": [make_positive(75 - v1, 1), make_positive(75 + v1, 1)],
+#     "lstm_units": [
+#         [make_positive(64-v1, 1), make_positive(64+v1, 1)], # Lower
+#         [make_positive(32-v1, 1), make_positive(32+v1, 1)],
+#         [make_positive(16-v1, 1), make_positive(16+v1, 1)], # Higher
+#     ],
+#     "depth": [make_positive(6-v1, 1), make_positive(6+v1, 1)],
+#     "nb_filters": [make_positive(32-v1, 1), make_positive(32+v1, 1)], # Higher
+#     "dropout_dense": [
+#         [make_positive(0.5-v2, 0.1), make_positive(0.5+v2, 0.1)],
+#         [make_positive(0.4-v2, 0.1), make_positive(0.4+v2, 0.1)],
+#     ],
+#     "dropout_lstm": [make_positive(0.4-v2, 0.1), make_positive(0.4+v2, 0.1)],
+#     "l2_reg": [make_positive(0.01-v3, 0.001), make_positive(0.01+v3, 0.001)], # It was log!
+#     "learning_rate": [make_positive(0.0005-v4, 0.00001), make_positive(0.0005+v4, 0.00001)], # It was log!
+#     "epochs": settings["epochs"],
+#     "batch_size": [make_positive(128-v1, 1), make_positive(128+v1, 1)], # Lower
+#     "prediction_threshold": [make_positive(0.5-v2, 0.1), make_positive(0.5+v2, 0.1)],
+#     "validation_split": [make_positive(0.2-v2, 0.1), make_positive(0.2+v2, 0.1)] # Lower
+# }
 
 config = {
     "settings": settings,
