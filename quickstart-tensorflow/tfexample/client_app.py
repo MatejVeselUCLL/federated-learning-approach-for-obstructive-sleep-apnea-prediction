@@ -1,4 +1,5 @@
 """tfexample: A Flower / TensorFlow app."""
+from pprint import pprint
 
 import keras
 from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
@@ -27,6 +28,8 @@ def train(msg: Message, context: Context):
 
     # Pack and send the model weights and metrics as a message
     content = RecordDict({"arrays": ArrayRecord(model.get_weights()), "metrics": MetricRecord(metrics)})
+    print("MESSAGEEE")
+    pprint(Message(content=content, reply_to=msg))
     return Message(content=content, reply_to=msg)
 
 
