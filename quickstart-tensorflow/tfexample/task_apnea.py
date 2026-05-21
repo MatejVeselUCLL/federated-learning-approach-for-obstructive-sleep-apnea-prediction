@@ -25,7 +25,7 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
     print("os.getcwd()")
     print(os.getcwd())
-    df = pd.read_csv(f'tfexample/input/ml_train_dataset_from_omop_1s.csv')
+    df = pd.read_csv(f'tfexample/input/ml_train_dataset_from_omop_1s_minimal.csv')
 
     print("Dataset loaded successfully")
     print(f"Shape: {df.shape}")
