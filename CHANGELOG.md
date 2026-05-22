@@ -12,6 +12,7 @@
 
 ### ⚙️ Miscellaneous Tasks
 
+- Updated changelog.
 - Sync
 - Sync
 - Sync
