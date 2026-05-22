@@ -1231,4 +1231,8 @@ def train_model(settings, general_parameters, params):
         make_confusion_matrix(cf_matrix, title=settings["study_name"], group_names=labels, categories=categories, cmap='Blues', figsize=(7,5), save_path=f'{OUTPUT_PATH}/val_confusion_matrix.png')
 
 
+    # convert all values in final_metrics to float.
+    for k, v in final_metrics.items():
+        final_metrics[k] = float(v)
+
     return final_metrics, model
