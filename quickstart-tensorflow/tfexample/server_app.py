@@ -63,14 +63,14 @@ def main(grid: Grid, context: Context) -> None:
     final_model_name = "final_model.keras"
     print(f"Saving final model to disk as {final_model_name}...")
 
-    print("000000000000000000000")
-    pprint(result)
-    print("sdfsdf")
-    pprint(result.arrays)
-    print("AAAAAAAAAAAAAAAAAAAAAA")
-    print(len(model.get_weights()))
-    print("BBBBBBBBBBBBBBBBBBBBBB")
-    print(len(ndarrays))
+    # print("000000000000000000000")
+    # pprint(result)
+    # print("sdfsdf")
+    # pprint(result.arrays)
+    # print("AAAAAAAAAAAAAAAAAAAAAA")
+    # print(len(model.get_weights()))
+    # print("BBBBBBBBBBBBBBBBBBBBBB")
+    # print(len(ndarrays))
 
     model.set_weights(ndarrays)
     model.save(final_model_name)
