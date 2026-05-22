@@ -27,6 +27,8 @@ def train(msg: Message, context: Context):
 
 
     # Pack and send the model weights and metrics as a message
+    print("metricsss")
+    pprint(metrics)
     content = RecordDict({"arrays": ArrayRecord(model.get_weights()), "metrics": MetricRecord(metrics)})
     print("MESSAGEEE")
     pprint(Message(content=content, reply_to=msg))
