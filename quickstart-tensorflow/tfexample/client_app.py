@@ -1,4 +1,6 @@
 """tfexample: A Flower / TensorFlow app."""
+import os
+import sys
 from pprint import pprint
 
 import keras
@@ -12,6 +14,15 @@ from tfexample.task_apnea import train_model
 app = ClientApp()
 
 
+class HiddenPrints:
+    def __enter__(self):
+        self._original_stdout = sys.stdout
+        sys.stdout = open(os.devnull, 'w')
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout.close()
+        sys.stdout = self._original_stdout
+
 @app.train()
 def train(msg: Message, context: Context):
     """Train the model on local data."""
@@ -23,7 +34,8 @@ def train(msg: Message, context: Context):
     settings = config["settings"]
     general_parameters = config["general_parameters"]
     hyper_parameters = config["hyper_parameters"]
-    metrics, model = train_model(settings, general_parameters, hyper_parameters)
+    with HiddenPrints():
+        metrics, model = train_model(settings, general_parameters, hyper_parameters)
 
 
     # Pack and send the model weights and metrics as a message
