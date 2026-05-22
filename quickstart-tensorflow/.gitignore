@@ -82,3 +82,5 @@ mlflow.db
 /POC/exports
 /POC/model_metdata
 /POC/model_weights
+
+quickstart-tensorflow/output/**

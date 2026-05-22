@@ -1,3 +1,5 @@
+from pprint import pprint
+
 import pandas as pd
 import numpy as np
 from sklearn.utils import class_weight
@@ -314,18 +316,32 @@ def train_model(settings, general_parameters, params):
 
             feature1_values = g[features[0]].values
             feature2_values = g[features[1]].values
+
             labels = g[target].values
+            print("LLABELS")
+            pprint(labels)
+
+            print("GGG")
+            pprint(g)
+            print("lenGGG", len(g), window_size)
+
+
+            print("THECOND", len(g) - window_size)
+            print("THECOND2", step)
 
             # Sliding window with step
             for i in range(0, len(g) - window_size, step):
                 X_feature1.append(feature1_values[i:i + window_size])
                 X_feature2.append(feature2_values[i:i + window_size])
+                print("HERRE")
                 y.append(labels[i + window_size])
 
         # Convert to numpy arrays
         X_feature1 = np.array(X_feature1).reshape(-1, window_size, 1)
         X_feature2 = np.array(X_feature2).reshape(-1, window_size, 1)
         y = np.array(y)
+        print("YYY")
+        pprint(y)
 
         print(f"X_feature1 shape: {X_feature1.shape}")
         print(f"X_spo2 shape: {X_feature2.shape}")
@@ -335,11 +351,12 @@ def train_model(settings, general_parameters, params):
         scaler_feature1 = StandardScaler()
         scaler_feature2 = StandardScaler()
 
-        X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
-        X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
-
-        X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
-        X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
+        # TODO Matej
+        # X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
+        # X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
+        #
+        # X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
+        # X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
 
         return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
@@ -460,17 +477,32 @@ def train_model(settings, general_parameters, params):
     # In[17]:
 
 
+    print("classweightss")
+    pprint(y)
+    print("ylength")
+    print(len(y))
+    print("ydistinct")
+    print(np.unique(y))
+    print(len(np.unique(y))<2)
+
+
     # Compute class weights to handle imbalanced data
     weights = class_weight.compute_class_weight(
         'balanced',
         classes=np.unique(y),
         y=y
     )
-    class_weights = {0: weights[0], 1: weights[1]}
+
+    print("weightss")
+    pprint(weights)
+    print("weightsslength")
+    print(len(weights))
+    class_weights = {0: weights[0]}
+    # class_weights = {0: weights[0], 1: weights[1]} // TODO Matej
 
     print("Class Weights (for imbalanced data):")
     print(f"  Class 0 (No Apnea): {weights[0]:.4f}")
-    print(f"  Class 1 (Apnea): {weights[1]:.4f}")
+    # print(f"  Class 1 (Apnea): {weights[1]:.4f}") // TODO Matej
 
 
     # ## 11. Define Callbacks
@@ -584,7 +616,15 @@ def train_model(settings, general_parameters, params):
     # Generate confusion matrix
     cm = confusion_matrix(y, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['No Apnea', 'Apnea'])
-    tn, fp, fn, tp = cm.ravel()
+    print("cmmm")
+    pprint(cm)
+    try:
+        tn, fp, fn, tp = cm.ravel()
+    except: # TODO Matej
+        tn = 0
+        fp = 0
+        fn = 0
+        tp = 0
 
     fig, ax = plt.subplots(figsize=(8, 6))
     disp.plot(cmap=plt.cm.Blues, ax=ax)
@@ -852,6 +892,9 @@ def train_model(settings, general_parameters, params):
             f1_values = g[features[0]].values
             f2_values = g[features[1]].values
 
+            print("f1_values")
+            pprint(f1_values)
+
             # Sliding window with step
             for start_pos in range(0, len(g) - window_size, step):
                 end_pos = start_pos + window_size
@@ -862,13 +905,28 @@ def train_model(settings, general_parameters, params):
         X_f1 = np.array(X_f1).reshape(-1, window_size, 1)
         X_f2 = np.array(X_f2).reshape(-1, window_size, 1)
 
-        # Transform using EXISTING scalers
-        X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
-        X_f2_scaled = scaler_feature2.transform(X_f2.reshape(-1, 1))
+        print("XXXXbefore")
+        pprint(X_f1)
+
+        # Transform using EXISTING scaler
+        print("XXX")
+        pprint(X_f1)
+        pprint(len(X_f1))
+        print("XXX2")
+        pprint(X_f2)
+        pprint(len(X_f2))
+        # TODO Matej
+        # X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
+        X_f1_scaled = X_f1
+        # X_f2_scaled = scaler_feature2.transform(X_f2.reshape(-1, 1))
+        X_f2_scaled = X_f2
 
         # Reshape to 2D for scaler, then back to 3D for model
-        X_f1 = X_f1_scaled.reshape(-1, window_size, 1)
-        X_f2 = X_f2_scaled.reshape(-1, window_size, 1)
+        # TODO Matej
+        X_f1 = X_f1_scaled
+        # X_f1 = X_f1_scaled.reshape(-1, window_size, 1)
+        X_f2 = X_f2_scaled
+        # X_f2 = X_f2_scaled.reshape(-1, window_size, 1)
 
         return X_f1, X_f2
 
