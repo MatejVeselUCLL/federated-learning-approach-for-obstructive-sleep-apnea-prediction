@@ -56,31 +56,5 @@ Thumbs.db
 # enviromet files
 .venv/
 
-# todofiles
-TODO.md
-
-# makefile
-Makefile
-
-#lodal dev
-/.local_dev/
-
-# mlflow files
-/src/train_ml_model/mlruns/
-**/mlruns/
-mlflow.db
-
-# training inputs/outputs
-/src/tuning/output/**
-/src/tuning/input/**
-/src/tuning/log.txt
-
-/src/multi-objective-tuning/output/**
-/src/multi-objective-tuning/input/**
-/src/multi-objective-tuning/log.txt
-
-/POC/exports
-/POC/model_metdata
-/POC/model_weights
 
 quickstart-tensorflow/output/**

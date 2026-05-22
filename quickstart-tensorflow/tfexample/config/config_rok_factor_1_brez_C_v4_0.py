@@ -38,7 +38,7 @@ hyper_parameters = {
     "window_size": 75,
     "lstm_units": [64, 32, 16],
     "depth": 6,
-    "rs": 32,
+    "nb_filters": 32,
     "dropout_dense": [0.5, 0.4],
     "dropout_lstm": 0.4,
     "l2_reg": 0.01,
