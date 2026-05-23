@@ -1,8 +1,9 @@
 .venv/
 .idea/
-quickstart-tensorflow/tfexample/input
-quickstart-tensorflow/tfexample/output
-quickstart-tensorflow/output
-final_model.keras
-centralized/input
-centralized/output
+**/__pycache__/
+**/output/
+!**/output/.gitkeep
+**/input/
+!input/.gitkeep
+!output/.gitkeep
+*.keras

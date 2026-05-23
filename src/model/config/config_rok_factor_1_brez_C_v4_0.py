@@ -1,12 +1,16 @@
 factor = 1
+import git
+
+repo = git.Repo('', search_parent_directories=True)
+
 
 settings = {
     "config_name": "config_strict_good",
     "experiment_name": "Hyperparameter Tuning Omop 1s",
     "study_name": f"Objective: Val F1 Score (Variance to Rok: {factor}) Brez C10 (1) in C28 (20)",
-    "output_path": "./output", # Relative to tuning.py.
-    "input_path": "./input", # Relative to tuning.py.
-    "dataset_filename": "ml_train_dataset_from_omop_1s.csv",
+    "output_path": f"{repo.working_tree_dir}/output", # Relative to tuning.py.
+    "input_path": f"{repo.working_tree_dir}/input", # Relative to tuning.py.
+    "dataset_filename": "ml_train_dataset_from_omop_1s_minimal.csv",
     "log_file": "log.txt", # Do not change this.
     "objective_metric": "true_val_f1_score", # For possible options, see final_metrics variable in train_model.py.
     "objective_direction": "maximize", # Either 'maximize' or 'minimize'

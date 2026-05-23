@@ -22,20 +22,20 @@ pip install flwr
 Fetch the app:
 
 ```shell
-flwr new @flwrlabs/quickstart-tensorflow
+flwr new @flwrlabs/src
 ```
 
 This will create a new directory called `quickstart-tensorflow` with the following structure:
 
 ```shell
-quickstart-tensorflow
-├── tfexample
+src
+├── federated
 │   ├── __init__.py
-│   ├── client_app.py   # Defines your ClientApp
-│   ├── server_app.py   # Defines your ServerApp
-│   └── task.py         # Defines your model, training and data loading
+│   ├── client.py   # Defines your ClientApp
+│   ├── server.py   # Defines your ServerApp
+│   └── model.py         # Defines your model, training and input loading
 ├── pyproject.toml      # Project metadata like dependencies and configs
-└── README_flower.md
+└── README.md
 ```
 
 ### Install dependencies and project

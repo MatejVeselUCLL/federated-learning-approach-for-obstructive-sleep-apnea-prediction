@@ -22,8 +22,8 @@ fab-format-version = 1
 flwr-version-target = "1.29.0"
 
 [tool.flwr.app.components]
-serverapp = "tfexample.server_app:app"
-clientapp = "tfexample.client_app:app"
+serverapp = "src.federated.server:app"
+clientapp = "src.federated.client:app"
 
 [tool.flwr.app.config]
 num-server-rounds = 2

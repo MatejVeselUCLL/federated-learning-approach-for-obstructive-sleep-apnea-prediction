@@ -1,33 +1,23 @@
 from pprint import pprint
 
-import pandas as pd
 import numpy as np
-from sklearn.utils import class_weight
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, \
-    classification_report
+import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.regularizers import l2
-from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Concatenate, Conv1D, MaxPooling1D, \
-    Dropout, LSTM, Dense, BatchNormalization
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import plot_model
-import tensorflow as tf
+    Dropout, LSTM, Dense
 
-import os
-import json
-import pickle
+from src.model.config.config_rok_factor_1_brez_C_v4_0 import config
 
 
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
-    # df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
-    print("os.getcwd()")
-    print(os.getcwd())
-    df = pd.read_csv(f'tfexample/input/ml_train_dataset_from_omop_1s_minimal.csv')
+    # df = pd.read_csv(f'{DATASET_FILENAME}')
+
+    df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
+    # df = pd.read_csv(f'tfexample/input/ml_train_dataset_from_omop_1s_minimal.csv')
 
     print("Dataset loaded successfully")
     print(f"Shape: {df.shape}")
@@ -153,8 +143,87 @@ def build_inception_lstm_dual_branch(feature1_len, feature2_len, lstm_units=(64,
 
     return model
 
-def train_model(settings, general_parameters, params):
-    import os
+def prepare_dual_branch_train_data(df, window_size, step, features, target, id_column):
+    """
+    Prepare separate RR, SpO2 and HR sequences for multi-branch model using sliding window with step size.
+
+    Args:
+        df: DataFrame with physiological signals
+        window_size: Number of timesteps per sequence
+        step: Step size (stride) between consecutive windows
+        features: List of feature column names [rr, spo2, hr]
+        target: Target column name
+        id_column: Column identifying each subject/person
+
+    Returns:
+        X_hr: Scaled HR sequences (samples, window_size, 1)
+        X_spo2: Scaled SpO2 sequences (samples, window_size, 1)
+        y: Target labels
+        scaler_rr: Fitted StandardScaler for RR
+        scaler_spo2: Fitted StandardScaler for SpO2
+        scaler_hr: Fitted StandardScaler for HR
+    """
+
+    X_feature1 = []
+    X_feature2 = []
+    y = []
+
+    # Extract sequences per person
+    for pid, g in df.groupby(id_column):
+        g = g.reset_index(drop=True)
+
+        feature1_values = g[features[0]].values
+        feature2_values = g[features[1]].values
+
+        labels = g[target].values
+        print("LLABELS")
+        pprint(labels)
+
+        print("GGG")
+        pprint(g)
+        print("lenGGG", len(g), window_size)
+
+
+        print("THECOND", len(g) - window_size)
+        print("THECOND2", step)
+
+        # Sliding window with step
+        for i in range(0, len(g) - window_size, step):
+            X_feature1.append(feature1_values[i:i + window_size])
+            X_feature2.append(feature2_values[i:i + window_size])
+            print("HERRE")
+            y.append(labels[i + window_size])
+
+    # Convert to numpy arrays
+    X_feature1 = np.array(X_feature1).reshape(-1, window_size, 1)
+    X_feature2 = np.array(X_feature2).reshape(-1, window_size, 1)
+    y = np.array(y)
+    print("YYY")
+    pprint(y)
+
+    print(f"X_feature1 shape: {X_feature1.shape}")
+    print(f"X_spo2 shape: {X_feature2.shape}")
+    print(f"y shape: {y.shape}")
+
+    # Normalize features separately
+    scaler_feature1 = StandardScaler()
+    scaler_feature2 = StandardScaler()
+
+    # TODO Matej
+    # X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
+    # X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
+    #
+    # X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
+    # X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
+
+    return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
+
+
+def train_model():
+
+    settings = config["settings"]
+    general_parameters = config["general_parameters"]
+    params = config["hyper_parameters"]
 
     FEATURES = general_parameters["FEATURES"]
     TARGET = general_parameters["TARGET"]
@@ -181,18 +250,12 @@ def train_model(settings, general_parameters, params):
 
 
     import pandas as pd
-    import numpy as np
     from sklearn.utils import class_weight
     import matplotlib.pyplot as plt
     from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
-    from sklearn.preprocessing import StandardScaler
 
     from tensorflow.keras.callbacks import EarlyStopping
-    from tensorflow.keras.regularizers import l2
-    from tensorflow.keras.models import Sequential, Model
-    from tensorflow.keras.layers import Input, Concatenate, Conv1D, MaxPooling1D, Dropout, LSTM, Dense, BatchNormalization
     from tensorflow.keras.optimizers import Adam
-    from tensorflow.keras.utils import plot_model
     import tensorflow as tf
 
     import os
@@ -283,82 +346,7 @@ def train_model(settings, general_parameters, params):
 
 
     import numpy as np
-    from sklearn.preprocessing import StandardScaler
 
-    def prepare_dual_branch_train_data(df, window_size, step, features, target, id_column):
-        """
-        Prepare separate RR, SpO2 and HR sequences for multi-branch model using sliding window with step size.
-
-        Args:
-            df: DataFrame with physiological signals
-            window_size: Number of timesteps per sequence
-            step: Step size (stride) between consecutive windows
-            features: List of feature column names [rr, spo2, hr]
-            target: Target column name
-            id_column: Column identifying each subject/person
-
-        Returns:
-            X_hr: Scaled HR sequences (samples, window_size, 1)
-            X_spo2: Scaled SpO2 sequences (samples, window_size, 1)
-            y: Target labels
-            scaler_rr: Fitted StandardScaler for RR
-            scaler_spo2: Fitted StandardScaler for SpO2
-            scaler_hr: Fitted StandardScaler for HR
-        """
-
-        X_feature1 = []
-        X_feature2 = []
-        y = []
-
-        # Extract sequences per person
-        for pid, g in df.groupby(id_column):
-            g = g.reset_index(drop=True)
-
-            feature1_values = g[features[0]].values
-            feature2_values = g[features[1]].values
-
-            labels = g[target].values
-            print("LLABELS")
-            pprint(labels)
-
-            print("GGG")
-            pprint(g)
-            print("lenGGG", len(g), window_size)
-
-
-            print("THECOND", len(g) - window_size)
-            print("THECOND2", step)
-
-            # Sliding window with step
-            for i in range(0, len(g) - window_size, step):
-                X_feature1.append(feature1_values[i:i + window_size])
-                X_feature2.append(feature2_values[i:i + window_size])
-                print("HERRE")
-                y.append(labels[i + window_size])
-
-        # Convert to numpy arrays
-        X_feature1 = np.array(X_feature1).reshape(-1, window_size, 1)
-        X_feature2 = np.array(X_feature2).reshape(-1, window_size, 1)
-        y = np.array(y)
-        print("YYY")
-        pprint(y)
-
-        print(f"X_feature1 shape: {X_feature1.shape}")
-        print(f"X_spo2 shape: {X_feature2.shape}")
-        print(f"y shape: {y.shape}")
-
-        # Normalize features separately
-        scaler_feature1 = StandardScaler()
-        scaler_feature2 = StandardScaler()
-
-        # TODO Matej
-        # X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
-        # X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
-        #
-        # X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
-        # X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
-
-        return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
 
     # ## 5. Define Features and Parameters
@@ -378,7 +366,7 @@ def train_model(settings, general_parameters, params):
     # In[12]:
 
 
-    # Prepare dual-branch data
+    # Prepare dual-branch input
     X_spo2, X_hr, y, scaler_spo2, scaler_hr = prepare_dual_branch_train_data(
         df=df_train,
         window_size=WINDOW,
@@ -452,9 +440,9 @@ def train_model(settings, general_parameters, params):
     with open(f'{OUTPUT_PATH}/model_artifacts/dual_branch_inception_lstm_summary.txt', 'w', encoding='utf-8') as f:
         model.summary(print_fn=lambda x: f.write(x + '\n'))
 
-    config = model.get_config()
+    configg = model.get_config()
     with open(f'{OUTPUT_PATH}/model_artifacts/dual_branch_inception_lstm_config.json', 'w', encoding='utf-8') as f:
-        json.dump(config, f, indent=2)
+        json.dump(configg, f, indent=2)
 
     print("✅ Model architecture saved in multiple formats")
 
@@ -486,7 +474,7 @@ def train_model(settings, general_parameters, params):
     print(len(np.unique(y))<2)
 
 
-    # Compute class weights to handle imbalanced data
+    # Compute class weights to handle imbalanced input
     weights = class_weight.compute_class_weight(
         'balanced',
         classes=np.unique(y),
@@ -500,7 +488,7 @@ def train_model(settings, general_parameters, params):
     class_weights = {0: weights[0]}
     # class_weights = {0: weights[0], 1: weights[1]} // TODO Matej
 
-    print("Class Weights (for imbalanced data):")
+    print("Class Weights (for imbalanced input):")
     print(f"  Class 0 (No Apnea): {weights[0]:.4f}")
     # print(f"  Class 1 (Apnea): {weights[1]:.4f}") // TODO Matej
 
@@ -755,14 +743,13 @@ def train_model(settings, general_parameters, params):
 
 
     import numpy as np
-    import pandas as pd
     from joblib import load
     from tensorflow.keras.models import load_model
     from sklearn.preprocessing import StandardScaler
 
     # Load the trained model
     model = load_model(f'{OUTPUT_PATH}/model_weights/apnea_inception_dual_branch_model.h5')
-    # Load new data for prediction
+    # Load new input for prediction
     # df = pd.read_csv('ml_train_dataset_from_omop.csv')
 
 
@@ -846,7 +833,7 @@ def train_model(settings, general_parameters, params):
     #                 ids.append(pid)
 
     #     if len(X_feature1) == 0:
-    #         raise ValueError("No valid windows were created. Check window_size and data length.")
+    #         raise ValueError("No valid windows were created. Check window_size and input length.")
 
     #     # Convert to numpy
     #     X_feature1 = np.array(X_feature1).reshape(-1, window_size, 1)
@@ -942,7 +929,7 @@ def train_model(settings, general_parameters, params):
     scaler_spo2 = load(f'{OUTPUT_PATH}/model_weights/scaler_hr.pkl')
     scalers_lst = [scaler_spo2, scaler_hr]
 
-    # Prepare data
+    # Prepare input
     x_hr, x_spo2 = prepare_dual_branch_prediction_data(df=df_test,
                                         window_size=WINDOW,
                                         step=STEP,
@@ -973,7 +960,6 @@ def train_model(settings, general_parameters, params):
     import numpy as np
     import pandas as pd
     import matplotlib.pyplot as plt
-    from tensorflow.keras.models import load_model
 
     # Assuming you already have y_pred_prob, y_pred, and y from previous code
 
@@ -1082,7 +1068,7 @@ def train_model(settings, general_parameters, params):
     # In[45]:
 
 
-    from sklearn.metrics import classification_report, confusion_matrix
+    from sklearn.metrics import confusion_matrix
 
     # CONFUSION MATRIX FUNC
 

@@ -1,15 +1,14 @@
-"""tfexample: A Flower / TensorFlow app."""
+"""federated: A Flower / TensorFlow app."""
 from pprint import pprint
-from typing import List, Tuple
 
-from flwr.app import ArrayRecord, ConfigRecord, Context, MetricRecord
+from flwr.app import ArrayRecord, Context
 from flwr.serverapp import Grid, ServerApp
 from flwr.serverapp.strategy import FedAvg
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
-from tfexample.config.config_rok_factor_1_brez_C_v4_0 import config
-from tfexample.task_apnea import build_inception_lstm_dual_branch
+from src.model.config.config_rok_factor_1_brez_C_v4_0 import config
+from src.model.model import build_inception_lstm_dual_branch
 
 # Create the ServerApp
 app = ServerApp()
