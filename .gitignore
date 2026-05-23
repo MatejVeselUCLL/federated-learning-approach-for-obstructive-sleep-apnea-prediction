@@ -4,3 +4,5 @@ quickstart-tensorflow/tfexample/input
 quickstart-tensorflow/tfexample/output
 quickstart-tensorflow/output
 final_model.keras
+centralized/input
+centralized/output
