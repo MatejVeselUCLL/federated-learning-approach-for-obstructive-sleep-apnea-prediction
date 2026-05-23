@@ -21,7 +21,6 @@ import os
 import json
 import pickle
 
-
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
