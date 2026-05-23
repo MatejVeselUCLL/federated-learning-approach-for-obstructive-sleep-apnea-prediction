@@ -7,8 +7,9 @@ import keras
 from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from flwr.clientapp import ClientApp
 
-from centralized.config.config_rok_factor_1_brez_C_v4_0 import config
-from centralized.task_apnea import train_model
+from config.config_rok_factor_1_brez_C_v4_0 import config
+from task_apnea import train_model
+
 
 class HiddenPrints:
     def __enter__(self):
