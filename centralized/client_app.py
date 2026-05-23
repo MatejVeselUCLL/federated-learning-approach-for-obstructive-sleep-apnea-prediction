@@ -24,8 +24,8 @@ def train():
     settings = config["settings"]
     general_parameters = config["general_parameters"]
     hyper_parameters = config["hyper_parameters"]
-    with HiddenPrints():
-        metrics, model = train_model(settings, general_parameters, hyper_parameters)
+    print("hello")
+    metrics, model = train_model(settings, general_parameters, hyper_parameters)
 
 
     # Pack and send the model weights and metrics as a message
