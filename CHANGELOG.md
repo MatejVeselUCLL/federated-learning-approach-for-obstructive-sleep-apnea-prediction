@@ -1,10 +1,5 @@
 ## [unreleased]
 
-### ⚙️ Miscellaneous Tasks
-
-- Updated changelog.
-## [2.0.0] - 2026-05-25
-
 ### 🚀 Features
 
 - Readme for centralized.
@@ -16,6 +11,8 @@
 
 ### ⚙️ Miscellaneous Tasks
 
+- Updated changelog.
+- Updated changelog.
 - Updated changelog.
 - Centralized approach for result comparison (and GPU problem solving).
 - Centralized approach for result comparison (and GPU problem solving).
