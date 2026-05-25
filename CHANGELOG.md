@@ -14,6 +14,7 @@
 - Updated changelog.
 - Updated changelog.
 - Updated changelog.
+- Updated changelog.
 - Centralized approach for result comparison (and GPU problem solving).
 - Centralized approach for result comparison (and GPU problem solving).
 - Centralized approach for result comparison (and GPU problem solving).
