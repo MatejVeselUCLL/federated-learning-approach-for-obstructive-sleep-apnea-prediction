@@ -1,4 +1,4 @@
-## [unreleased]
+## [2.0.0] - 2026-05-25
 
 ### 🚀 Features
 
@@ -7,3 +7,7 @@
 ### 🚜 Refactor
 
 - Project structure.
+
+### ⚙️ Miscellaneous Tasks
+
+- Updated changelog.
