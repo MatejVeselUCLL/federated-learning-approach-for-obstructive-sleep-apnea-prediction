@@ -11,6 +11,11 @@ from tensorflow.keras.layers import Input, Concatenate, Conv1D, MaxPooling1D, \
 
 from src.model.config.config_rok_factor_1_brez_C_v4_0 import config
 
+from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
+
+from tensorflow.keras.optimizers import Adam
+import tensorflow as tf
+
 
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
@@ -218,6 +223,72 @@ def prepare_dual_branch_train_data(df, window_size, step, features, target, id_c
 
     return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
+
+def evaluate_model(msg: Message, context: Context):
+    settings = config["settings"]
+    general_parameters = config["general_parameters"]
+    params = config["hyper_parameters"]
+
+    FEATURES = general_parameters["FEATURES"]
+    TARGET = general_parameters["TARGET"]
+    ID_COLUMN = general_parameters["ID_COLUMN"]
+    WINDOW = general_parameters["WINDOW"]
+    STEP = general_parameters["STEP"]
+    TEST_PERSON_IDS = general_parameters["TEST_PERSON_IDS"]
+
+    INPUT_PATH = settings["input_path"]
+    DATASET_FILENAME = settings["dataset_filename"]
+    OUTPUT_PATH = settings["output_path"]
+
+    # Load the data
+    # _, _, x_test, y_test = load_data(partition_id, num_partitions)
+
+    df, df_train, df_test = load_dataset(INPUT_PATH, DATASET_FILENAME, TEST_PERSON_IDS)
+
+    # Prepare dual-branch input
+    X_spo2_test, X_hr_test, y_test, scaler_spo2_test, scaler_hr_test = prepare_dual_branch_train_data(
+        df=df_test,
+        window_size=WINDOW,
+        step=STEP,
+        features=FEATURES,
+        target=TARGET,
+        id_column=ID_COLUMN
+    )
+
+
+    # Load the model
+    # Build model
+    model = build_inception_lstm_dual_branch(
+        feature1_len=WINDOW,
+        feature2_len=WINDOW,
+        lstm_units=tuple(params["lstm_units"]),
+        depth=params["depth"],
+        nb_filters=params["nb_filters"],
+        dropout_dense=tuple(params["dropout_dense"]),
+        dropout_lstm=params["dropout_lstm"],
+        l2_reg=params["l2_reg"]
+    )
+
+    # Compile model
+    model.compile(
+        optimizer=Adam(learning_rate=params["learning_rate"]),
+        loss='mean_squared_error',
+        metrics=['accuracy', tf.keras.metrics.AUC(name='auc')]
+    )
+
+    model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
+
+
+    # Evaluate the model
+    eval_loss, eval_acc = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
+
+    # Pack and send the model weights and metrics as a message
+    metrics = {
+        "eval_acc": eval_acc,
+        "eval_loss": eval_loss,
+        "num-examples": len(X_hr_test),
+    }
+    return metrics
 
 def train_model():
 

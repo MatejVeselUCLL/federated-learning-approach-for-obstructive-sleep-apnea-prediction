@@ -7,7 +7,7 @@ import keras
 from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from flwr.clientapp import ClientApp
 
-from src.model.model import train_model
+from src.model.model import train_model, evaluate_model
 
 # Flower ClientApp
 app = ClientApp()
@@ -40,4 +40,17 @@ def train(msg: Message, context: Context):
     content = RecordDict({"arrays": ArrayRecord(model.get_weights()), "metrics": MetricRecord(metrics)})
     print("MESSAGEEE")
     pprint(Message(content=content, reply_to=msg))
+    return Message(content=content, reply_to=msg)
+
+@app.evaluate()
+def evaluate(msg: Message, context: Context):
+    """Evaluate the model on local data."""
+
+    # Reset local Tensorflow state
+    keras.backend.clear_session()
+
+    metrics = evaluate_model(msg, context)
+    print("METRICS")
+    pprint(metrics)
+    content = RecordDict({"metrics": MetricRecord(metrics)})
     return Message(content=content, reply_to=msg)
