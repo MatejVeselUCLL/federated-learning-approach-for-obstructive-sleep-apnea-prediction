@@ -24,10 +24,10 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
     # df = pd.read_csv(f'tfexample/input/ml_train_dataset_from_omop_1s_minimal.csv')
 
-    print("Dataset loaded successfully")
-    print(f"Shape: {df.shape}")
-    print(f"\nColumns: {df.columns.tolist()}")
-    print(f"\nFirst few rows:")
+    # print("Dataset loaded successfully")
+    # print(f"Shape: {df.shape}")
+    # print(f"\nColumns: {df.columns.tolist()}")
+    # print(f"\nFirst few rows:")
     df.head()
 
     # In[ ]:
@@ -35,10 +35,10 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # In[6]:
 
     # Dataset statistics
-    print("Dataset Statistics:")
-    print(df.describe())
-    print(f"\nMissing values:\n{df.isnull().sum()}")
-    # print(f"\nUnique persons: {df['person_id'].nunique()}")
+    # print("Dataset Statistics:")
+    # print(df.describe())
+    # print(f"\nMissing values:\n{df.isnull().sum()}")
+    # # print(f"\nUnique persons: {df['person_id'].nunique()}")
 
     # ### Test/Train split dataset
 
@@ -65,9 +65,9 @@ def inceptiontime_temporal(input_tensor, depth=6, nb_filters=32):
             Merged tensor from all parallel paths
         """
         # Parallel convolutions with different kernel sizes
-        print("JJJJJJJ")
-        print(nb_filters)
-        print(type(nb_filters))
+        # print("JJJJJJJ")
+        # print(nb_filters)
+        # print(type(nb_filters))
         conv1 = Conv1D(nb_filters, kernel_size=1, padding='same', activation='relu')(input_tensor)
         conv3 = Conv1D(nb_filters, kernel_size=3, padding='same', activation='relu')(input_tensor)
         conv5 = Conv1D(nb_filters, kernel_size=5, padding='same', activation='relu')(input_tensor)
@@ -181,34 +181,34 @@ def prepare_dual_branch_train_data(df, window_size, step, features, target, id_c
         feature2_values = g[features[1]].values
 
         labels = g[target].values
-        print("LLABELS")
-        pprint(labels)
+        # print("LLABELS")
+        # pprint(labels)
 
-        print("GGG")
-        pprint(g)
-        print("lenGGG", len(g), window_size)
+        # print("GGG")
+        # pprint(g)
+        # print("lenGGG", len(g), window_size)
 
 
-        print("THECOND", len(g) - window_size)
-        print("THECOND2", step)
+        # print("THECOND", len(g) - window_size)
+        # print("THECOND2", step)
 
         # Sliding window with step
         for i in range(0, len(g) - window_size, step):
             X_feature1.append(feature1_values[i:i + window_size])
             X_feature2.append(feature2_values[i:i + window_size])
-            print("HERRE")
+            # print("HERRE")
             y.append(labels[i + window_size])
 
     # Convert to numpy arrays
     X_feature1 = np.array(X_feature1).reshape(-1, window_size, 1)
     X_feature2 = np.array(X_feature2).reshape(-1, window_size, 1)
     y = np.array(y)
-    print("YYY")
-    pprint(y)
+    # print("YYY")
+    # pprint(y)
 
-    print(f"X_feature1 shape: {X_feature1.shape}")
-    print(f"X_spo2 shape: {X_feature2.shape}")
-    print(f"y shape: {y.shape}")
+    # print(f"X_feature1 shape: {X_feature1.shape}")
+    # print(f"X_spo2 shape: {X_feature2.shape}")
+    # print(f"y shape: {y.shape}")
 
     # Normalize features separately
     scaler_feature1 = StandardScaler()
@@ -333,16 +333,16 @@ def train_model():
     import json
     import pickle
 
-    print("✅ Libraries imported successfully")
-    print(f"TensorFlow version: {tf.__version__}")
+    # print("✅ Libraries imported successfully")
+    # print(f"TensorFlow version: {tf.__version__}")
 
 
     # In[2]:
 
 
-    print("TF version:", tf.__version__)
-    print("Built with CUDA:", tf.test.is_built_with_cuda())
-    print("GPUs:", tf.config.list_physical_devices("GPU"))
+    # print("TF version:", tf.__version__)
+    # print("Built with CUDA:", tf.test.is_built_with_cuda())
+    # print("GPUs:", tf.config.list_physical_devices("GPU"))
 
 
     # In[3]:
@@ -354,7 +354,7 @@ def train_model():
             # Currently, memory growth needs to be the same across GPUs
             for gpu in gpus:
                 tf.config.experimental.set_memory_growth(gpu, True)
-            print("✅ GPU Memory Growth Enabled")
+            # print("✅ GPU Memory Growth Enabled")
         except RuntimeError as e:
             print(e)
 
@@ -371,19 +371,19 @@ def train_model():
             # Currently, memory growth needs to be the same across GPUs
             for gpu in gpus:
                 tf.config.experimental.set_memory_growth(gpu, True)
-            print(f"✅ Found {len(gpus)} GPU(s). Memory Growth Enabled.")
+            # print(f"✅ Found {len(gpus)} GPU(s). Memory Growth Enabled.")
         except RuntimeError as e:
             print(e)
     else:
         print("ℹ️ No GPU found. Running on CPU.")
 
     # 2. Verify which device is active for computations
-    print("--- Device Status ---")
+    # print("--- Device Status ---")
     logical_gpus = tf.config.list_logical_devices('GPU')
     logical_cpus = tf.config.list_logical_devices('CPU')
 
-    print(f"Available Logical CPUs: {len(logical_cpus)}")
-    print(f"Available Logical GPUs: {len(logical_gpus)}")
+    # print(f"Available Logical CPUs: {len(logical_cpus)}")
+    # print(f"Available Logical GPUs: {len(logical_gpus)}")
 
     # 3. Final confirmation test
     device_name = tf.test.gpu_device_name()
@@ -401,14 +401,14 @@ def train_model():
 
     # In[8]:
     ### TODO Matej
-    print("✅ InceptionTime temporal block defined")
+    # print("✅ InceptionTime temporal block defined")
 
 
     # In[9]:
 
 
     # TODO Matej
-    print("✅ Model builder function defined")
+    # print("✅ Model builder function defined")
 
 
     # ## 4. Data Preparation Functions
@@ -427,9 +427,9 @@ def train_model():
 
     # Define features and target
 
-    print(f"Features: {FEATURES}")
-    print(f"Target: {TARGET}")
-    print(f"Window size: {WINDOW} timesteps (5 minutes)")
+    # print(f"Features: {FEATURES}")
+    # print(f"Target: {TARGET}")
+    # print(f"Window size: {WINDOW} timesteps (5 minutes)")
 
 
     # ## 6. Prepare Training Data
@@ -447,10 +447,10 @@ def train_model():
         id_column=ID_COLUMN
     )
 
-    print(f"\nData preparation complete!")
-    print(f"Total samples: {len(y)}")
-    print(f"Apnea ratio: {np.mean(y):.4f}")
-    print(f"Class distribution: {np.bincount(y.astype(int))}")
+    # print(f"\nData preparation complete!")
+    # print(f"Total samples: {len(y)}")
+    # print(f"Apnea ratio: {np.mean(y):.4f}")
+    # print(f"Class distribution: {np.bincount(y.astype(int))}")
 
 
     # ## 7. Define Hyperparameters
@@ -459,11 +459,11 @@ def train_model():
 
 
     # Hyperparameters
-    print("Model Hyperparameters:")
-    print("=" * 50)
+    # print("Model Hyperparameters:")
+    # print("=" * 50)
     for key, value in params.items():
         print(f"  {key}: {value}")
-    print("=" * 50)
+    # print("=" * 50)
 
 
     # ## 8. Build and Compile Model
@@ -490,9 +490,9 @@ def train_model():
         metrics=['accuracy', tf.keras.metrics.AUC(name='auc')]
     )
 
-    print("✅ Model built and compiled successfully")
-    print("\nModel Summary:")
-    print(model.summary())
+    # print("✅ Model built and compiled successfully")
+    # print("\nModel Summary:")
+    # print(model.summary())
 
 
     # ## 9. Visualize Model Architecture
@@ -515,20 +515,20 @@ def train_model():
     with open(f'{OUTPUT_PATH}/model_artifacts/dual_branch_inception_lstm_config.json', 'w', encoding='utf-8') as f:
         json.dump(configg, f, indent=2)
 
-    print("✅ Model architecture saved in multiple formats")
+    # print("✅ Model architecture saved in multiple formats")
 
 
     # In[16]:
 
 
     # Model statistics
-    print("\nModel Statistics:")
-    print("=" * 50)
-    print(f"Total parameters: {model.count_params():,}")
-    print(f"Trainable parameters: {sum([tf.keras.backend.count_params(w) for w in model.trainable_weights]):,}")
-    print(f"Non-trainable parameters: {sum([tf.keras.backend.count_params(w) for w in model.non_trainable_weights]):,}")
-    print(f"Number of layers: {len(model.layers)}")
-    print("=" * 50)
+    # print("\nModel Statistics:")
+    # print("=" * 50)
+    # print(f"Total parameters: {model.count_params():,}")
+    # print(f"Trainable parameters: {sum([tf.keras.backend.count_params(w) for w in model.trainable_weights]):,}")
+    # print(f"Non-trainable parameters: {sum([tf.keras.backend.count_params(w) for w in model.non_trainable_weights]):,}")
+    # print(f"Number of layers: {len(model.layers)}")
+    # print("=" * 50)
 
 
     # ## 10. Compute Class Weights
@@ -536,13 +536,13 @@ def train_model():
     # In[17]:
 
 
-    print("classweightss")
-    pprint(y)
-    print("ylength")
-    print(len(y))
-    print("ydistinct")
-    print(np.unique(y))
-    print(len(np.unique(y))<2)
+    # print("classweightss")
+    # pprint(y)
+    # print("ylength")
+    # print(len(y))
+    # print("ydistinct")
+    # print(np.unique(y))
+    # print(len(np.unique(y))<2)
 
 
     # Compute class weights to handle imbalanced input
@@ -552,16 +552,16 @@ def train_model():
         y=y
     )
 
-    print("weightss")
-    pprint(weights)
-    print("weightsslength")
-    print(len(weights))
+    # print("weightss")
+    # pprint(weights)
+    # print("weightsslength")
+    # print(len(weights))
     class_weights = {0: weights[0]}
     # class_weights = {0: weights[0], 1: weights[1]} // TODO Matej
 
-    print("Class Weights (for imbalanced input):")
-    print(f"  Class 0 (No Apnea): {weights[0]:.4f}")
-    # print(f"  Class 1 (Apnea): {weights[1]:.4f}") // TODO Matej
+    # print("Class Weights (for imbalanced input):")
+    # print(f"  Class 0 (No Apnea): {weights[0]:.4f}")
+    # # print(f"  Class 1 (Apnea): {weights[1]:.4f}") // TODO Matej
 
 
     # ## 11. Define Callbacks
@@ -578,7 +578,7 @@ def train_model():
         verbose=1
     )
 
-    print("✅ Callbacks configured")
+    # print("✅ Callbacks configured")
 
 
     # ## 12. Train Model
@@ -587,11 +587,11 @@ def train_model():
 
 
     # Train model with TWO inputs [X_rr, X_spo2]
-    print("Starting model training...")
-    print("=" * 50)
+    # print("Starting model training...")
+    # print("=" * 50)
 
-    print("verify shapes", len([X_hr, X_spo2]), len(y))
-    print("verify shapess", type([X_hr, X_spo2]), type(y))
+    # print("verify shapes", len([X_hr, X_spo2]), len(y))
+    # print("verify shapess", type([X_hr, X_spo2]), type(y))
 
 
     history = model.fit(
@@ -605,9 +605,9 @@ def train_model():
         verbose=1
     )
 
-    print("\n" + "=" * 50)
-    print("✅ Training complete!")
-    print("=" * 50)
+    # print("\n" + "=" * 50)
+    # print("✅ Training complete!")
+    # print("=" * 50)
 
 
     # ## 13. Plot Training History
@@ -649,7 +649,7 @@ def train_model():
     plt.savefig(f'{OUTPUT_PATH}/training_curves.png', dpi=150, bbox_inches='tight')
     plt.show()
 
-    print("✅ Training curves saved to '", f"{OUTPUT_PATH}/training_curves.png'")
+    # print("✅ Training curves saved to '", f"{OUTPUT_PATH}/training_curves.png'")
 
 
     # ## 14. Make Predictions
@@ -658,13 +658,13 @@ def train_model():
 
 
     # Make predictions with TWO inputs
-    print("Making predictions...")
+    # print("Making predictions...")
     y_pred_prob = model.predict([X_hr, X_spo2])
     y_pred = (y_pred_prob > params["prediction_threshold"]).astype(int).flatten()
 
-    print(f"Predictions shape: {y_pred_prob.shape}")
-    print(f"Sample predictions (first 10): {y_pred[:10]}")
-    print(f"Prediction distribution: {np.bincount(y_pred)}")
+    # print(f"Predictions shape: {y_pred_prob.shape}")
+    # print(f"Sample predictions (first 10): {y_pred[:10]}")
+    # print(f"Prediction distribution: {np.bincount(y_pred)}")
 
 
     # ## 15. Confusion Matrix
@@ -675,8 +675,8 @@ def train_model():
     # Generate confusion matrix
     cm = confusion_matrix(y, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['No Apnea', 'Apnea'])
-    print("cmmm")
-    pprint(cm)
+    # print("cmmm")
+    # pprint(cm)
     try:
         tn, fp, fn, tp = cm.ravel()
     except: # TODO Matej
@@ -691,9 +691,9 @@ def train_model():
     plt.savefig(f'{OUTPUT_PATH}/confusion_matrix.png', dpi=150, bbox_inches='tight')
     plt.show()
 
-    print("\nConfusion Matrix:")
-    print(cm)
-    print("\n✅ Confusion matrix saved to '", f"{OUTPUT_PATH}/confusion_matrix.png'")
+    # print("\nConfusion Matrix:")
+    # print(cm)
+    # print("\n✅ Confusion matrix saved to '", f"{OUTPUT_PATH}/confusion_matrix.png'")
 
 
     # ## 16. Classification Report
@@ -705,14 +705,14 @@ def train_model():
     report = classification_report(y, y_pred, target_names=['No Apnea', 'Apnea'], output_dict=True)
     report_df = pd.DataFrame(report).transpose()
 
-    print("\nClassification Report:")
-    print("=" * 70)
-    print(report_df)
-    print("=" * 70)
+    # print("\nClassification Report:")
+    # print("=" * 70)
+    # print(report_df)
+    # print("=" * 70)
 
     # Save report
     report_df.to_csv(f'{OUTPUT_PATH}/classification_report.csv')
-    print("\n✅ Classification report saved to '", f"{OUTPUT_PATH}/classification_report.csv'")
+    # print("\n✅ Classification report saved to '", f"{OUTPUT_PATH}/classification_report.csv'")
 
 
     # ## 17. Final Metrics Summary
@@ -744,15 +744,15 @@ def train_model():
 
     metrics_df = pd.DataFrame(final_metrics.items(), columns=['Metric', 'Value'])
 
-    print("\n" + "=" * 70)
-    print("FINAL MODEL PERFORMANCE SUMMARY")
-    print("=" * 70)
-    print(metrics_df.to_string(index=False))
-    print("=" * 70)
+    # print("\n" + "=" * 70)
+    # print("FINAL MODEL PERFORMANCE SUMMARY")
+    # print("=" * 70)
+    # print(metrics_df.to_string(index=False))
+    # print("=" * 70)
 
     # Save metrics
     metrics_df.to_csv(f'{OUTPUT_PATH}/final_metrics.csv', index=False)
-    print("\n✅ Final metrics saved to '", f"{OUTPUT_PATH}/final_metrics.csv'")
+    # print("\n✅ Final metrics saved to '", f"{OUTPUT_PATH}/final_metrics.csv'")
 
 
     # ## 18. Save Model and Artifacts
@@ -763,7 +763,7 @@ def train_model():
     # Save Keras model
     model_path = f'{OUTPUT_PATH}/model_weights/apnea_inception_dual_branch_model.h5'
     model.save(model_path)
-    print(f"✅ Model saved to '{model_path}'")
+    # print(f"✅ Model saved to '{model_path}'")
 
     # Save scalers
     with open(f'{OUTPUT_PATH}/model_weights/scaler_hr.pkl', 'wb') as f:
@@ -772,19 +772,19 @@ def train_model():
     with open(f'{OUTPUT_PATH}/model_weights/scaler_spo2.pkl', 'wb') as f:
         pickle.dump(scaler_spo2, f)
 
-    print("✅ Scalers saved to '", f"{OUTPUT_PATH}/model_weights/'")
+    # print("✅ Scalers saved to '", f"{OUTPUT_PATH}/model_weights/'")
 
     # Save model parameters
     os.makedirs(f'{OUTPUT_PATH}/model_metdata', exist_ok=True)
     with open(f'{OUTPUT_PATH}/model_metdata/model_params.json', 'w') as f:
         json.dump(params, f, indent=2)
 
-    print("✅ Model parameters saved to 'model_metdata/model_params.json'")
+    # print("✅ Model parameters saved to 'model_metdata/model_params.json'")
 
     # Save training history
     history_df = pd.DataFrame(history.history)
     history_df.to_csv(f'{OUTPUT_PATH}/model_metdata/training_history.csv', index=False)
-    print("✅ Training history saved to '", f"{OUTPUT_PATH}/model_metdata/training_history.csv'")
+    # print("✅ Training history saved to '", f"{OUTPUT_PATH}/model_metdata/training_history.csv'")
 
 
     # ## 19. Summary
@@ -792,20 +792,20 @@ def train_model():
     # In[26]:
 
 
-    print("\n" + "=" * 70)
-    print("🎉 TRAINING PIPELINE COMPLETE 🎉")
-    print("=" * 70)
-    print("\nSaved Artifacts:")
-    print("  📊 Model: ", f"{OUTPUT_PATH}/model_weights/apnea_inception_dual_branch_model.h5")
-    print("  📊 Scalers: ", f"{OUTPUT_PATH}/model_weights/scaler_rr.pkl, {OUTPUT_PATH}/scaler_spo2.pkl")
-    print("  📊 Parameters: ", f"{OUTPUT_PATH}/model_params.json")
-    print("  📊 Training History: ", f"{OUTPUT_PATH}/training_history.csv")
-    print("  📊 Final Metrics: ", f"{OUTPUT_PATH}/final_metrics.csv")
-    print("  📊 Classification Report: ", f"{OUTPUT_PATH}/classification_report.csv")
-    print("  📊 Training Curves: ", f"{OUTPUT_PATH}/training_curves.png")
-    print("  📊 Confusion Matrix: ", f"{OUTPUT_PATH}/confusion_matrix.png")
-    print("  📊 Model Architecture: ", f"{OUTPUT_PATH}/model_artifacts/")
-    print("\n" + "=" * 70)
+    # print("\n" + "=" * 70)
+    # print("🎉 TRAINING PIPELINE COMPLETE 🎉")
+    # print("=" * 70)
+    # print("\nSaved Artifacts:")
+    # print("  📊 Model: ", f"{OUTPUT_PATH}/model_weights/apnea_inception_dual_branch_model.h5")
+    # print("  📊 Scalers: ", f"{OUTPUT_PATH}/model_weights/scaler_rr.pkl, {OUTPUT_PATH}/scaler_spo2.pkl")
+    # print("  📊 Parameters: ", f"{OUTPUT_PATH}/model_params.json")
+    # print("  📊 Training History: ", f"{OUTPUT_PATH}/training_history.csv")
+    # print("  📊 Final Metrics: ", f"{OUTPUT_PATH}/final_metrics.csv")
+    # print("  📊 Classification Report: ", f"{OUTPUT_PATH}/classification_report.csv")
+    # print("  📊 Training Curves: ", f"{OUTPUT_PATH}/training_curves.png")
+    # print("  📊 Confusion Matrix: ", f"{OUTPUT_PATH}/confusion_matrix.png")
+    # print("  📊 Model Architecture: ", f"{OUTPUT_PATH}/model_artifacts/")
+    # print("\n" + "=" * 70)
 
 
     # ## Make predictions on Test dataset
@@ -864,7 +864,7 @@ def train_model():
     #         window_size: Number of timesteps per sequence
     #         step: Step size between windows (used only if last_window_only=False)
     #         last_window_only: If True, return only the most recent window per subject
-    #         debug: If True, prints number of windows per subject
+    #         debug: If True, # prints number of windows per subject
 
     #     Returns:
     #         X_feature1: Scaled sequences (samples, window_size, 1)
@@ -917,8 +917,8 @@ def train_model():
     #     X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
     #     X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
 
-    #     print(f"Prediction X_feature1 shape: {X_feature1.shape}")
-    #     print(f"Prediction X_feature2 shape: {X_feature2.shape}")
+    #     # print(f"Prediction X_feature1 shape: {X_feature1.shape}")
+    #     # print(f"Prediction X_feature2 shape: {X_feature2.shape}")
 
     #     return X_feature1, X_feature2, ids
 
@@ -950,8 +950,8 @@ def train_model():
             f1_values = g[features[0]].values
             f2_values = g[features[1]].values
 
-            print("f1_values")
-            pprint(f1_values)
+            # print("f1_values")
+            # pprint(f1_values)
 
             # Sliding window with step
             for start_pos in range(0, len(g) - window_size, step):
@@ -963,16 +963,16 @@ def train_model():
         X_f1 = np.array(X_f1).reshape(-1, window_size, 1)
         X_f2 = np.array(X_f2).reshape(-1, window_size, 1)
 
-        print("XXXXbefore")
-        pprint(X_f1)
+        # print("XXXXbefore")
+        # pprint(X_f1)
 
         # Transform using EXISTING scaler
-        print("XXX")
-        pprint(X_f1)
-        pprint(len(X_f1))
-        print("XXX2")
-        pprint(X_f2)
-        pprint(len(X_f2))
+        # print("XXX")
+        # pprint(X_f1)
+        # pprint(len(X_f1))
+        # print("XXX2")
+        # pprint(X_f2)
+        # pprint(len(X_f2))
         # TODO Matej
         # X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
         X_f1_scaled = X_f1
@@ -1013,10 +1013,10 @@ def train_model():
     y_pred_prob: np.ndarray = model.predict([x_hr, x_spo2])
     y_pred: np.ndarray = (y_pred_prob > params["prediction_threshold"]).astype(int)
 
-    print("Saved predictions and probabilities.")
-    print(f"Predictions shape: {y_pred.shape}")
-    print(f"Probability shape: {y_pred.shape}")
-    print(f"Apnea detected: {np.sum(y_pred)} / {len(y_pred)} samples")
+    # print("Saved predictions and probabilities.")
+    # print(f"Predictions shape: {y_pred.shape}")
+    # print(f"Probability shape: {y_pred.shape}")
+    # print(f"Apnea detected: {np.sum(y_pred)} / {len(y_pred)} samples")
 
 
     # In[36]:
@@ -1035,17 +1035,17 @@ def train_model():
     # Assuming you already have y_pred_prob, y_pred, and y from previous code
 
     # 1. Summary Statistics
-    print("=" * 50)
-    print("PREDICTION SUMMARY")
-    print("=" * 50)
-    print(f"Total samples: {len(y_pred)}")
-    print(f"Apnea detected (class 1): {np.sum(y_pred)} ({100 * np.sum(y_pred) / len(y_pred):.2f}%)")
-    print(f"No apnea (class 0): {len(y_pred) - np.sum(y_pred)} ({100 * (len(y_pred) - np.sum(y_pred)) / len(y_pred):.2f}%)")
-    print(f"\nProbability Statistics:")
-    print(f"  Min: {y_pred_prob.min():.4f}")
-    print(f"  Max: {y_pred_prob.max():.4f}")
-    print(f"  Mean: {y_pred_prob.mean():.4f}")
-    print(f"  Std: {y_pred_prob.std():.4f}")
+    # print("=" * 50)
+    # print("PREDICTION SUMMARY")
+    # print("=" * 50)
+    # print(f"Total samples: {len(y_pred)}")
+    # print(f"Apnea detected (class 1): {np.sum(y_pred)} ({100 * np.sum(y_pred) / len(y_pred):.2f}%)")
+    # print(f"No apnea (class 0): {len(y_pred) - np.sum(y_pred)} ({100 * (len(y_pred) - np.sum(y_pred)) / len(y_pred):.2f}%)")
+    # print(f"\nProbability Statistics:")
+    # print(f"  Min: {y_pred_prob.min():.4f}")
+    # print(f"  Max: {y_pred_prob.max():.4f}")
+    # print(f"  Mean: {y_pred_prob.mean():.4f}")
+    # print(f"  Std: {y_pred_prob.std():.4f}")
 
     # 2. Probability Distribution Plot
     try:
@@ -1108,12 +1108,12 @@ def train_model():
                 for pos in range(start_pos, end_pos):
                     row_idx = g_indices[pos]
                     # if y_pred_prob.size == pred_idx:
-                    #     print("\nresult_df info\n",result_df.info)
-                    #     # print("\ny_pred_prob info\n",y_pred_prob.info)
-                    #     # print("\ny_pred_prob describe\n",y_pred_prob.describe)
-                    #     print("\ny_pred_prob head\n",y_pred_prob)
-                    #     print("\ny_pred_prob size\n",y_pred_prob.size)
-                    #     print("\npred_idx info\n",pred_idx)
+                    #     # print("\nresult_df info\n",result_df.info)
+                    #     # # print("\ny_pred_prob info\n",y_pred_prob.info)
+                    #     # # print("\ny_pred_prob describe\n",y_pred_prob.describe)
+                    #     # print("\ny_pred_prob head\n",y_pred_prob)
+                    #     # print("\ny_pred_prob size\n",y_pred_prob.size)
+                    #     # print("\npred_idx info\n",pred_idx)
 
 
                     if pred_idx < y_pred_prob.size:
@@ -1254,19 +1254,19 @@ def train_model():
 
     def df_checkup(df):
         print('---- Is null val: ----')
-        print(list(df.isnull().sum()))
-        print('---- Is nan val: ----')
-        print(list(df.isna().sum()))
-        print('---- Is zero: ----')
-        print(list((df == 0).sum(axis=0)))
-        print('---- Duplicates: ----')
-        print(df.duplicated().sum())
-        print('---- Columns: ----')
-        print(df.columns)
-        print('---- Shape: ----')
-        print(df.shape)
-        print('---- Index: ----')
-        print(df.index)
+        # print(list(df.isnull().sum()))
+        # print('---- Is nan val: ----')
+        # print(list(df.isna().sum()))
+        # print('---- Is zero: ----')
+        # print(list((df == 0).sum(axis=0)))
+        # print('---- Duplicates: ----')
+        # print(df.duplicated().sum())
+        # print('---- Columns: ----')
+        # print(df.columns)
+        # print('---- Shape: ----')
+        # print(df.shape)
+        # print('---- Index: ----')
+        # print(df.index)
 
 
 
