@@ -284,11 +284,12 @@ def evaluate_model(msg: Message, context: Context):
     print("LETSEE")
     print("LETSEE1:", letsee)
     pprint(letsee)
-    eval_loss, eval_acc = letsee
+    eval_loss, eval_acc, eval_auc = letsee
 
     # Pack and send the model weights and metrics as a message
     metrics = {
         "eval_acc": eval_acc,
+        "eval_auc": eval_auc,
         "eval_loss": eval_loss,
         "num-examples": len(X_hr_test),
     }
