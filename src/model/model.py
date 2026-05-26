@@ -280,7 +280,10 @@ def evaluate_model(msg: Message, context: Context):
 
 
     # Evaluate the model
-    eval_loss, eval_acc = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
+    letsee = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
+    print(LETSEE)
+    pprint(letsee)
+    eval_loss, eval_acc = letsee
 
     # Pack and send the model weights and metrics as a message
     metrics = {
