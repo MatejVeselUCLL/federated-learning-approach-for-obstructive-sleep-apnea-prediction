@@ -491,7 +491,10 @@ def train_model():
     model.compile(
         optimizer=Adam(learning_rate=params["learning_rate"]),
         loss='mean_squared_error',
-        metrics=['accuracy', tf.keras.metrics.AUC(name='auc')]
+        metrics=['accuracy', tf.keras.metrics.AUC(name='auc'),
+                 tf.keras.metrics.Recall(name='recall'),
+                 tf.keras.metrics.Precision(name='precision'),
+                 tf.keras.metrics.F1Score(name='f1')]
     )
 
     # print("✅ Model built and compiled successfully")
