@@ -50,7 +50,6 @@ def main(grid: Grid, context: Context) -> None:
         fraction_train=fraction_train,
     )
 
-    pprint(num_rounds)
     result = strategy.start(
         grid=grid,
         initial_arrays=arrays,
