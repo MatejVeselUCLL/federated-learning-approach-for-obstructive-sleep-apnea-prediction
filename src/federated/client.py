@@ -33,11 +33,11 @@ def train(msg: Message, context: Context):
     with HiddenPrints():
         metrics, model = train_model()
 
-    # convert all keys to kebab case, which is what flower uses.
-    new_metrics = {}
-    for k, v in metrics.items():
-        new_metrics[k.replace("_", "-")] = v
-    metrics = new_metrics
+    # # convert all keys to kebab case, which is what flower uses.
+    # new_metrics = {}
+    # for k, v in metrics.items():
+    #     new_metrics[k.replace("_", "-")] = v
+    # metrics = new_metrics
 
 
     # Pack and send the model weights and metrics as a message
@@ -55,11 +55,11 @@ def evaluate(msg: Message, context: Context):
     print("METRICS")
     pprint(metrics)
 
-    # convert all keys to kebab case, which is what flower uses.
-    new_metrics = {}
-    for k, v in metrics.items():
-        new_metrics[k.replace("_", "-")] = v
-    metrics = new_metrics
+    # # convert all keys to kebab case, which is what flower uses.
+    # new_metrics = {}
+    # for k, v in metrics.items():
+    #     new_metrics[k.replace("_", "-")] = v
+    # metrics = new_metrics
 
     content = RecordDict({"metrics": MetricRecord(metrics)})
     return Message(content=content, reply_to=msg)
