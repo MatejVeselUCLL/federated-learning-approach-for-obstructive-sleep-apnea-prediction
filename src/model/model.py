@@ -273,24 +273,22 @@ def evaluate_model(msg: Message, context: Context):
     model.compile(
         optimizer=Adam(learning_rate=params["learning_rate"]),
         loss='mean_squared_error',
-        metrics=['accuracy', tf.keras.metrics.AUC(name='auc'), tf.keras.metrics.Recall(name='recall')]
+        metrics=['accuracy', tf.keras.metrics.AUC(name='auc'), tf.keras.metrics.Recall(name='recall'), tf.keras.metrics.Precision(name='precision'), tf.keras.metrics.F1Score(name='f1')]
     )
 
     model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
 
 
     # Evaluate the model
-    letsee = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
-    print("LETSEE")
-    print("LETSEE1:", letsee)
-    pprint(letsee)
-    eval_loss, eval_acc, eval_auc, eval_recall = letsee
+    eval_loss, eval_acc, eval_auc, eval_recall, eval_precision, eval_f1 = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
 
     # Pack and send the model weights and metrics as a message
     metrics = {
         "eval_acc": eval_acc,
         "eval_auc": eval_auc,
         "eval_recall": eval_recall,
+        "eval_precision": eval_precision,
+        "eval_f1": eval_f1,
         "eval_loss": eval_loss,
         "num-examples": len(X_hr_test),
     }
