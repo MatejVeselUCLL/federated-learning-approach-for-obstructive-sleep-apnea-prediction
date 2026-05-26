@@ -281,7 +281,7 @@ def evaluate_model(msg: Message, context: Context):
 
     # Evaluate the model
     letsee = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
-    print(LETSEE)
+    print("LETSEE")
     pprint(letsee)
     eval_loss, eval_acc = letsee
 
