@@ -46,5 +46,8 @@ def evaluate(msg: Message, context: Context):
     keras.backend.clear_session()
 
     metrics = evaluate_model(msg, context)
+    print("METRICS")
+    pprint(metrics)
+
     content = RecordDict({"metrics": MetricRecord(metrics)})
     return Message(content=content, reply_to=msg)
