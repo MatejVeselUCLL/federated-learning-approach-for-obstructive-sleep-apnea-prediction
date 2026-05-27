@@ -48,7 +48,7 @@ hyper_parameters = {
     "l2_reg": 0.01,
     "learning_rate": 0.0005,
     "epochs": 1,
-    "batch_size": 128,
+    "batch_size": 16,
     "validation_split": 0.2,
     "prediction_threshold": 0.5,
 }
