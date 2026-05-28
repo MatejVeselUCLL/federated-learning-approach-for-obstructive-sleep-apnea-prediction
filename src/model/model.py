@@ -1303,4 +1303,7 @@ def train_model():
     for k, v in final_metrics.items():
         final_metrics[k] = float(v)
 
+    print("FINAL-METRICS")
+    pprint(final_metrics)
+
     return final_metrics, model
