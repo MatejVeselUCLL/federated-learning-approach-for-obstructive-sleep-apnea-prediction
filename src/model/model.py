@@ -29,6 +29,9 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # print(f"\nColumns: {df.columns.tolist()}")
     # print(f"\nFirst few rows:")
     df.head()
+    print("DFINFO")
+    df.info()
+    len(df)
 
     # In[ ]:
 
