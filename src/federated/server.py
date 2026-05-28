@@ -58,8 +58,8 @@ def main(grid: Grid, context: Context) -> None:
 
     # Save the final model
     ndarrays = result.arrays.to_numpy_ndarrays()
-    final_model_name = "final_model.keras"
+    final_model_name = "final_global_aggregated_model.keras"
     print(f"Saving final model to disk as {final_model_name}...")
 
     model.set_weights(ndarrays)
-    model.save(final_model_name)
+    model.save(f"output/{final_model_name}")

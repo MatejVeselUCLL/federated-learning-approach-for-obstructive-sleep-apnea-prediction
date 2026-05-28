@@ -364,7 +364,6 @@ def train_model():
 
     # In[4]:
 
-
     # 1. Identify Physical Devices
     gpus = tf.config.list_physical_devices('GPU')
     cpus = tf.config.list_physical_devices('CPU')
