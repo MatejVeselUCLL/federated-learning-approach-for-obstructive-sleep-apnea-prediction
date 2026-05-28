@@ -30,8 +30,7 @@ def train(msg: Message, context: Context):
     keras.backend.clear_session()
 
     # Train the model
-    with HiddenPrints():
-        metrics, model = train_model()
+    metrics, model = train_model()
 
 
     # Pack and send the model weights and metrics as a message
