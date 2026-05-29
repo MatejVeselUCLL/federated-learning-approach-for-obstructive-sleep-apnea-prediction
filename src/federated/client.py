@@ -30,7 +30,7 @@ def train(msg: Message, context: Context):
     keras.backend.clear_session()
 
     # Train the model
-    metrics, model = train_model()
+    metrics, model = train_model(context.node_config["dataset-filename"])
 
 
     # Pack and send the model weights and metrics as a message

@@ -296,7 +296,7 @@ def evaluate_model(msg: Message, context: Context):
     }
     return metrics
 
-def train_model():
+def train_model(dataset_filename=""):
 
     settings = config["settings"]
     general_parameters = config["general_parameters"]
@@ -312,6 +312,9 @@ def train_model():
     INPUT_PATH = settings["input_path"]
     DATASET_FILENAME = settings["dataset_filename"]
     OUTPUT_PATH = settings["output_path"]
+
+    # Take the dataset from the client context
+    DATASET_FILENAME = dataset_filename if dataset_filename != "" else DATASET_FILENAME
 
 
     #!/usr/bin/env python
