@@ -22,9 +22,9 @@ general_parameters = {
     "FEATURES": [ "value_as_number_spo2", "value_as_number_hr" ],
     "TARGET": "value_as_number_apnea",
     "ID_COLUMN": "person_id",
-    "TEST_PERSON_IDS": [3],
+    "TEST_PERSON_IDS": [],
     "WINDOW": 75, # Window size: 5 minutes (4s x 75 = 300s = 5 min)
-    "STEP": 10 # Step size: size of a step to take on moving Window
+    "STEP": 15 # Step size: size of a step to take on moving Window
 }
 
 def make_positive(x, bo):

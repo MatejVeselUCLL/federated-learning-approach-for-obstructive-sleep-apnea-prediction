@@ -2,6 +2,8 @@ from pprint import pprint
 
 import numpy as np
 import pandas as pd
+from opentelemetry.semconv.attributes.telemetry_attributes import \
+    TelemetrySdkLanguageValues
 from sklearn.preprocessing import StandardScaler
 
 from tensorflow.keras.regularizers import l2
@@ -46,6 +48,8 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # ### Test/Train split dataset
 
     # In[7]:
+
+    print("TEST PERSON IDS", TEST_PERSON_IDS)
 
     # subjects you want in first dataset
     subject_id = TEST_PERSON_IDS
@@ -246,6 +250,7 @@ def evaluate_model(msg: Message, context: Context):
     # Load the data
     # _, _, x_test, y_test = load_data(partition_id, num_partitions)
 
+    print("Evaluating on", TEST_PERSON_IDS)
     df, df_train, df_test = load_dataset(INPUT_PATH, DATASET_FILENAME, TEST_PERSON_IDS)
 
     # Prepare dual-branch input
@@ -316,6 +321,17 @@ def train_model(dataset_filename=""):
     # Take the dataset from the client context
     print("DDD", dataset_filename)
     DATASET_FILENAME = dataset_filename if dataset_filename != "" else DATASET_FILENAME
+
+    new_test_person_ids = config["TEST_PERSON_IDS"]
+    if DATASET_FILENAME.beginswith("h1"):
+        new_test_person_ids = ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1']
+    elif DATASET_FILENAME.beginswith("h2"):
+        new_test_person_ids = ['C29', 'C11', 'D25', 'D5', 'ND7']
+    elif DATASET_FILENAME.beginswith("h3"):
+        new_test_person_ids = ['C21', 'C32', 'D8', 'D13', 'ND2']
+    else:
+        pass
+    config["TEST_PERSON_IDS"] = new_test_person_ids
 
 
     #!/usr/bin/env python
@@ -674,6 +690,7 @@ def train_model(dataset_filename=""):
 
     # Make predictions with TWO inputs
     # print("Making predictions...")
+    print("Predicting on", TEST_PERSON_IDS)
     y_pred_prob = model.predict([X_hr, X_spo2])
     y_pred = (y_pred_prob > params["prediction_threshold"]).astype(int).flatten()
 
