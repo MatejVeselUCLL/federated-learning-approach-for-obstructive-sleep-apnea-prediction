@@ -18,7 +18,22 @@ from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
+def get_test_person_ids():
+    settings = config["settings"]
+    general_parameters = config["general_parameters"]
+    TEST_PERSON_IDS_h1 = general_parameters["TEST_PERSON_IDS_h1"]
+    TEST_PERSON_IDS_h2 = general_parameters["TEST_PERSON_IDS_h2"]
+    TEST_PERSON_IDS_h3 = general_parameters["TEST_PERSON_IDS_h3"]
+    DATASET_FILENAME = settings["dataset_filename"]
 
+    if DATASET_FILENAME.beginswith("h1"):
+        return TEST_PERSON_IDS_h1
+    elif DATASET_FILENAME.beginswith("h2"):
+        return TEST_PERSON_IDS_h2
+    elif DATASET_FILENAME.beginswith("h3"):
+        return TEST_PERSON_IDS_h3
+    else:
+        return general_parameters["TEST_PERSON_IDS"]
 
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
@@ -50,6 +65,7 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
 
     # In[7]:
 
+    TEST_PERSON_IDS = get_test_person_ids()
     print("TEST PERSON IDS", TEST_PERSON_IDS)
 
     # subjects you want in first dataset
@@ -242,7 +258,7 @@ def evaluate_model(msg: Message, context: Context):
     ID_COLUMN = general_parameters["ID_COLUMN"]
     WINDOW = general_parameters["WINDOW"]
     STEP = general_parameters["STEP"]
-    TEST_PERSON_IDS = general_parameters["TEST_PERSON_IDS"]
+    TEST_PERSON_IDS = get_test_person_ids()
 
     INPUT_PATH = settings["input_path"]
     DATASET_FILENAME = settings["dataset_filename"]
@@ -313,7 +329,7 @@ def train_model(dataset_filename=""):
     ID_COLUMN = general_parameters["ID_COLUMN"]
     WINDOW = general_parameters["WINDOW"]
     STEP = general_parameters["STEP"]
-    TEST_PERSON_IDS = general_parameters["TEST_PERSON_IDS"]
+    TEST_PERSON_IDS = get_test_person_ids()
 
     INPUT_PATH = settings["input_path"]
     DATASET_FILENAME = settings["dataset_filename"]
@@ -322,17 +338,6 @@ def train_model(dataset_filename=""):
     # Take the dataset from the client context
     print("DDD", dataset_filename)
     DATASET_FILENAME = dataset_filename if dataset_filename != "" else DATASET_FILENAME
-
-    new_test_person_ids = general_parameters["TEST_PERSON_IDS"]
-    if DATASET_FILENAME.beginswith("h1"):
-        new_test_person_ids = ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1']
-    elif DATASET_FILENAME.beginswith("h2"):
-        new_test_person_ids = ['C29', 'C11', 'D25', 'D5', 'ND7']
-    elif DATASET_FILENAME.beginswith("h3"):
-        new_test_person_ids = ['C21', 'C32', 'D8', 'D13', 'ND2']
-    else:
-        pass
-    general_parameters["TEST_PERSON_IDS"] = new_test_person_ids
 
 
     #!/usr/bin/env python
