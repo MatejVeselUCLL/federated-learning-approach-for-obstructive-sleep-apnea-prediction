@@ -23,6 +23,9 @@ general_parameters = {
     "TARGET": "value_as_number_apnea",
     "ID_COLUMN": "person_id",
     "TEST_PERSON_IDS": [],
+    "TEST_PERSON_IDS_h1": ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1'],
+    "TEST_PERSON_IDS_h2": ['C29', 'C11', 'D25', 'D5', 'ND7'],
+    "TEST_PERSON_IDS_h3": ['C21', 'C32', 'D8', 'D13', 'ND2'],
     "WINDOW": 75, # Window size: 5 minutes (4s x 75 = 300s = 5 min)
     "STEP": 15 # Step size: size of a step to take on moving Window
 }

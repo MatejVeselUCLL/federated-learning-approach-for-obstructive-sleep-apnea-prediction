@@ -19,6 +19,9 @@ from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
 
+def get_test_persons():
+
+
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # df = pd.read_csv(f'{DATASET_FILENAME}')
@@ -322,7 +325,7 @@ def train_model(dataset_filename=""):
     print("DDD", dataset_filename)
     DATASET_FILENAME = dataset_filename if dataset_filename != "" else DATASET_FILENAME
 
-    new_test_person_ids = config["TEST_PERSON_IDS"]
+    new_test_person_ids = general_parameters["TEST_PERSON_IDS"]
     if DATASET_FILENAME.beginswith("h1"):
         new_test_person_ids = ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1']
     elif DATASET_FILENAME.beginswith("h2"):
@@ -331,7 +334,7 @@ def train_model(dataset_filename=""):
         new_test_person_ids = ['C21', 'C32', 'D8', 'D13', 'ND2']
     else:
         pass
-    config["TEST_PERSON_IDS"] = new_test_person_ids
+    general_parameters["TEST_PERSON_IDS"] = new_test_person_ids
 
 
     #!/usr/bin/env python
