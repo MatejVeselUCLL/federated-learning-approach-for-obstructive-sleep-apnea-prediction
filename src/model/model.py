@@ -26,11 +26,11 @@ def get_test_person_ids():
     TEST_PERSON_IDS_h3 = general_parameters["TEST_PERSON_IDS_h3"]
     DATASET_FILENAME = settings["dataset_filename"]
 
-    if DATASET_FILENAME.beginswith("h1"):
+    if DATASET_FILENAME.startswith("h1"):
         return TEST_PERSON_IDS_h1
-    elif DATASET_FILENAME.beginswith("h2"):
+    elif DATASET_FILENAME.startswith("h2"):
         return TEST_PERSON_IDS_h2
-    elif DATASET_FILENAME.beginswith("h3"):
+    elif DATASET_FILENAME.startswith("h3"):
         return TEST_PERSON_IDS_h3
     else:
         return general_parameters["TEST_PERSON_IDS"]
