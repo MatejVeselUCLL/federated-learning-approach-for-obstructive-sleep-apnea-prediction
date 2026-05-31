@@ -24,7 +24,7 @@ general_parameters = {
     "ID_COLUMN": "person_id",
     "TEST_PERSON_IDS": [3],
     "WINDOW": 75, # Window size: 5 minutes (4s x 75 = 300s = 5 min)
-    "STEP": 15 # Step size: size of a step to take on moving Window
+    "STEP": 10 # Step size: size of a step to take on moving Window
 }
 
 def make_positive(x, bo):
