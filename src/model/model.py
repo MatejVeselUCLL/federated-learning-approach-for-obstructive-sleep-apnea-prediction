@@ -19,8 +19,6 @@ from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
 
-def get_test_persons():
-
 
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
