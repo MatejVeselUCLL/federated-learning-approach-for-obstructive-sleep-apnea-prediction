@@ -303,7 +303,6 @@ def evaluate_model(msg: Message, context: Context):
 
     model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
 
-
     # Evaluate the model
     eval_loss, eval_acc, eval_auc, eval_recall, eval_precision = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
 
