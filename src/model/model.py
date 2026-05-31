@@ -18,13 +18,12 @@ from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
-def get_test_person_ids():
+def get_test_person_ids(DATASET_FILENAME):
     settings = config["settings"]
     general_parameters = config["general_parameters"]
     TEST_PERSON_IDS_h1 = general_parameters["TEST_PERSON_IDS_h1"]
     TEST_PERSON_IDS_h2 = general_parameters["TEST_PERSON_IDS_h2"]
     TEST_PERSON_IDS_h3 = general_parameters["TEST_PERSON_IDS_h3"]
-    DATASET_FILENAME = settings["dataset_filename"]
 
     print("DATASET_FILENAME", DATASET_FILENAME, DATASET_FILENAME.startswith("h1"))
     if DATASET_FILENAME.startswith("h1"):
@@ -66,7 +65,7 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
 
     # In[7]:
 
-    TEST_PERSON_IDS = get_test_person_ids()
+    TEST_PERSON_IDS = get_test_person_ids(DATASET_FILENAME)
     print("TEST PERSON IDS", TEST_PERSON_IDS)
 
     # subjects you want in first dataset
@@ -259,10 +258,10 @@ def evaluate_model(msg: Message, context: Context):
     ID_COLUMN = general_parameters["ID_COLUMN"]
     WINDOW = general_parameters["WINDOW"]
     STEP = general_parameters["STEP"]
-    TEST_PERSON_IDS = get_test_person_ids()
+    TEST_PERSON_IDS = get_test_person_ids(context.node_config["dataset-filename"])
 
     INPUT_PATH = settings["input_path"]
-    DATASET_FILENAME = settings["dataset_filename"]
+    DATASET_FILENAME = context.node_config["dataset-filename"]
     OUTPUT_PATH = settings["output_path"]
 
     # Load the data
@@ -330,7 +329,6 @@ def train_model(dataset_filename=""):
     ID_COLUMN = general_parameters["ID_COLUMN"]
     WINDOW = general_parameters["WINDOW"]
     STEP = general_parameters["STEP"]
-    TEST_PERSON_IDS = get_test_person_ids()
 
     INPUT_PATH = settings["input_path"]
     DATASET_FILENAME = settings["dataset_filename"]
@@ -340,6 +338,7 @@ def train_model(dataset_filename=""):
     print("DDD", dataset_filename)
     DATASET_FILENAME = dataset_filename if dataset_filename != "" else DATASET_FILENAME
 
+    TEST_PERSON_IDS = get_test_person_ids(DATASET_FILENAME)
 
     #!/usr/bin/env python
     # coding: utf-8
