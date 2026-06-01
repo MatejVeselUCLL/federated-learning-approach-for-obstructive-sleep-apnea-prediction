@@ -10,7 +10,7 @@ settings = {
     "study_name": f"Objective: Val F1 Score (Variance to Rok: {factor}) Brez C10 (1) in C28 (20)",
     "output_path": f"{repo.working_tree_dir}/output", # Relative to tuning.py.
     "input_path": f"{repo.working_tree_dir}/input", # Relative to tuning.py.
-    "dataset_filename": "ml_train_dataset_from_omop_1s_minimal.csv",
+    "dataset_filename": "ml_train_dataset_from_omop_1s.csv",
     "log_file": "log.txt", # Do not change this.
     "objective_metric": "true_val_f1_score", # For possible options, see final_metrics variable in train_model.py.
     "objective_direction": "maximize", # Either 'maximize' or 'minimize'
@@ -54,8 +54,8 @@ hyper_parameters = {
     "dropout_lstm": 0.4,
     "l2_reg": 0.01,
     "learning_rate": 0.0005,
-    "epochs": 30,
-    "batch_size": 16,
+    "epochs": 2,
+    "batch_size": 64,
     "validation_split": 0.2,
     "prediction_threshold": 0.5,
 }
