@@ -73,6 +73,10 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     df_test = df[df["person_id"].isin(subject_id)].copy()
     df_train = df[~df["person_id"].isin(subject_id)].copy()
 
+    print("len(df_test)", len(df_test))
+    print("len(df_train)", len(df_train))
+    print("len(df)", len(df))
+
     return df, df_train, df_test
 
 def inceptiontime_temporal(input_tensor, depth=6, nb_filters=32):
