@@ -22,7 +22,11 @@ general_parameters = {
     "FEATURES": [ "value_as_number_spo2", "value_as_number_hr" ],
     "TARGET": "value_as_number_apnea",
     "ID_COLUMN": "person_id",
-    "TEST_PERSON_IDS": [],
+    "TEST_PERSON_IDS": [
+        'C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1',
+        'C29', 'C11', 'D25', 'D5', 'ND7',
+        'C21', 'C32', 'D8', 'D13', 'ND2'
+    ],
     "TEST_PERSON_IDS_h1": ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1'],
     "TEST_PERSON_IDS_h2": ['C29', 'C11', 'D25', 'D5', 'ND7'],
     "TEST_PERSON_IDS_h3": ['C21', 'C32', 'D8', 'D13', 'ND2'],
@@ -50,7 +54,7 @@ hyper_parameters = {
     "dropout_lstm": 0.4,
     "l2_reg": 0.01,
     "learning_rate": 0.0005,
-    "epochs": 1,
+    "epochs": 30,
     "batch_size": 16,
     "validation_split": 0.2,
     "prediction_threshold": 0.5,
