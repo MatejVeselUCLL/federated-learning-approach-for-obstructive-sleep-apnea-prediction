@@ -54,7 +54,7 @@ hyper_parameters = {
     "dropout_lstm": 0.4,
     "l2_reg": 0.01,
     "learning_rate": 0.0005,
-    "epochs": 2,
+    "epochs": 15,
     "batch_size": 64,
     "validation_split": 0.2,
     "prediction_threshold": 0.5,
