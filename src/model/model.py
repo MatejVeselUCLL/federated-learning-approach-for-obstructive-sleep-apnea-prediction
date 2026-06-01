@@ -267,10 +267,12 @@ def evaluate_model(msg: Message, context: Context):
     # Load the data
     # _, _, x_test, y_test = load_data(partition_id, num_partitions)
 
-    print("Evaluating on", TEST_PERSON_IDS)
+    print("BBBO TEST_PERSON_IDS", TEST_PERSON_IDS)
+    print("BBBO DATASET_FILENAME", DATASET_FILENAME)
     df, df_train, df_test = load_dataset(INPUT_PATH, DATASET_FILENAME, TEST_PERSON_IDS)
 
     # Prepare dual-branch input
+    print("BBBO len(df_test)", len(df_test))
     X_spo2_test, X_hr_test, y_test, scaler_spo2_test, scaler_hr_test = prepare_dual_branch_train_data(
         df=df_test,
         window_size=WINDOW,
