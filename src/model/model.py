@@ -304,6 +304,9 @@ def evaluate_model(msg: Message, context: Context):
     model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
 
     # Evaluate the model
+    print('X_hr_test', len(X_hr_test))
+    print('X_spo2_test', len(X_spo2_test))
+    print('y_test', len(y_test))
     eval_loss, eval_acc, eval_auc, eval_recall, eval_precision = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
 
     # Pack and send the model weights and metrics as a message
