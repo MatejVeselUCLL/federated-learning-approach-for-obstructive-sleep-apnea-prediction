@@ -46,9 +46,7 @@ def main(grid: Grid, context: Context) -> None:
     arrays = ArrayRecord(model.get_weights())
 
     # Define and start FedAvg strategy
-    strategy = FedAvg(
-        fraction_train=fraction_train,
-    )
+    strategy = FedAvg()
 
     result = strategy.start(
         grid=grid,
