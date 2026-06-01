@@ -69,6 +69,7 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     print("TEST PERSON IDS", TEST_PERSON_IDS)
 
     # subjects you want in first dataset
+    print("df['person_id'].drop_duplicates()", df["person_id"].drop_duplicates())
     subject_id = TEST_PERSON_IDS
     df_test = df[df["person_id"].isin(subject_id)].copy()
     df_train = df[~df["person_id"].isin(subject_id)].copy()
