@@ -36,7 +36,7 @@ echo "Setting up flower supernodes"
 n=1
 while [ ${n} -lt 4 ] # 3 hospitals
 do
-    port=9093+${n}
+    port=$(expr 9093+${n})
     dataset_filename="h${n}_202605311423.csv"
 
     echo "    Setting up hospital ${n}"
