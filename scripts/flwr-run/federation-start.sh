@@ -42,13 +42,13 @@ do
     port=$((9093+${n}))
     dataset_filename="h${n}_202605311423.csv"
     log_filename="${log_counter}-h${n}.log"
-    echo ${dataset-filename}
+    echo ${dataset_filename}
     echo "    Setting up hospital ${n}"
     flower-supernode \
       --insecure \
       --superlink 127.0.0.1:9092 \
       --clientappio-api-address 127.0.0.1:${port} \
-      --node-config "dataset-filename=\"${dataset-filename}\"" &> ${log_path}/${log_filename} &
+      --node-config "dataset-filename=\"${dataset_filename}\"" &> ${log_path}/${log_filename} &
 
     started_processes="${started_processes} ${!}"
 
