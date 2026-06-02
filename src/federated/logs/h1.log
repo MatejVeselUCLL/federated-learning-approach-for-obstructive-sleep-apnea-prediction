@@ -1,0 +1,24 @@
+[92mINFO [0m:      Starting Flower SuperNode
+[93mWARNING [0m:   Option `--insecure` was set. Starting insecure HTTP channel to 127.0.0.1:9092.
+Traceback (most recent call last):
+  File "/home/admine/matej/federated-learning-poc/.venv/lib/python3.12/site-packages/flwr/common/config.py", line 221, in parse_config_args
+    overrides.update(tomli.loads(toml_str))
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "src/tomli/_parser.py", line 194, in loads
+  File "src/tomli/_parser.py", line 423, in key_value_rule
+  File "src/tomli/_parser.py", line 466, in parse_key_value_pair
+  File "src/tomli/_parser.py", line 768, in parse_value
+tomli._parser.TOMLDecodeError: Invalid value (at line 1, column 20)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/admine/matej/federated-learning-poc/.venv/bin/flower-supernode", line 8, in <module>
+    sys.exit(flower_supernode())
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/admine/matej/federated-learning-poc/.venv/lib/python3.12/site-packages/flwr/supernode/cli/flower_supernode.py", line 108, in flower_supernode
+    node_config=parse_config_args(
+                ^^^^^^^^^^^^^^^^^^
+  File "/home/admine/matej/federated-learning-poc/.venv/lib/python3.12/site-packages/flwr/common/config.py", line 224, in parse_config_args
+    raise click.ClickException(
+click.exceptions.ClickException: The provided configuration string is in an invalid format. The correct format should be, e.g., 'key1=123 key2=false key3="string"', where values must be of type bool, int, string, or float. Ensure proper formatting with space-separated key-value pairs.
