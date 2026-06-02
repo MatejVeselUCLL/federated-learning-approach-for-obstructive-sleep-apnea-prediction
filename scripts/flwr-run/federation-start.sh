@@ -4,7 +4,7 @@ echo "FEDERATED LEARNING (Obstructive Apnea Predictions)"
 
 # Variables
 rp="/home/admine/matej/federated-learning-poc" # repository path
-lp="${rp}/src/federated/logs" # logs path
+lp="${rp}/logs" # logs path
 started_processes=""
 echo "Logs can be found at ${lp}"
 
@@ -19,7 +19,7 @@ echo "Setting up git (fetching updates)"
 {
 git stash
 git pull
-} &> ${lp}/git.log
+} &> ${lp}/01-git.log
 
 # Federated learning
 
@@ -27,7 +27,7 @@ git pull
 
 ### Superlink
 echo "Setting up flower superlink"
-flower-superlink --insecure &> ${lp}/super_link.log &
+flower-superlink --insecure &> ${lp}/02-super_link.log &
 another_superlink_pid=$(ps aux | grep '[f]lower-superlink.*--control-api-address 127.0.0.1:39093' | awk '{ print $2; }')
 started_processes="${!} ${another_superlink_pid}"
 
@@ -44,7 +44,7 @@ do
       --insecure \
       --superlink 127.0.0.1:9092 \
       --clientappio-api-address 127.0.0.1:${port} \
-      --node-config "dataset-filename=${dataset-filename}" &> ${lp}/h${n}.log &
+      --node-config "dataset-filename=${dataset-filename}" &> ${lp}/03-h${n}.log &
 
     started_processes="${started_processes} ${!}"
 
@@ -53,11 +53,10 @@ done
 
 ## Start (run) the process.
 echo "Setting up flower run (starting the learning process)"
-flwr run . local-deployment --stream &> ${lp}/run.log &
+flwr run . local-deployment --stream &> ${lp}/04-run.log &
 started_processes="${started_processes} ${!}"
 
 # Save process ids.
-echo "Started processes: ${started_processes}"
 echo $started_processes &> ${lp}/processes.log
 echo "Kill processes with command: kill ${started_processes}"
 
