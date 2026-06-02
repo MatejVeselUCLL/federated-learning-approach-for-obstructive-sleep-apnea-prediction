@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-rp="~/matej/federated-learning-poc" # repository path
+rp="/home/admine/matej/federated-learning-poc" # repository path
 lp="${rp}/src/federated/logs" # logs path
 started_processes=""
 
