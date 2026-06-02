@@ -63,7 +63,6 @@ echo "Live run log can be seen with command: tail -f ${log_path}/${log_counter}-
 log_counter=$((log_counter+1))
 started_processes="${started_processes} ${!}"
 
-
 # Save process ids.
 echo $started_processes &> ${log_path}/${log_counter}-processes.log
 log_counter=$((log_counter+1))

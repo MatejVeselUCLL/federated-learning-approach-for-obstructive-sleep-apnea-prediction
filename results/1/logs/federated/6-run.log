@@ -1,0 +1,209 @@
+🎊 Successfully started run 11211429187545813950
+[92mINFO [0m:      Starting logstream for run_id `11211429187545813950`
+[92mINFO [0m:      Start `flwr-serverapp` process
+[92mINFO [0m:      Starting FedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 5
+[92mINFO [0m:      	├── ArrayRecord (0.52 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): (empty!)
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/5]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'final_train_loss': 0.1429936324243946, 'final_val_loss': 0.287742801085286, 'final_train_accuracy': 0.803799254939926, 'final_val_accuracy': 0.5421014955979926, 'final_train_auc': 0.5022104031631274, 'final_val_auc': 0.5, 'total_epochs_trained': 10.260784022570348, 'precision_no_apnea': 0.751458478229085, 'recall_no_apnea': 1.0, 'f1_score_no_apnea': 0.8579126364629185, 'precision_apnea': 0.0, 'recall_apnea': 0.0, 'f1_score_apnea': 0.0, 'tn': 107596.4511099562, 'fp': 0.0, 'fn': 21454.728636127402, 'tp': 0.0, 'sum_tn_tp_minus_sum_fn_fp': 86141.72247382879, 'true_val_accuracy': 0.8328782241453595, 'true_val_precision': 0.0, 'true_val_recall': 0.0, 'true_val_f1_score': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_acc': 0.8325465208475489, 'eval_auc': 0.5, 'eval_recall': 0.0, 'eval_precision': 0.0, 'eval_loss': 0.1730447093729837}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/5]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'final_train_loss': 0.14300754887649783, 'final_val_loss': 0.28822358220990457, 'final_train_accuracy': 0.803799254939926, 'final_val_accuracy': 0.5421014955979926, 'final_train_auc': 0.49587730497478055, 'final_val_auc': 0.5, 'total_epochs_trained': 9.627997624174029, 'precision_no_apnea': 0.751458478229085, 'recall_no_apnea': 1.0, 'f1_score_no_apnea': 0.8579126364629185, 'precision_apnea': 0.0, 'recall_apnea': 0.0, 'f1_score_apnea': 0.0, 'tn': 107596.4511099562, 'fp': 0.0, 'fn': 21454.728636127402, 'tp': 0.0, 'sum_tn_tp_minus_sum_fn_fp': 86141.72247382879, 'true_val_accuracy': 0.8328782241453595, 'true_val_precision': 0.0, 'true_val_recall': 0.0, 'true_val_f1_score': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_acc': 0.8325465208475489, 'eval_auc': 0.5, 'eval_recall': 0.0, 'eval_precision': 0.0, 'eval_loss': 0.19467072123159113}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/5]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'final_train_loss': 0.14299222445495058, 'final_val_loss': 0.28833612744881126, 'final_train_accuracy': 0.803799254939926, 'final_val_accuracy': 0.5421014955979926, 'final_train_auc': 0.4978681862026805, 'final_val_auc': 0.5, 'total_epochs_trained': 9.302398099339225, 'precision_no_apnea': 0.751458478229085, 'recall_no_apnea': 1.0, 'f1_score_no_apnea': 0.8579126364629185, 'precision_apnea': 0.0, 'recall_apnea': 0.0, 'f1_score_apnea': 0.0, 'tn': 107596.4511099562, 'fp': 0.0, 'fn': 21454.728636127402, 'tp': 0.0, 'sum_tn_tp_minus_sum_fn_fp': 86141.72247382879, 'true_val_accuracy': 0.8328782241453595, 'true_val_precision': 0.0, 'true_val_recall': 0.0, 'true_val_f1_score': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_acc': 0.8325465208475489, 'eval_auc': 0.5, 'eval_recall': 0.0, 'eval_precision': 0.0, 'eval_loss': 0.1730804796886241}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/5]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'final_train_loss': 0.1429902053841177, 'final_val_loss': 0.2894929304461196, 'final_train_accuracy': 0.803799254939926, 'final_val_accuracy': 0.5421014955979926, 'final_train_auc': 0.5000581260001937, 'final_val_auc': 0.5, 'total_epochs_trained': 11.330388299057095, 'precision_no_apnea': 0.751458478229085, 'recall_no_apnea': 1.0, 'f1_score_no_apnea': 0.8579126364629185, 'precision_apnea': 0.0, 'recall_apnea': 0.0, 'f1_score_apnea': 0.0, 'tn': 107596.4511099562, 'fp': 0.0, 'fn': 21454.728636127402, 'tp': 0.0, 'sum_tn_tp_minus_sum_fn_fp': 86141.72247382879, 'true_val_accuracy': 0.8328782241453595, 'true_val_precision': 0.0, 'true_val_recall': 0.0, 'true_val_f1_score': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_acc': 0.8325465208475489, 'eval_auc': 0.5, 'eval_recall': 0.0, 'eval_precision': 0.0, 'eval_loss': 0.16918755876016153}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/5]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'final_train_loss': 0.1430051699529663, 'final_val_loss': 0.28957866545805594, 'final_train_accuracy': 0.803799254939926, 'final_val_accuracy': 0.5421014955979926, 'final_train_auc': 0.49861834655316783, 'final_val_auc': 0.5, 'total_epochs_trained': 8.939973271957829, 'precision_no_apnea': 0.751458478229085, 'recall_no_apnea': 1.0, 'f1_score_no_apnea': 0.8579126364629185, 'precision_apnea': 0.0, 'recall_apnea': 0.0, 'f1_score_apnea': 0.0, 'tn': 107596.4511099562, 'fp': 0.0, 'fn': 21454.728636127402, 'tp': 0.0, 'sum_tn_tp_minus_sum_fn_fp': 86141.72247382879, 'true_val_accuracy': 0.8328782241453595, 'true_val_precision': 0.0, 'true_val_recall': 0.0, 'true_val_f1_score': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_acc': 0.8325465208475489, 'eval_auc': 0.5, 'eval_recall': 0.0, 'eval_precision': 0.0, 'eval_loss': 0.1815149078668059}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 2560.93s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.522 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'f1_score_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'f1_score_no_apnea': '8.5791e-01',
+[92mINFO [0m:      	       'final_train_accuracy': '8.0380e-01',
+[92mINFO [0m:      	       'final_train_auc': '5.0221e-01',
+[92mINFO [0m:      	       'final_train_loss': '1.4299e-01',
+[92mINFO [0m:      	       'final_val_accuracy': '5.4210e-01',
+[92mINFO [0m:      	       'final_val_auc': '5.0000e-01',
+[92mINFO [0m:      	       'final_val_loss': '2.8774e-01',
+[92mINFO [0m:      	       'fn': '2.1455e+04',
+[92mINFO [0m:      	       'fp': '0.0000e+00',
+[92mINFO [0m:      	       'precision_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'precision_no_apnea': '7.5146e-01',
+[92mINFO [0m:      	       'recall_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'recall_no_apnea': '1.0000e+00',
+[92mINFO [0m:      	       'sum_tn_tp_minus_sum_fn_fp': '8.6142e+04',
+[92mINFO [0m:      	       'tn': '1.0760e+05',
+[92mINFO [0m:      	       'total_epochs_trained': '1.0261e+01',
+[92mINFO [0m:      	       'tp': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_accuracy': '8.3288e-01',
+[92mINFO [0m:      	       'true_val_f1_score': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_precision': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_recall': '0.0000e+00'},
+[92mINFO [0m:      	  2: { 'f1_score_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'f1_score_no_apnea': '8.5791e-01',
+[92mINFO [0m:      	       'final_train_accuracy': '8.0380e-01',
+[92mINFO [0m:      	       'final_train_auc': '4.9588e-01',
+[92mINFO [0m:      	       'final_train_loss': '1.4301e-01',
+[92mINFO [0m:      	       'final_val_accuracy': '5.4210e-01',
+[92mINFO [0m:      	       'final_val_auc': '5.0000e-01',
+[92mINFO [0m:      	       'final_val_loss': '2.8822e-01',
+[92mINFO [0m:      	       'fn': '2.1455e+04',
+[92mINFO [0m:      	       'fp': '0.0000e+00',
+[92mINFO [0m:      	       'precision_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'precision_no_apnea': '7.5146e-01',
+[92mINFO [0m:      	       'recall_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'recall_no_apnea': '1.0000e+00',
+[92mINFO [0m:      	       'sum_tn_tp_minus_sum_fn_fp': '8.6142e+04',
+[92mINFO [0m:      	       'tn': '1.0760e+05',
+[92mINFO [0m:      	       'total_epochs_trained': '9.6280e+00',
+[92mINFO [0m:      	       'tp': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_accuracy': '8.3288e-01',
+[92mINFO [0m:      	       'true_val_f1_score': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_precision': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_recall': '0.0000e+00'},
+[92mINFO [0m:      	  3: { 'f1_score_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'f1_score_no_apnea': '8.5791e-01',
+[92mINFO [0m:      	       'final_train_accuracy': '8.0380e-01',
+[92mINFO [0m:      	       'final_train_auc': '4.9787e-01',
+[92mINFO [0m:      	       'final_train_loss': '1.4299e-01',
+[92mINFO [0m:      	       'final_val_accuracy': '5.4210e-01',
+[92mINFO [0m:      	       'final_val_auc': '5.0000e-01',
+[92mINFO [0m:      	       'final_val_loss': '2.8834e-01',
+[92mINFO [0m:      	       'fn': '2.1455e+04',
+[92mINFO [0m:      	       'fp': '0.0000e+00',
+[92mINFO [0m:      	       'precision_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'precision_no_apnea': '7.5146e-01',
+[92mINFO [0m:      	       'recall_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'recall_no_apnea': '1.0000e+00',
+[92mINFO [0m:      	       'sum_tn_tp_minus_sum_fn_fp': '8.6142e+04',
+[92mINFO [0m:      	       'tn': '1.0760e+05',
+[92mINFO [0m:      	       'total_epochs_trained': '9.3024e+00',
+[92mINFO [0m:      	       'tp': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_accuracy': '8.3288e-01',
+[92mINFO [0m:      	       'true_val_f1_score': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_precision': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_recall': '0.0000e+00'},
+[92mINFO [0m:      	  4: { 'f1_score_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'f1_score_no_apnea': '8.5791e-01',
+[92mINFO [0m:      	       'final_train_accuracy': '8.0380e-01',
+[92mINFO [0m:      	       'final_train_auc': '5.0006e-01',
+[92mINFO [0m:      	       'final_train_loss': '1.4299e-01',
+[92mINFO [0m:      	       'final_val_accuracy': '5.4210e-01',
+[92mINFO [0m:      	       'final_val_auc': '5.0000e-01',
+[92mINFO [0m:      	       'final_val_loss': '2.8949e-01',
+[92mINFO [0m:      	       'fn': '2.1455e+04',
+[92mINFO [0m:      	       'fp': '0.0000e+00',
+[92mINFO [0m:      	       'precision_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'precision_no_apnea': '7.5146e-01',
+[92mINFO [0m:      	       'recall_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'recall_no_apnea': '1.0000e+00',
+[92mINFO [0m:      	       'sum_tn_tp_minus_sum_fn_fp': '8.6142e+04',
+[92mINFO [0m:      	       'tn': '1.0760e+05',
+[92mINFO [0m:      	       'total_epochs_trained': '1.1330e+01',
+[92mINFO [0m:      	       'tp': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_accuracy': '8.3288e-01',
+[92mINFO [0m:      	       'true_val_f1_score': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_precision': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_recall': '0.0000e+00'},
+[92mINFO [0m:      	  5: { 'f1_score_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'f1_score_no_apnea': '8.5791e-01',
+[92mINFO [0m:      	       'final_train_accuracy': '8.0380e-01',
+[92mINFO [0m:      	       'final_train_auc': '4.9862e-01',
+[92mINFO [0m:      	       'final_train_loss': '1.4301e-01',
+[92mINFO [0m:      	       'final_val_accuracy': '5.4210e-01',
+[92mINFO [0m:      	       'final_val_auc': '5.0000e-01',
+[92mINFO [0m:      	       'final_val_loss': '2.8958e-01',
+[92mINFO [0m:      	       'fn': '2.1455e+04',
+[92mINFO [0m:      	       'fp': '0.0000e+00',
+[92mINFO [0m:      	       'precision_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'precision_no_apnea': '7.5146e-01',
+[92mINFO [0m:      	       'recall_apnea': '0.0000e+00',
+[92mINFO [0m:      	       'recall_no_apnea': '1.0000e+00',
+[92mINFO [0m:      	       'sum_tn_tp_minus_sum_fn_fp': '8.6142e+04',
+[92mINFO [0m:      	       'tn': '1.0760e+05',
+[92mINFO [0m:      	       'total_epochs_trained': '8.9400e+00',
+[92mINFO [0m:      	       'tp': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_accuracy': '8.3288e-01',
+[92mINFO [0m:      	       'true_val_f1_score': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_precision': '0.0000e+00',
+[92mINFO [0m:      	       'true_val_recall': '0.0000e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 1: { 'eval_acc': '8.3255e-01',
+[92mINFO [0m:      	       'eval_auc': '5.0000e-01',
+[92mINFO [0m:      	       'eval_loss': '1.7304e-01',
+[92mINFO [0m:      	       'eval_precision': '0.0000e+00',
+[92mINFO [0m:      	       'eval_recall': '0.0000e+00'},
+[92mINFO [0m:      	  2: { 'eval_acc': '8.3255e-01',
+[92mINFO [0m:      	       'eval_auc': '5.0000e-01',
+[92mINFO [0m:      	       'eval_loss': '1.9467e-01',
+[92mINFO [0m:      	       'eval_precision': '0.0000e+00',
+[92mINFO [0m:      	       'eval_recall': '0.0000e+00'},
+[92mINFO [0m:      	  3: { 'eval_acc': '8.3255e-01',
+[92mINFO [0m:      	       'eval_auc': '5.0000e-01',
+[92mINFO [0m:      	       'eval_loss': '1.7308e-01',
+[92mINFO [0m:      	       'eval_precision': '0.0000e+00',
+[92mINFO [0m:      	       'eval_recall': '0.0000e+00'},
+[92mINFO [0m:      	  4: { 'eval_acc': '8.3255e-01',
+[92mINFO [0m:      	       'eval_auc': '5.0000e-01',
+[92mINFO [0m:      	       'eval_loss': '1.6919e-01',
+[92mINFO [0m:      	       'eval_precision': '0.0000e+00',
+[92mINFO [0m:      	       'eval_recall': '0.0000e+00'},
+[92mINFO [0m:      	  5: { 'eval_acc': '8.3255e-01',
+[92mINFO [0m:      	       'eval_auc': '5.0000e-01',
+[92mINFO [0m:      	       'eval_loss': '1.8151e-01',
+[92mINFO [0m:      	       'eval_precision': '0.0000e+00',
+[92mINFO [0m:      	       'eval_recall': '0.0000e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      
+Saving final model to disk as final_global_aggregated_model.keras...
+[92mINFO [0m:      

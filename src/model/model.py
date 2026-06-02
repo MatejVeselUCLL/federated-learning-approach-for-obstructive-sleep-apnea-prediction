@@ -11,7 +11,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Concatenate, Conv1D, MaxPooling1D, \
     Dropout, LSTM, Dense
 
-from src.model.config.config_rok_factor_1_brez_C_v4_0 import config
+from src.model.config.config import config
 
 from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 
