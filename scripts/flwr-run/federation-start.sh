@@ -16,7 +16,10 @@ source .venv/bin/activate
 
 # Updates
 echo "Setting up git (fetching updates)"
-{git stash && git pull} &> ${lp}/git.log
+{
+git stash
+git pull
+} &> ${lp}/git.log
 
 # Federated learning
 
