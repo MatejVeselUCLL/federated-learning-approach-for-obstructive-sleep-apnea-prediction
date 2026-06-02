@@ -42,7 +42,7 @@ do
     port=$((9093+${n}))
     dataset_filename="h${n}_202605311423.csv"
     log_filename="${log_counter}-h${n}.log"
-
+    echo ${dataset-filename}
     echo "    Setting up hospital ${n}"
     flower-supernode \
       --insecure \
