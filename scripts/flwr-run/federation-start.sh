@@ -44,7 +44,7 @@ do
       --insecure \
       --superlink 127.0.0.1:9092 \
       --clientappio-api-address 127.0.0.1:${port} \
-      --node-config "dataset-filename=${dataset-filename}" &> ${lp}/03-h${n}.log &
+      --node-config "dataset-filename=\"${dataset-filename}\"" &> ${lp}/0$(expr 2 + ${n})-h${n}.log &
 
     started_processes="${started_processes} ${!}"
 
@@ -57,7 +57,7 @@ flwr run . local-deployment --stream &> ${lp}/04-run.log &
 started_processes="${started_processes} ${!}"
 
 # Save process ids.
-echo $started_processes &> ${lp}/processes.log
+echo $started_processes &> ${lp}/05-processes.log
 echo "Kill processes with command: kill ${started_processes}"
 
 
