@@ -25,7 +25,8 @@ echo "Setting up git (fetching updates)"
 ### Superlink
 echo "Setting up flower superlink"
 flower-superlink --insecure &> ${lp}/super_link.log &
-started_processes="${!}"
+another_superlink_pid=ps aux | grep '[f]lower-superlink.*--control-api-address 127.0.0.1:39093' | awk '{ print $2; }'
+started_processes="${!} ${another_superlink_pid}"
 
 ### Supernodes
 echo "Setting up flower supernodes"
