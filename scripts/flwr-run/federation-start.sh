@@ -25,7 +25,7 @@ while [ ${n} -lt 4 ] # 3 hospitals
 do
     echo "Hospital ${n}"
     port=9093+${n}
-    dataset-filename="h_${n}202605311423.csv"
+    dataset-filename="h${n}_202605311423.csv"
 
     flower-supernode \
       --insecure \
