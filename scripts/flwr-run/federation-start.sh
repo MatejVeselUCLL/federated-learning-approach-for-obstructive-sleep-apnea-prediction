@@ -59,7 +59,7 @@ done
 ## Start (run) the process.
 echo "Setting up flower run (starting the learning process)"
 flwr run . local-deployment --stream &> ${log_path}/${log_counter}-run.log &
-echo "Live run log can be seen with command: tail ${log_path}/${log_counter}-run.log"
+echo "Live run log can be seen with command: tail -f ${log_path}/${log_counter}-run.log"
 log_counter=$((log_counter+1))
 started_processes="${started_processes} ${!}"
 
