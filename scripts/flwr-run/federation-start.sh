@@ -40,7 +40,6 @@ n=1
 while [ ${n} -lt 4 ] # 3 hospitals
 do
     port=$((9093+${n}))
-    echo "POORT ${port}"
     dataset_filename="h${n}_202605311423.csv"
     log_filename="${log_counter}-h${n}.log"
 
