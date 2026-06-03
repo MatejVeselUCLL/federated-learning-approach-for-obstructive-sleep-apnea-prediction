@@ -47,3 +47,7 @@ Project setup in progress.
 ## Author
 
 Add author information here.
+
+cd ~/matej/federated-learning-poc/ && source .venv/bin/activate && git pull && export PYTHONPATH="$(pwd)" && python3 src/centralized/centralized.py &> ~/matej/federated-learning-poc/src/centralized/logs/log.txt &
+
+cd ~/matej/federated-learning-poc/ && git stash && git pull && chmod +x scripts/flwr-run/federation-start.sh && ./scripts/flwr-run/federation-start.sh
