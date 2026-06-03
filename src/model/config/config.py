@@ -54,7 +54,7 @@ hyper_parameters = {
     "dropout_lstm": 0.0,
     "l2_reg": 0.0,
     "learning_rate": 0.001,
-    "epochs": 50,
+    "epochs": 15,
     "batch_size": 64,
     "validation_split": 0.2,
     "prediction_threshold": 0.5,
@@ -75,27 +75,6 @@ hyper_parameters = {
 #     "prediction_threshold": 0.5,
 # }
 
-# hyper_parameters = {
-#     "window_size": [make_positive(75 - v1, 1), make_positive(75 + v1, 1)],
-#     "lstm_units": [
-#         [make_positive(64-v1, 1), make_positive(64+v1, 1)], # Lower
-#         [make_positive(32-v1, 1), make_positive(32+v1, 1)],
-#         [make_positive(16-v1, 1), make_positive(16+v1, 1)], # Higher
-#     ],
-#     "depth": [make_positive(6-v1, 1), make_positive(6+v1, 1)],
-#     "nb_filters": [make_positive(32-v1, 1), make_positive(32+v1, 1)], # Higher
-#     "dropout_dense": [
-#         [make_positive(0.5-v2, 0.1), make_positive(0.5+v2, 0.1)],
-#         [make_positive(0.4-v2, 0.1), make_positive(0.4+v2, 0.1)],
-#     ],
-#     "dropout_lstm": [make_positive(0.4-v2, 0.1), make_positive(0.4+v2, 0.1)],
-#     "l2_reg": [make_positive(0.01-v3, 0.001), make_positive(0.01+v3, 0.001)], # It was log!
-#     "learning_rate": [make_positive(0.0005-v4, 0.00001), make_positive(0.0005+v4, 0.00001)], # It was log!
-#     "epochs": settings["epochs"],
-#     "batch_size": [make_positive(128-v1, 1), make_positive(128+v1, 1)], # Lower
-#     "prediction_threshold": [make_positive(0.5-v2, 0.1), make_positive(0.5+v2, 0.1)],
-#     "validation_split": [make_positive(0.2-v2, 0.1), make_positive(0.2+v2, 0.1)] # Lower
-# }
 
 config = {
     "settings": settings,
