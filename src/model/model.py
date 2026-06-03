@@ -247,11 +247,11 @@ def prepare_dual_branch_train_data(df, window_size, step, features, target, id_c
     scaler_feature2 = StandardScaler()
 
     # TODO Matej
-    # X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
-    # X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
+    X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
+    X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
     #
-    # X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
-    # X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
+    X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
+    X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
 
     return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
@@ -605,8 +605,8 @@ def train_model(dataset_filename=""):
     # pprint(weights)
     # print("weightsslength")
     # print(len(weights))
-    class_weights = {0: weights[0]}
-    # class_weights = {0: weights[0], 1: weights[1]} // TODO Matej
+    # class_weights = {0: weights[0]}
+    class_weights = {0: 0.6491876020435035, 1: 2.175742465028022}
 
     # print("Class Weights (for imbalanced input):")
     # print(f"  Class 0 (No Apnea): {weights[0]:.4f}")
@@ -1024,17 +1024,17 @@ def train_model(dataset_filename=""):
         # pprint(X_f2)
         # pprint(len(X_f2))
         # TODO Matej
-        # X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
-        X_f1_scaled = X_f1
-        # X_f2_scaled = scaler_feature2.transform(X_f2.reshape(-1, 1))
-        X_f2_scaled = X_f2
+        X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
+        # X_f1_scaled = X_f1
+        X_f2_scaled = scaler_feature2.transform(X_f2.reshape(-1, 1))
+        # X_f2_scaled = X_f2
 
         # Reshape to 2D for scaler, then back to 3D for model
         # TODO Matej
-        X_f1 = X_f1_scaled
-        # X_f1 = X_f1_scaled.reshape(-1, window_size, 1)
-        X_f2 = X_f2_scaled
-        # X_f2 = X_f2_scaled.reshape(-1, window_size, 1)
+        # X_f1 = X_f1_scaled
+        X_f1 = X_f1_scaled.reshape(-1, window_size, 1)
+        # X_f2 = X_f2_scaled
+        X_f2 = X_f2_scaled.reshape(-1, window_size, 1)
 
         return X_f1, X_f2
 

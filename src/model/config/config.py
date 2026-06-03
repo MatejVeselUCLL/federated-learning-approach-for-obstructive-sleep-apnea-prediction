@@ -30,8 +30,8 @@ general_parameters = {
     "TEST_PERSON_IDS_h1": ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1'],
     "TEST_PERSON_IDS_h2": ['C29', 'C11', 'D25', 'D5', 'ND7'],
     "TEST_PERSON_IDS_h3": ['C21', 'C32', 'D8', 'D13', 'ND2'],
-    "WINDOW": 75, # Window size: 5 minutes (4s x 75 = 300s = 5 min)
-    "STEP": 15 # Step size: size of a step to take on moving Window
+    "WINDOW": 8, # Window size: 5 minutes (4s x 75 = 300s = 5 min)
+    "STEP": 5 # Step size: size of a step to take on moving Window
 }
 
 def make_positive(x, bo):
@@ -46,19 +46,34 @@ v3 = 0.005 * (factor * 0.001)
 v4 = 0.00005 * (factor * 0.00001)
 
 hyper_parameters = {
-    "window_size": 75,
+    "window_size": 8,
     "lstm_units": [64, 32, 16],
-    "depth": 6,
-    "nb_filters": 32,
-    "dropout_dense": [0.5, 0.4],
-    "dropout_lstm": 0.4,
-    "l2_reg": 0.01,
-    "learning_rate": 0.0005,
-    "epochs": 15,
+    "depth": 30,
+    "nb_filters": 64,
+    "dropout_dense": [0.0, 0.0],
+    "dropout_lstm": 0.0,
+    "l2_reg": 0.0,
+    "learning_rate": 0.001,
+    "epochs": 50,
     "batch_size": 64,
     "validation_split": 0.2,
     "prediction_threshold": 0.5,
 }
+
+# hyper_parameters = {
+#     "window_size": 75,
+#     "lstm_units": [64, 32, 16],
+#     "depth": 6,
+#     "nb_filters": 32,
+#     "dropout_dense": [0.5, 0.4],
+#     "dropout_lstm": 0.4,
+#     "l2_reg": 0.01,
+#     "learning_rate": 0.0005,
+#     "epochs": 255,
+#     "batch_size": 64,
+#     "validation_split": 0.2,
+#     "prediction_threshold": 0.5,
+# }
 
 # hyper_parameters = {
 #     "window_size": [make_positive(75 - v1, 1), make_positive(75 + v1, 1)],
