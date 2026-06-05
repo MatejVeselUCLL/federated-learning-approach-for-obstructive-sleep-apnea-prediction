@@ -1,4 +1,5 @@
 """federated: A Flower / TensorFlow app."""
+import os
 from pprint import pprint
 
 from flwr.app import ArrayRecord, Context

@@ -1,3 +1,4 @@
+import os
 from pprint import pprint
 
 import numpy as np
@@ -25,7 +26,7 @@ def get_test_person_ids(DATASET_FILENAME):
     TEST_PERSON_IDS_h2 = general_parameters["TEST_PERSON_IDS_h2"]
     TEST_PERSON_IDS_h3 = general_parameters["TEST_PERSON_IDS_h3"]
 
-    print("DATASET_FILENAME", DATASET_FILENAME, DATASET_FILENAME.startswith("h1"))
+    # print("DATASET_FILENAME", DATASET_FILENAME, DATASET_FILENAME.startswith("h1"))
     if DATASET_FILENAME.startswith("h1"):
         return TEST_PERSON_IDS_h1
     elif DATASET_FILENAME.startswith("h2"):
@@ -47,9 +48,7 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # print(f"\nColumns: {df.columns.tolist()}")
     # print(f"\nFirst few rows:")
     df.head()
-    print("DFINFO")
     df.info()
-    len(df)
 
     # In[ ]:
 
@@ -77,10 +76,6 @@ def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
     # df_train = df[~df["person_id"].isin(subject_id)].copy()
 
 
-    print("len(df_test)", len(df_test))
-    print("len(df_train)", len(df_train))
-    print("len(df)", len(df))
-
     return df, df_train, df_test
 
 def inceptiontime_temporal(input_tensor, depth=6, nb_filters=32):
@@ -97,9 +92,6 @@ def inceptiontime_temporal(input_tensor, depth=6, nb_filters=32):
             Merged tensor from all parallel paths
         """
         # Parallel convolutions with different kernel sizes
-        # print("JJJJJJJ")
-        # print(nb_filters)
-        # print(type(nb_filters))
         conv1 = Conv1D(nb_filters, kernel_size=1, padding='same', activation='relu')(input_tensor)
         conv3 = Conv1D(nb_filters, kernel_size=3, padding='same', activation='relu')(input_tensor)
         conv5 = Conv1D(nb_filters, kernel_size=5, padding='same', activation='relu')(input_tensor)
@@ -213,45 +205,29 @@ def prepare_dual_branch_train_data(df, window_size, step, features, target, id_c
         feature2_values = g[features[1]].values
 
         labels = g[target].values
-        # print("LLABELS")
-        # pprint(labels)
-
-        # print("GGG")
-        # pprint(g)
-        # print("lenGGG", len(g), window_size)
-
-
-        # print("THECOND", len(g) - window_size)
-        # print("THECOND2", step)
 
         # Sliding window with step
         for i in range(0, len(g) - window_size, step):
             X_feature1.append(feature1_values[i:i + window_size])
             X_feature2.append(feature2_values[i:i + window_size])
-            # print("HERRE")
             y.append(labels[i + window_size])
 
     # Convert to numpy arrays
     X_feature1 = np.array(X_feature1).reshape(-1, window_size, 1)
     X_feature2 = np.array(X_feature2).reshape(-1, window_size, 1)
     y = np.array(y)
-    # print("YYY")
-    # pprint(y)
-
-    # print(f"X_feature1 shape: {X_feature1.shape}")
-    # print(f"X_spo2 shape: {X_feature2.shape}")
-    # print(f"y shape: {y.shape}")
 
     # Normalize features separately
     scaler_feature1 = StandardScaler()
     scaler_feature2 = StandardScaler()
 
     # TODO Matej
-    X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
-    X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
-    #
-    X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
-    X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
+    if (len(df)>4000):
+        X_feature1_scaled = scaler_feature1.fit_transform(X_feature1.reshape(-1, 1))
+        X_feature2_scaled = scaler_feature2.fit_transform(X_feature2.reshape(-1, 1))
+        #
+        X_feature1 = X_feature1_scaled.reshape(-1, window_size, 1)
+        X_feature2 = X_feature2_scaled.reshape(-1, window_size, 1)
 
     return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
@@ -275,12 +251,9 @@ def evaluate_model(msg: Message, context: Context):
     # Load the data
     # _, _, x_test, y_test = load_data(partition_id, num_partitions)
 
-    print("BBBO TEST_PERSON_IDS", TEST_PERSON_IDS)
-    print("BBBO DATASET_FILENAME", DATASET_FILENAME)
     df, df_train, df_test = load_dataset(INPUT_PATH, DATASET_FILENAME, TEST_PERSON_IDS)
 
     # Prepare dual-branch input
-    print("BBBO len(df_test)", len(df_test))
     X_spo2_test, X_hr_test, y_test, scaler_spo2_test, scaler_hr_test = prepare_dual_branch_train_data(
         df=df_test,
         window_size=WINDOW,
@@ -314,9 +287,6 @@ def evaluate_model(msg: Message, context: Context):
     model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
 
     # Evaluate the model
-    print('X_hr_test', len(X_hr_test))
-    print('X_spo2_test', len(X_spo2_test))
-    print('y_test', len(y_test))
     eval_loss, eval_acc, eval_auc, eval_recall, eval_precision = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
 
     # Pack and send the model weights and metrics as a message
@@ -1013,28 +983,20 @@ def train_model(dataset_filename=""):
         X_f1 = np.array(X_f1).reshape(-1, window_size, 1)
         X_f2 = np.array(X_f2).reshape(-1, window_size, 1)
 
-        # print("XXXXbefore")
-        # pprint(X_f1)
-
         # Transform using EXISTING scaler
-        # print("XXX")
-        # pprint(X_f1)
-        # pprint(len(X_f1))
-        # print("XXX2")
-        # pprint(X_f2)
-        # pprint(len(X_f2))
         # TODO Matej
-        X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
-        # X_f1_scaled = X_f1
-        X_f2_scaled = scaler_feature2.transform(X_f2.reshape(-1, 1))
-        # X_f2_scaled = X_f2
+        if (len(df)>4000):
+            X_f1_scaled = scaler_feature1.transform(X_f1.reshape(-1, 1))
+            X_f2_scaled = scaler_feature2.transform(X_f2.reshape(-1, 1))
+            # Reshape to 2D for scaler, then back to 3D for model
+            X_f1 = X_f1_scaled.reshape(-1, window_size, 1)
+            X_f2 = X_f2_scaled.reshape(-1, window_size, 1)
+        else:
+            X_f1_scaled = X_f1
+            X_f2_scaled = X_f2
 
-        # Reshape to 2D for scaler, then back to 3D for model
-        # TODO Matej
-        # X_f1 = X_f1_scaled
-        X_f1 = X_f1_scaled.reshape(-1, window_size, 1)
-        # X_f2 = X_f2_scaled
-        X_f2 = X_f2_scaled.reshape(-1, window_size, 1)
+            X_f1 = X_f1_scaled
+            X_f2 = X_f2_scaled
 
         return X_f1, X_f2
 
