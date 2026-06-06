@@ -14,7 +14,7 @@ settings = {
     "log_file": "log.txt", # Do not change this.
     "objective_metric": "true_val_f1_score", # For possible options, see final_metrics variable in train_model.py.
     "objective_direction": "maximize", # Either 'maximize' or 'minimize'
-    "epochs": 30,
+    "epochs": 15,
     "trials": 1
 }
 
@@ -47,7 +47,7 @@ v3 = 0.005 * (factor * 0.001)
 v4 = 0.00005 * (factor * 0.00001)
 
 hyper_parameters = {
-    "window_size": 8,
+    "window_size": general_parameters["WINDOW"],
     "lstm_units": [64, 48, 24],
     "depth": 16,
     "nb_filters": 64,
@@ -55,7 +55,7 @@ hyper_parameters = {
     "dropout_lstm": 0.0,
     "l2_reg": 0.0,
     "learning_rate": 0.001,
-    "epochs": 1,
+    "epochs": settings["epochs"],
     "batch_size": 128,
     "validation_split": 0.2,
     "prediction_threshold": 0.4,

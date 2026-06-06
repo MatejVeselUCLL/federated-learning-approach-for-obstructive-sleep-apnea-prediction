@@ -66,8 +66,10 @@ started_processes="${started_processes} ${!}"
 # Save process ids.
 echo $started_processes &> ${log_path}/${log_counter}-processes.log
 log_counter=$((log_counter+1))
-echo "Kill processes with command: kill ${started_processes}"
-# Or: kill $(ps -aux | grep flower | awk '{ print $2 }' ORS=" ")
+echo "Kill processes any of the commands: "
+echo "kill ${started_processes}"
+echo $'kill $(ps -aux | grep flower | awk '{ print $2 }' ORS=" ")'
+echo $'kill $(lsof -t -i:9093) $(lsof -t -i:9093) $(lsof -t -i:9094) $(lsof -t -i:9095) $(lsof -t -i:9096)'
 
 
 # Manually running the federation.
