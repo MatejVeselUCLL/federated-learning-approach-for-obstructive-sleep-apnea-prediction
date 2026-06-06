@@ -9,6 +9,9 @@ log_counter=1
 started_processes=""
 echo "Logs can be found at ${log_path}"
 
+# Killing previous processes
+echo "Killing previous processes that used ports 9093-9096"
+kill $(lsof -t -i:9093) $(lsof -t -i:9093) $(lsof -t -i:9094) $(lsof -t -i:9095) $(lsof -t -i:9096)
 
 # Virtual environment
 echo "Setting up virtual environment"
