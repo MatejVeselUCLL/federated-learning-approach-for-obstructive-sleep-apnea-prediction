@@ -232,7 +232,7 @@ def prepare_dual_branch_train_data(df, window_size, step, features, target, id_c
     return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
 
-def evaluate_model(msg: Message, context: Context):
+def evaluate_model(msg: Message, context: Context, model = None):
     settings = config["settings"]
     general_parameters = config["general_parameters"]
     params = config["hyper_parameters"]
@@ -242,10 +242,19 @@ def evaluate_model(msg: Message, context: Context):
     ID_COLUMN = general_parameters["ID_COLUMN"]
     WINDOW = general_parameters["WINDOW"]
     STEP = general_parameters["STEP"]
-    TEST_PERSON_IDS = get_test_person_ids(context.node_config["dataset-filename"])
 
     INPUT_PATH = settings["input_path"]
-    DATASET_FILENAME = context.node_config["dataset-filename"]
+
+    if (context):
+        TEST_PERSON_IDS = get_test_person_ids(context.node_config["dataset-filename"])
+        DATASET_FILENAME = context.node_config["dataset-filename"]
+    else:
+        TEST_PERSON_IDS = get_test_person_ids(settings["dataset_filename"])
+        DATASET_FILENAME = settings["dataset_filename"]
+
+    print("Eval on persons", TEST_PERSON_IDS)
+    print("Eval on dataset", DATASET_FILENAME)
+
     OUTPUT_PATH = settings["output_path"]
 
     # Load the data
@@ -264,27 +273,29 @@ def evaluate_model(msg: Message, context: Context):
     )
 
 
-    # Load the model
-    # Build model
-    model = build_inception_lstm_dual_branch(
-        feature1_len=WINDOW,
-        feature2_len=WINDOW,
-        lstm_units=tuple(params["lstm_units"]),
-        depth=params["depth"],
-        nb_filters=params["nb_filters"],
-        dropout_dense=tuple(params["dropout_dense"]),
-        dropout_lstm=params["dropout_lstm"],
-        l2_reg=params["l2_reg"]
-    )
+    if (not model):
+        # Load the model
+        # Build model
+        model = build_inception_lstm_dual_branch(
+            feature1_len=WINDOW,
+            feature2_len=WINDOW,
+            lstm_units=tuple(params["lstm_units"]),
+            depth=params["depth"],
+            nb_filters=params["nb_filters"],
+            dropout_dense=tuple(params["dropout_dense"]),
+            dropout_lstm=params["dropout_lstm"],
+            l2_reg=params["l2_reg"]
+        )
 
-    # Compile model
-    model.compile(
-        optimizer=Adam(learning_rate=params["learning_rate"]),
-        loss='mean_squared_error',
-        metrics=['accuracy', tf.keras.metrics.AUC(name='auc'), tf.keras.metrics.Recall(name='recall'), tf.keras.metrics.Precision(name='precision')]
-    )
+        # Compile model
+        model.compile(
+            optimizer=Adam(learning_rate=params["learning_rate"]),
+            loss='mean_squared_error',
+            metrics=['accuracy', tf.keras.metrics.AUC(name='auc'), tf.keras.metrics.Recall(name='recall'), tf.keras.metrics.Precision(name='precision')]
+        )
 
-    model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
+        model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
+
 
     # Evaluate the model
     eval_loss, eval_acc, eval_auc, eval_recall, eval_precision = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
@@ -1299,6 +1310,9 @@ def train_model(dataset_filename=""):
         categories = ['0', '1']
         make_confusion_matrix(cf_matrix, title=settings["study_name"], group_names=labels, categories=categories, cmap='Blues', figsize=(7,5), save_path=f'{OUTPUT_PATH}/val_confusion_matrix.png')
 
+    eval_metrics = evaluate_model(None, None, model)
+
+    final_metrics = {**final_metrics, **eval_metrics}
 
     # convert all values in final_metrics to float.
     for k, v in final_metrics.items():
