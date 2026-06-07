@@ -14,7 +14,7 @@ settings = {
     "log_file": "log.txt", # Do not change this.
     "objective_metric": "true_val_f1_score", # For possible options, see final_metrics variable in train_model.py.
     "objective_direction": "maximize", # Either 'maximize' or 'minimize'
-    "epochs": 255,
+    "epochs": 15,
     "trials": 1
 }
 
