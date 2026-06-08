@@ -326,7 +326,7 @@ def evaluate_model(msg: Message, context: Context, model = None):
         "eval_recall": eval_recall,
         "eval_precision": eval_precision,
         "eval_loss": eval_loss,
-        "num-examples": len(df_test),
+        "num-examples": len(y_test),
     }
     print("METRICSS", metrics)
     return metrics
@@ -786,7 +786,7 @@ def train_model(dataset_filename=""):
         "precision_apnea": report['Apnea']['precision'],
         "recall_apnea": report['Apnea']['recall'],
         "f1_score_apnea": report['Apnea']['f1-score'],
-        "num-examples": len(df_train),
+        "num-examples": len(y),
         # "true_negative": tn,
         # "false_positive": fp,
         # "false_negative": fn,
