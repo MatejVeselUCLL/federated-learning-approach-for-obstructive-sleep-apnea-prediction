@@ -299,9 +299,16 @@ def evaluate_model(msg: Message, context: Context, model = None):
         print('msg.content["arrays"]', msg.content["arrays"])
 
     if (notmodel):
+        print("NOTMODEL:")
+        print("len(df_test)", len(df_test))
         print("len(X_hr_test)", len(X_hr_test))
         print("len(X_spo2_test)", len(X_spo2_test))
         print("len(y_test)", len(y_test))
+    print("MODEL:")
+    print("len(df_test)", len(df_test))
+    print("len(X_hr_test)", len(X_hr_test))
+    print("len(X_spo2_test)", len(X_spo2_test))
+    print("len(y_test)", len(y_test))
 
     # Evaluate the model
     eval_loss, eval_acc, eval_auc, eval_recall, eval_precision = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
