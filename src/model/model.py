@@ -301,11 +301,13 @@ def evaluate_model(msg: Message, context: Context, model = None):
     if (notmodel):
         print("NOTMODEL:")
         print("len(df_test)", len(df_test))
+        print("len(df_train)",len(df_train))
         print("len(X_hr_test)", len(X_hr_test))
         print("len(X_spo2_test)", len(X_spo2_test))
         print("len(y_test)", len(y_test))
     print("MODEL:")
     print("len(df_test)", len(df_test))
+    print("len(df_train)", len(df_train))
     print("len(X_hr_test)", len(X_hr_test))
     print("len(X_spo2_test)", len(X_spo2_test))
     print("len(y_test)", len(y_test))
@@ -322,6 +324,7 @@ def evaluate_model(msg: Message, context: Context, model = None):
         "eval_loss": eval_loss,
         "num-examples": len(df_test),
     }
+    print("METRICSS", metrics)
     return metrics
 
 def train_model(dataset_filename=""):
