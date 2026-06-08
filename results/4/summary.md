@@ -19,3 +19,6 @@ Results show no difference in final model performance, as can be seen in the tab
 | **avg_difference**        |             |           | 0.111      |
 
 / ... no equivalent metric
+
+9b01809 Matej Vesel     Sat Jun 6 17:51:08 2026 +0200   
+f9837d3 Matej Vesel     Sat Jun 6 14:33:11 2026 +0200   

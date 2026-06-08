@@ -32,7 +32,7 @@ general_parameters = {
     "TEST_PERSON_IDS_h2": ['C29', 'C11', 'D25', 'D5', 'ND7'],
     "TEST_PERSON_IDS_h3": ['C21', 'C32', 'D8', 'D13', 'ND2'],
     "WINDOW": 8, # Window size: 5 minutes (4s x 75 = 300s = 5 min)
-    "STEP": 5 # Step size: size of a step to take on moving Window
+    "STEP": 1 # Step size: size of a step to take on moving Window
 }
 
 def make_positive(x, bo):
