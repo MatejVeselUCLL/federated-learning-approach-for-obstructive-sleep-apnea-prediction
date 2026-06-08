@@ -8,7 +8,7 @@ from flwr.serverapp.strategy import FedAvg
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
-from model.model import evaluate_model
+from src.model.model import evaluate_model
 from src.model.config.config import config
 from src.model.model import build_inception_lstm_dual_branch
 
