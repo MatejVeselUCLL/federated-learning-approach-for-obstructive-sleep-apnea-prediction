@@ -1,0 +1,16 @@
+hyper_parameters = {
+    "window_size": 8,
+    "lstm_units": [64, 48, 24],
+    "depth": 16,
+    "nb_filters": 64,
+    "dropout_dense": [0.0, 0.1],
+    "dropout_lstm": 0.0,
+    "l2_reg": 0.0,
+    "learning_rate": 0.001,
+    "epochs": 255,
+    "batch_size": 128,
+    "validation_split": 0.2,
+    "prediction_threshold": 0.4,
+    "class_weight_0": 0.6649099981884357,
+    "class_weight_1": 2.015978429120687
+}
