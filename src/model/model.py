@@ -299,7 +299,7 @@ def evaluate_model(msg: Message, context: Context, model = None):
         )
 
         model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
-
+        model.save(f"output/evaluate_model.keras")
         print('msg.content["arrays"]', msg.content["arrays"])
 
     if (notmodel):
