@@ -250,9 +250,11 @@ def evaluate_model(msg: Message, context: Context, model = None):
     INPUT_PATH = settings["input_path"]
 
     if (context):
+        print("here")
         TEST_PERSON_IDS = get_test_person_ids(context.node_config["dataset-filename"])
         DATASET_FILENAME = context.node_config["dataset-filename"]
     else:
+        print("there")
         TEST_PERSON_IDS = get_test_person_ids(settings["dataset_filename"])
         DATASET_FILENAME = settings["dataset_filename"]
 
