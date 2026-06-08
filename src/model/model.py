@@ -236,7 +236,7 @@ def prepare_dual_branch_train_data(df, window_size, step, features, target, id_c
     return X_feature1, X_feature2, y, scaler_feature1, scaler_feature2
 
 
-def evaluate_model(msg: Message, context: Context, model = None):
+def evaluate_model(msg: Message, context: Context, model = None, dataset_filename = None):
     settings = config["settings"]
     general_parameters = config["general_parameters"]
     params = config["hyper_parameters"]
@@ -255,8 +255,8 @@ def evaluate_model(msg: Message, context: Context, model = None):
         DATASET_FILENAME = context.node_config["dataset-filename"]
     else:
         print("there")
-        TEST_PERSON_IDS = get_test_person_ids(settings["dataset_filename"])
-        DATASET_FILENAME = settings["dataset_filename"]
+        TEST_PERSON_IDS = get_test_person_ids(dataset_filename)
+        DATASET_FILENAME = dataset_filename
 
     print("Eval on persons", TEST_PERSON_IDS)
     print("Eval on dataset", DATASET_FILENAME)
@@ -1332,7 +1332,7 @@ def train_model(dataset_filename=""):
         categories = ['0', '1']
         make_confusion_matrix(cf_matrix, title=settings["study_name"], group_names=labels, categories=categories, cmap='Blues', figsize=(7,5), save_path=f'{OUTPUT_PATH}/val_confusion_matrix.png')
 
-    eval_metrics = evaluate_model(None, None, model)
+    eval_metrics = evaluate_model(None, None, model, DATASET_FILENAME)
 
     final_metrics = {**final_metrics, **eval_metrics}
 
