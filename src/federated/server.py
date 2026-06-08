@@ -63,7 +63,6 @@ def main(grid: Grid, context: Context) -> None:
 
     model.set_weights(ndarrays)
 
-    print("Central evaluation metrics:", evaluate_model(None, None, model, "ml_train_dataset_from_omop_1s.csv"))
 
     model.save(f"output/{final_model_name}")
 
