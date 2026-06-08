@@ -8,6 +8,7 @@ from flwr.serverapp.strategy import FedAvg
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 
+from model.model import evaluate_model
 from src.model.config.config import config
 from src.model.model import build_inception_lstm_dual_branch
 
@@ -61,4 +62,8 @@ def main(grid: Grid, context: Context) -> None:
     print(f"Saving final model to disk as {final_model_name}...")
 
     model.set_weights(ndarrays)
+
+    print("Central evaluation metrics:", evaluate_model(None, None, model, "ml_train_dataset_from_omop_1s.csv"))
+
     model.save(f"output/{final_model_name}")
+
