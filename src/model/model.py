@@ -272,7 +272,7 @@ def evaluate_model(msg: Message, context: Context, model = None):
         id_column=ID_COLUMN
     )
 
-
+    notmodel = True if not model else False
     if (not model):
         # Load the model
         # Build model
@@ -296,6 +296,12 @@ def evaluate_model(msg: Message, context: Context, model = None):
 
         model.set_weights(msg.content["arrays"].to_numpy_ndarrays())
 
+        print('msg.content["arrays"]', msg.content["arrays"])
+
+    if (notmodel):
+        print("len(X_hr_test)", len(X_hr_test))
+        print("len(X_spo2_test)", len(X_spo2_test))
+        print("len(y_test)", len(y_test))
 
     # Evaluate the model
     eval_loss, eval_acc, eval_auc, eval_recall, eval_precision = model.evaluate([X_hr_test, X_spo2_test], y_test, verbose=0)
@@ -307,7 +313,7 @@ def evaluate_model(msg: Message, context: Context, model = None):
         "eval_recall": eval_recall,
         "eval_precision": eval_precision,
         "eval_loss": eval_loss,
-        "num-examples": len(X_hr_test),
+        "num-examples": len(df_test),
     }
     return metrics
 
