@@ -38,6 +38,10 @@ def get_test_person_ids(DATASET_FILENAME):
 
 # Load dataset
 def load_dataset(INPUT_PATH: str, DATASET_FILENAME: str, TEST_PERSON_IDS: str):
+    print("INPUT_PATH",INPUT_PATH)
+    print("DATASET_FILENAME",DATASET_FILENAME)
+    print("TEST_PERSON_IDS",TEST_PERSON_IDS)
+
     # df = pd.read_csv(f'{DATASET_FILENAME}')
 
     df = pd.read_csv(f'{INPUT_PATH}/{DATASET_FILENAME}')
