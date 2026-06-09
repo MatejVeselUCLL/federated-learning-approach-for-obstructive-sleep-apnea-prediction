@@ -609,7 +609,11 @@ def train_model(dataset_filename=""):
     # print("weightsslength")
     # print(len(weights))
     # class_weights = {0: weights[0]}
-    class_weights = {0: 0.6649099981884357, 1: 2.015978429120687}
+    # Works well with step 5.
+    # class_weights = {0: 0.6649099981884357, 1: 2.015978429120687}
+
+    # Works well with step 1.
+    class_weights = {0: 0.6650110411654198, 1: 2.0150501338233533}
 
     # print("Class Weights (for imbalanced input):")
     # print(f"  Class 0 (No Apnea): {weights[0]:.4f}")
