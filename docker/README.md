@@ -15,7 +15,7 @@ The guide was tested on Linux and Windows machines. In case you use Windows, als
 ## Client
 1. `$ git clone git@git.result.si:data-science/federated-learning-poc.git`
 1. `$ cd federated-learning-poc/docker`
-1. `$ export SUPERLINK_ID=192.168.178.166` Change the IP address to the IP address of the remote machine. Verify the connection with `$ ping 192.168.178.166`. Make sure firewalls, VPNS, etc. are disabled. Make sure you do not leave this terminal session. Make sure that you see the IP address with the command `$ echo SUPERLINK_ID`.
+1. `$ export SUPERLINK_IP=192.168.178.166` Change the IP address to the IP address of the remote machine. Verify the connection with `$ ping 192.168.178.166`. Make sure firewalls, VPNS, etc. are disabled. Make sure you do not leave this terminal session. Make sure that you see the IP address with the command `$ echo SUPERLINK_IP`.
 
 Generate certificates:
 

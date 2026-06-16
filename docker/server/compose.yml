@@ -29,6 +29,8 @@ services:
 
         WORKDIR /app
         COPY --chown=app:app pyproject.toml .
+        COPY LICENSE .
+        RUN mkdir output
         RUN sed -i 's/.*flwr\[simulation\].*//' pyproject.toml \
           && python -m pip install -U --no-cache-dir .
 

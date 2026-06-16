@@ -23,10 +23,10 @@ general_parameters = {
     "TARGET": "value_as_number_apnea",
     "ID_COLUMN": "person_id",
     "TEST_PERSON_IDS": [
-        # 'C3'
-        'C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1',
-        'C29', 'C11', 'D25', 'D5', 'ND7',
-        'C21', 'C32', 'D8', 'D13', 'ND2'
+        'C3'
+        # 'C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1',
+        # 'C29', 'C11', 'D25', 'D5', 'ND7',
+        # 'C21', 'C32', 'D8', 'D13', 'ND2'
     ],
     "TEST_PERSON_IDS_h1": ['C15', 'C7', 'C13', 'D28', 'D33', 'ND5', 'ND1'],
     "TEST_PERSON_IDS_h2": ['C29', 'C11', 'D25', 'D5', 'ND7'],

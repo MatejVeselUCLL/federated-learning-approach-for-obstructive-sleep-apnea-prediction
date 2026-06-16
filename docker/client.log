@@ -1,0 +1,649 @@
+Attaching to superexec-clientapp-1-1, superexec-clientapp-2-1, superexec-clientapp-3-1, supernode-1-1, supernode-2-1, supernode-3-1
+ Container client-supernode-3-1 Starting 
+ Container client-supernode-2-1 Starting 
+ Container client-supernode-1-1 Starting 
+ Container client-supernode-1-1 Started 
+ Container client-superexec-clientapp-1-1 Starting 
+ Container client-supernode-2-1 Started 
+ Container client-superexec-clientapp-2-1 Starting 
+ Container client-supernode-3-1 Started 
+ Container client-superexec-clientapp-3-1 Starting 
+ Container client-superexec-clientapp-1-1 Started 
+ Container client-superexec-clientapp-3-1 Started 
+ Container client-superexec-clientapp-2-1 Started 
+superexec-clientapp-2-1  | [92mINFO [0m:      Starting Flower SuperExec
+superexec-clientapp-2-1  | [93mWARNING [0m:   Connection attempt failed, retrying in 0.85 seconds
+superexec-clientapp-3-1  | [92mINFO [0m:      Starting Flower SuperExec
+supernode-3-1            | [92mINFO [0m:      Starting Flower SuperNode
+supernode-3-1            | [92mINFO [0m:      Flower Deployment Runtime: Starting ClientAppIo API on 0.0.0.0:9096
+supernode-2-1            | [92mINFO [0m:      Starting Flower SuperNode
+supernode-2-1            | [92mINFO [0m:      Flower Deployment Runtime: Starting ClientAppIo API on 0.0.0.0:9095
+superexec-clientapp-1-1  | [92mINFO [0m:      Starting Flower SuperExec
+supernode-3-1            | [92mINFO [0m:      SuperNode ID: 16655169820619230162
+superexec-clientapp-1-1  | [93mWARNING [0m:   Connection attempt failed, retrying in 0.38 seconds
+supernode-2-1            | [92mINFO [0m:      SuperNode ID: 16181386684117229793
+superexec-clientapp-1-1  | [93mWARNING [0m:   Connection attempt failed, retrying in 1.61 seconds
+supernode-1-1            | [92mINFO [0m:      Starting Flower SuperNode
+supernode-1-1            | [92mINFO [0m:      Flower Deployment Runtime: Starting ClientAppIo API on 0.0.0.0:9094
+superexec-clientapp-2-1  | [93mWARNING [0m:   Connection attempt failed, retrying in 1.06 seconds
+supernode-1-1            | [92mINFO [0m:      SuperNode ID: 8687823634590118926
+superexec-clientapp-2-1  | [92mINFO [0m:      Connection successful after 1.93 seconds and 3 tries.
+superexec-clientapp-1-1  | [92mINFO [0m:      Connection successful after 2.00 seconds and 3 tries.
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.08 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.03 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 1.09 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.77 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.51 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.90 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.40 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 1.03 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 3.29 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.11 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 1.72 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.73 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 3.56 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 13.07 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.70 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 1.80 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.85 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 12.74 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 2.34 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.43 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 19.69 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.30 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.60 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 10.20 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.15 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 3.20 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.24 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 11.91 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 2.14 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.63 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.01 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 1.74 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.91 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 7.59 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.85 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.19 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 2.35 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 2.15 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.58 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.71 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 14.48 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.87 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.43 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 11.03 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 18.67 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 0.16 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 14.99 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.71 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 15.57 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 13.81 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 17.82 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 18.73 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 9.30 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 17.84 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.75 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 19.74 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 18.33 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.40 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 6.94 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 13.75 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 3.71 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 2.43 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 7.64 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 19.83 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 16.00 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.82 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.13 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 19.04 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 8.08 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 2.71 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 3.06 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 4.47 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 5.04 seconds
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 13.39 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 7.63 seconds
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 14.84 seconds
+supernode-1-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 18.41 seconds
+supernode-1-1            | [92mINFO [0m:      Connection successful after 174.14 seconds and 13 tries.
+supernode-2-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 9.15 seconds
+supernode-2-1            | [92mINFO [0m:      Connection successful after 164.46 seconds and 12 tries.
+supernode-3-1            | [93mWARNING [0m:   Connection attempt failed, retrying in 17.85 seconds
+supernode-3-1            | [92mINFO [0m:      Connection successful after 188.80 seconds and 16 tries.
+supernode-2-1            | [92mINFO [0m:      Connection successful after 190.20 seconds and 17 tries.
+supernode-1-1            | [92mINFO [0m:      Connection successful after 194.42 seconds and 16 tries.
+supernode-3-1            | [92mINFO [0m:      Connection successful after 188.89 seconds and 11 tries.
+supernode-3-1            | [92mINFO [0m:      
+supernode-3-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-3-1            | [92mINFO [0m:      Receiving: train message (ID: 8e2609cc1ec8ea6e62948aad9e06465239225128b3786748f5b5f08b7e53eb12)
+supernode-2-1            | [92mINFO [0m:      
+supernode-2-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-2-1            | [92mINFO [0m:      Receiving: train message (ID: 8a8324b20b5a84eefc7ef421eec56ed9d1beac8a475bfb0ded615c5f01a98401)
+supernode-2-1            | [92mINFO [0m:      Received successfully
+supernode-3-1            | [92mINFO [0m:      Received successfully
+superexec-clientapp-3-1  | [92mINFO [0m:      Start `flwr-clientapp` process
+supernode-1-1            | [92mINFO [0m:      
+supernode-1-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-1-1            | [92mINFO [0m:      Receiving: train message (ID: fbe1e01225cae82f2800d95ac0b79021f139dc806adc8613d7e72295147b2f3c)
+superexec-clientapp-3-1  | 2026-06-13 17:12:09.505550: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-3-1  | 2026-06-13 17:12:09.506277: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-3-1  | 2026-06-13 17:12:09.620594: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+superexec-clientapp-3-1  | To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+superexec-clientapp-2-1  | [92mINFO [0m:      Start `flwr-clientapp` process
+superexec-clientapp-2-1  | 2026-06-13 17:12:10.320772: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-2-1  | 2026-06-13 17:12:10.321475: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+supernode-1-1            | [92mINFO [0m:      Received successfully
+superexec-clientapp-2-1  | 2026-06-13 17:12:10.423462: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+superexec-clientapp-2-1  | To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+superexec-clientapp-1-1  | [92mINFO [0m:      Start `flwr-clientapp` process
+superexec-clientapp-1-1  | 2026-06-13 17:12:11.775332: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-1-1  | 2026-06-13 17:12:11.776034: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-1-1  | 2026-06-13 17:12:11.877524: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+superexec-clientapp-1-1  | To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+superexec-clientapp-3-1  | 2026-06-13 17:12:12.378476: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-3-1  | 2026-06-13 17:12:12.379423: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-2-1  | 2026-06-13 17:12:13.134797: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-2-1  | 2026-06-13 17:12:13.135598: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-1-1  | 2026-06-13 17:12:14.580610: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-1-1  | 2026-06-13 17:12:14.581537: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-3-1  | Dataset:  ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-3-1  | 2026-06-13 17:12:15.999702: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+superexec-clientapp-3-1  | ℹ️ No GPU found. Running on CPU.
+superexec-clientapp-3-1  | 💻 Currently using CPU
+superexec-clientapp-3-1  | INPUT_PATH input
+superexec-clientapp-3-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-3-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-3-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-3-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-3-1  | Data columns (total 7 columns):
+superexec-clientapp-3-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-3-1  | ---  ------                 --------------  -----  
+superexec-clientapp-3-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-3-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-3-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-3-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-3-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-3-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-3-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-3-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-3-1  | memory usage: 164.1+ KB
+superexec-clientapp-3-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-3-1  |   window_size: 8
+superexec-clientapp-3-1  |   lstm_units: [64, 48, 24]
+superexec-clientapp-3-1  |   depth: 30
+superexec-clientapp-3-1  |   nb_filters: 64
+superexec-clientapp-3-1  |   dropout_dense: [0.1, 0.0]
+superexec-clientapp-3-1  |   dropout_lstm: 0.0
+superexec-clientapp-3-1  |   l2_reg: 0.0
+superexec-clientapp-3-1  |   learning_rate: 0.001
+superexec-clientapp-3-1  |   epochs: 1
+superexec-clientapp-3-1  |   batch_size: 128
+superexec-clientapp-3-1  |   validation_split: 0.2
+superexec-clientapp-3-1  |   prediction_threshold: 0.4
+superexec-clientapp-2-1  | Dataset:  ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-2-1  | 2026-06-13 17:12:16.831162: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+superexec-clientapp-2-1  | ℹ️ No GPU found. Running on CPU.
+superexec-clientapp-2-1  | 💻 Currently using CPU
+superexec-clientapp-2-1  | INPUT_PATH input
+superexec-clientapp-2-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-2-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-2-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-2-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-2-1  | Data columns (total 7 columns):
+superexec-clientapp-2-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-2-1  | ---  ------                 --------------  -----  
+superexec-clientapp-2-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-2-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-2-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-2-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-2-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-2-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-2-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-2-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-2-1  | memory usage: 164.1+ KB
+superexec-clientapp-2-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-2-1  |   window_size: 8
+superexec-clientapp-2-1  |   lstm_units: [64, 48, 24]
+superexec-clientapp-2-1  |   depth: 30
+superexec-clientapp-2-1  |   nb_filters: 64
+superexec-clientapp-2-1  |   dropout_dense: [0.1, 0.0]
+superexec-clientapp-2-1  |   dropout_lstm: 0.0
+superexec-clientapp-2-1  |   l2_reg: 0.0
+superexec-clientapp-2-1  |   learning_rate: 0.001
+superexec-clientapp-2-1  |   epochs: 1
+superexec-clientapp-2-1  |   batch_size: 128
+superexec-clientapp-2-1  |   validation_split: 0.2
+superexec-clientapp-2-1  |   prediction_threshold: 0.4
+superexec-clientapp-1-1  | Dataset:  ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-1-1  | 2026-06-13 17:12:18.804179: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+superexec-clientapp-1-1  | ℹ️ No GPU found. Running on CPU.
+superexec-clientapp-1-1  | 💻 Currently using CPU
+superexec-clientapp-1-1  | INPUT_PATH input
+superexec-clientapp-1-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-1-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-1-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-1-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-1-1  | Data columns (total 7 columns):
+superexec-clientapp-1-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-1-1  | ---  ------                 --------------  -----  
+superexec-clientapp-1-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-1-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-1-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-1-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-1-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-1-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-1-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-1-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-1-1  | memory usage: 164.1+ KB
+superexec-clientapp-1-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-1-1  |   window_size: 8
+superexec-clientapp-1-1  |   lstm_units: [64, 48, 24]
+superexec-clientapp-1-1  |   depth: 30
+superexec-clientapp-1-1  |   nb_filters: 64
+superexec-clientapp-1-1  |   dropout_dense: [0.1, 0.0]
+superexec-clientapp-1-1  |   dropout_lstm: 0.0
+superexec-clientapp-1-1  |   l2_reg: 0.0
+superexec-clientapp-1-1  |   learning_rate: 0.001
+superexec-clientapp-1-1  |   epochs: 1
+superexec-clientapp-1-1  |   batch_size: 128
+superexec-clientapp-1-1  |   validation_split: 0.2
+superexec-clientapp-1-1  |   prediction_threshold: 0.4
+superexec-clientapp-3-1  | [1m 1/13[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m3:43[0m 19s/step - accuracy: 0.3750 - auc: 0.4978 - loss: 0.3824 - precision: 0.0000e+00 - recall: 0.0000e+00[1m 2/13[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 76ms/step - accuracy: 0.4219 - auc: 0.4883 - loss: 0.3769 - precision: 0.2851 - recall: 0.2255         [1m 3/13[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 84ms/step - accuracy: 0.4583 - auc: 0.5004 - loss: 0.3754 - precision: 0.3949 - recall: 0.3655[1m 4/13[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m0s[0m 87ms/step - accuracy: 0.4878 - auc: 0.5119 - loss: 0.3754 - precision: 0.4580 - recall: 0.4601[1m 5/13[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 89ms/step - accuracy: 0.5043 - auc: 0.5088 - loss: 0.3735 - precision: 0.4907 - recall: 0.5259[1m 6/13[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m0s[0m 89ms/step - accuracy: 0.5181 - auc: 0.5084 - loss: 0.3715 - precision: 0.5143 - recall: 0.5760[1m 8/13[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 83ms/step - accuracy: 0.5378 - auc: 0.5076 - loss: 0.3668 - precision: 0.5439 - recall: 0.6472[1m 9/13[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m0s[0m 84ms/step - accuracy: 0.5445 - auc: 0.5065 - loss: 0.3640 - precision: 0.5532 - recall: 0.6735[1m10/13[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 86ms/step - accuracy: 0.5503 - auc: 0.5060 - loss: 0.3611 - precision: 0.5608 - recall: 0.6957[1m11/13[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 87ms/step - accuracy: 0.5548 - auc: 0.5047 - loss: 0.3581 - precision: 0.5665 - recall: 0.7146[1m12/13[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 87ms/step - accuracy: 0.5586 - auc: 0.5035 - loss: 0.3551 - precision: 0.5711 - recall: 0.7311[1m13/13[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 87ms/step - accuracy: 0.5618 - auc: 0.5025 - loss: 0.3523 - precision: 0.5749 - recall: 0.7452[1m13/13[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m23s[0m 331ms/step - accuracy: 0.6003 - auc: 0.4907 - loss: 0.3190 - precision: 0.6210 - recall: 0.9147 - val_accuracy: 0.0000e+00 - val_auc: 0.0000e+00 - val_loss: 0.5422 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+superexec-clientapp-3-1  | Restoring model weights from the end of the best epoch: 1.
+superexec-clientapp-2-1  | [1m 1/13[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m3:45[0m 19s/step - accuracy: 0.6016 - auc: 0.5025 - loss: 0.3825 - precision: 0.6538 - recall: 0.8193[1m 2/13[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 90ms/step - accuracy: 0.6113 - auc: 0.5008 - loss: 0.3735 - precision: 0.6502 - recall: 0.8642 [1m 3/13[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 93ms/step - accuracy: 0.6168 - auc: 0.5027 - loss: 0.3655 - precision: 0.6483 - recall: 0.8892[1m 5/13[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 79ms/step - accuracy: 0.6198 - auc: 0.4978 - loss: 0.3515 - precision: 0.6431 - recall: 0.9169[1m 6/13[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m0s[0m 82ms/step - accuracy: 0.6209 - auc: 0.4961 - loss: 0.3453 - precision: 0.6417 - recall: 0.9256[1m 7/13[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 85ms/step - accuracy: 0.6204 - auc: 0.4925 - loss: 0.3397 - precision: 0.6391 - recall: 0.9324[1m 8/13[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 85ms/step - accuracy: 0.6196 - auc: 0.4897 - loss: 0.3344 - precision: 0.6367 - recall: 0.9379[1m 9/13[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m0s[0m 87ms/step - accuracy: 0.6185 - auc: 0.4868 - loss: 0.3297 - precision: 0.6342 - recall: 0.9425[1m10/13[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 88ms/step - accuracy: 0.6173 - auc: 0.4846 - loss: 0.3252 - precision: 0.6320 - recall: 0.9463[1m12/13[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 83ms/step - accuracy: 0.6170 - auc: 0.4842 - loss: 0.3167 - precision: 0.6298 - recall: 0.9525[1m13/13[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 83ms/step - accuracy: 0.6170 - auc: 0.4846 - loss: 0.3130 - precision: 0.6292 - recall: 0.9550[1m13/13[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m23s[0m 316ms/step - accuracy: 0.6173 - auc: 0.4888 - loss: 0.2689 - precision: 0.6210 - recall: 0.9848 - val_accuracy: 0.0000e+00 - val_auc: 0.0000e+00 - val_loss: 0.7086 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+superexec-clientapp-2-1  | Restoring model weights from the end of the best epoch: 1.
+superexec-clientapp-3-1  | Predicting on ['C3']
+superexec-clientapp-2-1  | Predicting on ['C3']
+superexec-clientapp-1-1  | [1m 1/13[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m3:44[0m 19s/step - accuracy: 0.3125 - auc: 0.4276 - loss: 0.4316 - precision: 0.0000e+00 - recall: 0.0000e+00[1m 2/13[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 82ms/step - accuracy: 0.3203 - auc: 0.4406 - loss: 0.4238 - precision: 0.2708 - recall: 0.0374         [1m 3/13[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 80ms/step - accuracy: 0.3611 - auc: 0.4504 - loss: 0.4162 - precision: 0.3969 - recall: 0.1510[1m 4/13[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m0s[0m 82ms/step - accuracy: 0.3924 - auc: 0.4538 - loss: 0.4089 - precision: 0.4563 - recall: 0.2442[1m 5/13[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 84ms/step - accuracy: 0.4174 - auc: 0.4575 - loss: 0.4026 - precision: 0.4923 - recall: 0.3187[1m 7/13[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 77ms/step - accuracy: 0.4522 - auc: 0.4620 - loss: 0.3911 - precision: 0.5315 - recall: 0.4274[1m 8/13[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 79ms/step - accuracy: 0.4644 - auc: 0.4625 - loss: 0.3860 - precision: 0.5426 - recall: 0.4681[1m 9/13[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m0s[0m 81ms/step - accuracy: 0.4745 - auc: 0.4628 - loss: 0.3811 - precision: 0.5510 - recall: 0.5026[1m10/13[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 82ms/step - accuracy: 0.4831 - auc: 0.4631 - loss: 0.3765 - precision: 0.5576 - recall: 0.5324[1m12/13[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 79ms/step - accuracy: 0.4969 - auc: 0.4639 - loss: 0.3680 - precision: 0.5670 - recall: 0.5812[1m13/13[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 79ms/step - accuracy: 0.5021 - auc: 0.4639 - loss: 0.3643 - precision: 0.5702 - recall: 0.6008[1m13/13[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m22s[0m 288ms/step - accuracy: 0.5649 - auc: 0.4629 - loss: 0.3198 - precision: 0.6090 - recall: 0.8365 - val_accuracy: 0.0000e+00 - val_auc: 0.0000e+00 - val_loss: 0.5099 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+superexec-clientapp-1-1  | Restoring model weights from the end of the best epoch: 1.
+superexec-clientapp-1-1  | Predicting on ['C3']
+superexec-clientapp-3-1  | [1m 1/62[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m1:20[0m 1s/step[1m 6/62[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m12/62[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 10ms/step[1m15/62[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m22/62[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m29/62[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m0s[0m 11ms/step[1m31/62[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m38/62[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 12ms/step[1m45/62[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 12ms/step[1m47/62[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 12ms/step[1m54/62[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 12ms/step[1m61/62[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 12ms/step[1m62/62[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 37ms/step[1m62/62[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m4s[0m 37ms/step
+superexec-clientapp-3-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-3-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-3-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-3-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-3-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-3-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-3-1  | WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+superexec-clientapp-3-1  | WARNING:absl:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+superexec-clientapp-2-1  | [1m 1/62[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m1:31[0m 1s/step[1m 8/62[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m15/62[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 10ms/step[1m17/62[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m24/62[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m31/62[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 11ms/step[1m33/62[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m40/62[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 12ms/step[1m42/62[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m0s[0m 12ms/step[1m49/62[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 12ms/step[1m52/62[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 12ms/step[1m58/62[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 12ms/step[1m62/62[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 36ms/step[1m62/62[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m4s[0m 37ms/step
+superexec-clientapp-2-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-2-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-2-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-2-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-2-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-2-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-2-1  | WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+superexec-clientapp-2-1  | WARNING:absl:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+superexec-clientapp-1-1  | [1m 1/62[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m1:24[0m 1s/step[1m 7/62[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 9ms/step [1m10/62[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m17/62[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m24/62[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 11ms/step[1m26/62[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m33/62[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m39/62[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 12ms/step[1m42/62[0m [32m━━━━━━━━━━━━━[0m[37m━━━━━━━[0m [1m0s[0m 12ms/step[1m48/62[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 12ms/step[1m50/62[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 12ms/step[1m57/62[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 12ms/step[1m62/62[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 37ms/step[1m62/62[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m4s[0m 38ms/step
+superexec-clientapp-3-1  | [1m 1/31[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m40s[0m 1s/step[1m 7/31[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 9ms/step[1m11/31[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 11ms/step[1m15/31[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m22/31[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 12ms/step[1m26/31[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 12ms/step[1m30/31[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 13ms/step[1m31/31[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 15ms/step
+superexec-clientapp-1-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-1-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-1-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-1-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-1-1  | /python/venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+superexec-clientapp-1-1  |   _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+superexec-clientapp-1-1  | WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+superexec-clientapp-2-1  | [1m 1/31[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m52s[0m 2s/step[1m 5/31[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m 9/31[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m13/31[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m16/31[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 14ms/step[1m19/31[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 15ms/step[1m24/31[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 14ms/step[1m29/31[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 14ms/step[1m31/31[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 16ms/step
+superexec-clientapp-1-1  | WARNING:absl:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+superexec-clientapp-3-1  | Val Confusion matrix saved to : output/val_confusion_matrix.png
+superexec-clientapp-3-1  | there
+superexec-clientapp-3-1  | Eval on persons ['C3']
+superexec-clientapp-3-1  | Eval on dataset ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-3-1  | INPUT_PATH input
+superexec-clientapp-3-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-3-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-3-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-3-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-3-1  | Data columns (total 7 columns):
+superexec-clientapp-3-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-3-1  | ---  ------                 --------------  -----  
+superexec-clientapp-3-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-3-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-3-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-3-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-3-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-3-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-3-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-3-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-3-1  | memory usage: 164.1+ KB
+superexec-clientapp-3-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-3-1  | MODEL:
+superexec-clientapp-3-1  | len(df_test) 1000
+superexec-clientapp-3-1  | len(df_train) 1999
+superexec-clientapp-3-1  | len(X_hr_test) 992
+superexec-clientapp-3-1  | len(X_spo2_test) 992
+superexec-clientapp-3-1  | len(y_test) 992
+superexec-clientapp-2-1  | Val Confusion matrix saved to : output/val_confusion_matrix.png
+superexec-clientapp-2-1  | there
+superexec-clientapp-2-1  | Eval on persons ['C3']
+superexec-clientapp-2-1  | Eval on dataset ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-2-1  | INPUT_PATH input
+superexec-clientapp-2-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-2-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-2-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-2-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-2-1  | Data columns (total 7 columns):
+superexec-clientapp-2-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-2-1  | ---  ------                 --------------  -----  
+superexec-clientapp-2-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-2-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-2-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-2-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-2-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-2-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-2-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-2-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-2-1  | memory usage: 164.1+ KB
+superexec-clientapp-2-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-2-1  | MODEL:
+superexec-clientapp-2-1  | len(df_test) 1000
+superexec-clientapp-2-1  | len(df_train) 1999
+superexec-clientapp-2-1  | len(X_hr_test) 992
+superexec-clientapp-2-1  | len(X_spo2_test) 992
+superexec-clientapp-2-1  | len(y_test) 992
+superexec-clientapp-1-1  | [1m 1/31[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m58s[0m 2s/step[1m 6/31[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m11/31[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 13ms/step[1m16/31[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 12ms/step[1m19/31[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 13ms/step[1m25/31[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 12ms/step[1m28/31[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 13ms/step[1m31/31[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 13ms/step
+superexec-clientapp-1-1  | Val Confusion matrix saved to : output/val_confusion_matrix.png
+superexec-clientapp-1-1  | there
+superexec-clientapp-1-1  | Eval on persons ['C3']
+superexec-clientapp-1-1  | Eval on dataset ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-1-1  | INPUT_PATH input
+superexec-clientapp-1-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-1-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-1-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-1-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-1-1  | Data columns (total 7 columns):
+superexec-clientapp-1-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-1-1  | ---  ------                 --------------  -----  
+superexec-clientapp-1-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-1-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-1-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-1-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-1-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-1-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-1-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-1-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-1-1  | memory usage: 164.1+ KB
+superexec-clientapp-1-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-1-1  | MODEL:
+superexec-clientapp-1-1  | len(df_test) 1000
+superexec-clientapp-1-1  | len(df_train) 1999
+superexec-clientapp-1-1  | len(X_hr_test) 992
+superexec-clientapp-1-1  | len(X_spo2_test) 992
+superexec-clientapp-1-1  | len(y_test) 992
+superexec-clientapp-3-1  | METRICSS {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.3072916567325592, 'num-examples': 992}
+superexec-clientapp-3-1  | FINAL-METRICS
+superexec-clientapp-3-1  | {'eval_acc': 0.4969758093357086,
+superexec-clientapp-3-1  |  'eval_auc': 0.5,
+superexec-clientapp-3-1  |  'eval_loss': 0.3072916567325592,
+superexec-clientapp-3-1  |  'eval_precision': 0.4969758093357086,
+superexec-clientapp-3-1  |  'eval_recall': 1.0,
+superexec-clientapp-3-1  |  'f1_score_apnea': 0.6637466307277629,
+superexec-clientapp-3-1  |  'f1_score_no_apnea': 0.0,
+superexec-clientapp-3-1  |  'final_train_accuracy': 0.6002522110939026,
+superexec-clientapp-3-1  |  'final_train_auc': 0.49069908261299133,
+superexec-clientapp-3-1  |  'final_train_loss': 0.3189733326435089,
+superexec-clientapp-3-1  |  'final_val_accuracy': 0.0,
+superexec-clientapp-3-1  |  'final_val_auc': 0.0,
+superexec-clientapp-3-1  |  'final_val_loss': 0.5422081351280212,
+superexec-clientapp-3-1  |  'fn': 0.0,
+superexec-clientapp-3-1  |  'fp': 483.0,
+superexec-clientapp-3-1  |  'num-examples': 992.0,
+superexec-clientapp-3-1  |  'precision_apnea': 0.49672213817448313,
+superexec-clientapp-3-1  |  'precision_no_apnea': 0.0,
+superexec-clientapp-3-1  |  'recall_apnea': 1.0,
+superexec-clientapp-3-1  |  'recall_no_apnea': 0.0,
+superexec-clientapp-3-1  |  'sum_tn_tp_minus_sum_fn_fp': 18.0,
+superexec-clientapp-3-1  |  'tn': 0.0,
+superexec-clientapp-3-1  |  'total_epochs_trained': 1.0,
+superexec-clientapp-3-1  |  'tp': 501.0,
+superexec-clientapp-3-1  |  'true_val_accuracy': 0.5091463414634146,
+superexec-clientapp-3-1  |  'true_val_f1_score': 0.6747474747474747,
+superexec-clientapp-3-1  |  'true_val_precision': 0.5091463414634146,
+superexec-clientapp-3-1  |  'true_val_recall': 1.0}
+supernode-3-1            | [92mINFO [0m:      
+supernode-3-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-3-1            | [92mINFO [0m:      Sending: train message (ID: ee7432a01bd3c398620fdf8407efed4951fbb9eee749013511e7b3080e47bed1)
+superexec-clientapp-3-1  | [92mINFO [0m:      
+superexec-clientapp-3-1  | INFO:flwr:
+superexec-clientapp-2-1  | METRICSS {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.3688674569129944, 'num-examples': 992}
+superexec-clientapp-2-1  | FINAL-METRICS
+superexec-clientapp-2-1  | {'eval_acc': 0.4969758093357086,
+superexec-clientapp-2-1  |  'eval_auc': 0.5,
+superexec-clientapp-2-1  |  'eval_loss': 0.3688674569129944,
+superexec-clientapp-2-1  |  'eval_precision': 0.4969758093357086,
+superexec-clientapp-2-1  |  'eval_recall': 1.0,
+superexec-clientapp-2-1  |  'f1_score_apnea': 0.6637466307277629,
+superexec-clientapp-2-1  |  'f1_score_no_apnea': 0.0,
+superexec-clientapp-2-1  |  'final_train_accuracy': 0.6172761917114258,
+superexec-clientapp-2-1  |  'final_train_auc': 0.4887581467628479,
+superexec-clientapp-2-1  |  'final_train_loss': 0.268905907869339,
+superexec-clientapp-2-1  |  'final_val_accuracy': 0.0,
+superexec-clientapp-2-1  |  'final_val_auc': 0.0,
+superexec-clientapp-2-1  |  'final_val_loss': 0.7085633277893066,
+superexec-clientapp-2-1  |  'fn': 0.0,
+superexec-clientapp-2-1  |  'fp': 483.0,
+superexec-clientapp-2-1  |  'num-examples': 992.0,
+superexec-clientapp-2-1  |  'precision_apnea': 0.49672213817448313,
+superexec-clientapp-2-1  |  'precision_no_apnea': 0.0,
+superexec-clientapp-2-1  |  'recall_apnea': 1.0,
+superexec-clientapp-2-1  |  'recall_no_apnea': 0.0,
+superexec-clientapp-2-1  |  'sum_tn_tp_minus_sum_fn_fp': 18.0,
+superexec-clientapp-2-1  |  'tn': 0.0,
+superexec-clientapp-2-1  |  'total_epochs_trained': 1.0,
+superexec-clientapp-2-1  |  'tp': 501.0,
+superexec-clientapp-2-1  |  'true_val_accuracy': 0.5091463414634146,
+superexec-clientapp-2-1  |  'true_val_f1_score': 0.6747474747474747,
+superexec-clientapp-2-1  |  'true_val_precision': 0.5091463414634146,
+superexec-clientapp-2-1  |  'true_val_recall': 1.0}
+superexec-clientapp-2-1  | [92mINFO [0m:      
+superexec-clientapp-2-1  | INFO:flwr:
+supernode-2-1            | [92mINFO [0m:      
+supernode-2-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-2-1            | [92mINFO [0m:      Sending: train message (ID: 241efaaa11abf984dc76289d010c8bcf4561006fd628111c58da5ea16a183f13)
+supernode-3-1            | [92mINFO [0m:      Sent successfully
+superexec-clientapp-1-1  | METRICSS {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.29712024331092834, 'num-examples': 992}
+superexec-clientapp-1-1  | FINAL-METRICS
+superexec-clientapp-1-1  | {'eval_acc': 0.4969758093357086,
+superexec-clientapp-1-1  |  'eval_auc': 0.5,
+superexec-clientapp-1-1  |  'eval_loss': 0.29712024331092834,
+superexec-clientapp-1-1  |  'eval_precision': 0.4969758093357086,
+superexec-clientapp-1-1  |  'eval_recall': 1.0,
+superexec-clientapp-1-1  |  'f1_score_apnea': 0.6637466307277629,
+superexec-clientapp-1-1  |  'f1_score_no_apnea': 0.0,
+superexec-clientapp-1-1  |  'final_train_accuracy': 0.564943253993988,
+superexec-clientapp-1-1  |  'final_train_auc': 0.4628622233867645,
+superexec-clientapp-1-1  |  'final_train_loss': 0.3198346793651581,
+superexec-clientapp-1-1  |  'final_val_accuracy': 0.0,
+superexec-clientapp-1-1  |  'final_val_auc': 0.0,
+superexec-clientapp-1-1  |  'final_val_loss': 0.5098577737808228,
+superexec-clientapp-1-1  |  'fn': 0.0,
+superexec-clientapp-1-1  |  'fp': 483.0,
+superexec-clientapp-1-1  |  'num-examples': 992.0,
+superexec-clientapp-1-1  |  'precision_apnea': 0.49672213817448313,
+superexec-clientapp-1-1  |  'precision_no_apnea': 0.0,
+superexec-clientapp-1-1  |  'recall_apnea': 1.0,
+superexec-clientapp-1-1  |  'recall_no_apnea': 0.0,
+superexec-clientapp-1-1  |  'sum_tn_tp_minus_sum_fn_fp': 18.0,
+superexec-clientapp-1-1  |  'tn': 0.0,
+superexec-clientapp-1-1  |  'total_epochs_trained': 1.0,
+superexec-clientapp-1-1  |  'tp': 501.0,
+superexec-clientapp-1-1  |  'true_val_accuracy': 0.5091463414634146,
+superexec-clientapp-1-1  |  'true_val_f1_score': 0.6747474747474747,
+superexec-clientapp-1-1  |  'true_val_precision': 0.5091463414634146,
+superexec-clientapp-1-1  |  'true_val_recall': 1.0}
+superexec-clientapp-1-1  | [92mINFO [0m:      
+superexec-clientapp-1-1  | INFO:flwr:
+supernode-1-1            | [92mINFO [0m:      
+supernode-1-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-1-1            | [92mINFO [0m:      Sending: train message (ID: 343796b1a561fc50079d7c1c70b6ae07ab4b73e3c6f24d7ecb026c5e0088e535)
+supernode-2-1            | [92mINFO [0m:      Sent successfully
+supernode-1-1            | [92mINFO [0m:      Sent successfully
+supernode-3-1            | [92mINFO [0m:      
+supernode-3-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-3-1            | [92mINFO [0m:      Receiving: evaluate message (ID: eb81e02d1fed6a9d637be9656ce366b3f313ffe4836a17951f161dce7ab43b6c)
+supernode-1-1            | [92mINFO [0m:      
+supernode-1-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-1-1            | [92mINFO [0m:      Receiving: evaluate message (ID: ad39600f8d2443820389f4157a856f24818656e31345e09ba58aa6e18c3d4c31)
+supernode-2-1            | [92mINFO [0m:      
+supernode-2-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-2-1            | [92mINFO [0m:      Receiving: evaluate message (ID: e9c5e534dfab551f5152421d18c69657e580fea48bc547e7d60a59ff64203cad)
+superexec-clientapp-3-1  | [92mINFO [0m:      Start `flwr-clientapp` process
+superexec-clientapp-1-1  | [92mINFO [0m:      Start `flwr-clientapp` process
+supernode-3-1            | [92mINFO [0m:      Received successfully
+supernode-1-1            | [92mINFO [0m:      Received successfully
+supernode-2-1            | [92mINFO [0m:      Received successfully
+superexec-clientapp-3-1  | 2026-06-13 17:13:06.949323: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-3-1  | 2026-06-13 17:13:06.950051: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-2-1  | [92mINFO [0m:      Start `flwr-clientapp` process
+superexec-clientapp-3-1  | 2026-06-13 17:13:07.115128: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+superexec-clientapp-3-1  | To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+superexec-clientapp-1-1  | 2026-06-13 17:13:07.173232: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-1-1  | 2026-06-13 17:13:07.173998: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-1-1  | 2026-06-13 17:13:07.290838: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+superexec-clientapp-1-1  | To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+superexec-clientapp-2-1  | 2026-06-13 17:13:07.692022: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-2-1  | 2026-06-13 17:13:07.692647: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-2-1  | 2026-06-13 17:13:07.803601: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+superexec-clientapp-2-1  | To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+superexec-clientapp-3-1  | 2026-06-13 17:13:09.787709: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-3-1  | 2026-06-13 17:13:09.788594: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-1-1  | 2026-06-13 17:13:09.933719: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-1-1  | 2026-06-13 17:13:09.934559: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-2-1  | 2026-06-13 17:13:10.487893: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+superexec-clientapp-2-1  | 2026-06-13 17:13:10.488778: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+superexec-clientapp-3-1  | here
+superexec-clientapp-3-1  | Eval on persons ['C3']
+superexec-clientapp-3-1  | Eval on dataset ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-3-1  | INPUT_PATH input
+superexec-clientapp-3-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-3-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-3-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-3-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-3-1  | Data columns (total 7 columns):
+superexec-clientapp-3-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-3-1  | ---  ------                 --------------  -----  
+superexec-clientapp-3-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-3-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-3-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-3-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-3-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-3-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-3-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-3-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-3-1  | memory usage: 164.1+ KB
+superexec-clientapp-3-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-3-1  | 2026-06-13 17:13:13.369606: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+superexec-clientapp-1-1  | here
+superexec-clientapp-1-1  | Eval on persons ['C3']
+superexec-clientapp-1-1  | Eval on dataset ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-1-1  | INPUT_PATH input
+superexec-clientapp-1-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-1-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-1-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-1-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-1-1  | Data columns (total 7 columns):
+superexec-clientapp-1-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-1-1  | ---  ------                 --------------  -----  
+superexec-clientapp-1-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-1-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-1-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-1-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-1-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-1-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-1-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-1-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-1-1  | memory usage: 164.1+ KB
+superexec-clientapp-1-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-1-1  | 2026-06-13 17:13:13.468494: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+superexec-clientapp-2-1  | here
+superexec-clientapp-2-1  | Eval on persons ['C3']
+superexec-clientapp-2-1  | Eval on dataset ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-2-1  | INPUT_PATH input
+superexec-clientapp-2-1  | DATASET_FILENAME ml_train_dataset_from_omop_1s_minimal.csv
+superexec-clientapp-2-1  | TEST_PERSON_IDS ['C3']
+superexec-clientapp-2-1  | <class 'pandas.core.frame.DataFrame'>
+superexec-clientapp-2-1  | RangeIndex: 2999 entries, 0 to 2998
+superexec-clientapp-2-1  | Data columns (total 7 columns):
+superexec-clientapp-2-1  |  #   Column                 Non-Null Count  Dtype  
+superexec-clientapp-2-1  | ---  ------                 --------------  -----  
+superexec-clientapp-2-1  |  0   apnea_measurement_id   2999 non-null   int64  
+superexec-clientapp-2-1  |  1   person_id              2999 non-null   int64  
+superexec-clientapp-2-1  |  2   measurement_datetime   2999 non-null   object 
+superexec-clientapp-2-1  |  3   person_source_value    2999 non-null   object 
+superexec-clientapp-2-1  |  4   value_as_number_apnea  2999 non-null   float64
+superexec-clientapp-2-1  |  5   value_as_number_spo2   2999 non-null   float64
+superexec-clientapp-2-1  |  6   value_as_number_hr     2999 non-null   float64
+superexec-clientapp-2-1  | dtypes: float64(3), int64(2), object(2)
+superexec-clientapp-2-1  | memory usage: 164.1+ KB
+superexec-clientapp-2-1  | TEST PERSON IDS ['C3']
+superexec-clientapp-2-1  | 2026-06-13 17:13:14.117804: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+superexec-clientapp-3-1  | NOTMODEL:
+superexec-clientapp-3-1  | len(df_test) 1000
+superexec-clientapp-3-1  | len(df_train) 1999
+superexec-clientapp-3-1  | len(X_hr_test) 992
+superexec-clientapp-3-1  | len(X_spo2_test) 992
+superexec-clientapp-3-1  | len(y_test) 992
+superexec-clientapp-3-1  | MODEL:
+superexec-clientapp-3-1  | len(df_test) 1000
+superexec-clientapp-3-1  | len(df_train) 1999
+superexec-clientapp-3-1  | len(X_hr_test) 992
+superexec-clientapp-3-1  | len(X_spo2_test) 992
+superexec-clientapp-3-1  | len(y_test) 992
+superexec-clientapp-1-1  | NOTMODEL:
+superexec-clientapp-1-1  | len(df_test) 1000
+superexec-clientapp-1-1  | len(df_train) 1999
+superexec-clientapp-1-1  | len(X_hr_test) 992
+superexec-clientapp-1-1  | len(X_spo2_test) 992
+superexec-clientapp-1-1  | len(y_test) 992
+superexec-clientapp-1-1  | MODEL:
+superexec-clientapp-1-1  | len(df_test) 1000
+superexec-clientapp-1-1  | len(df_train) 1999
+superexec-clientapp-1-1  | len(X_hr_test) 992
+superexec-clientapp-1-1  | len(X_spo2_test) 992
+superexec-clientapp-1-1  | len(y_test) 992
+superexec-clientapp-2-1  | NOTMODEL:
+superexec-clientapp-2-1  | len(df_test) 1000
+superexec-clientapp-2-1  | len(df_train) 1999
+superexec-clientapp-2-1  | len(X_hr_test) 992
+superexec-clientapp-2-1  | len(X_spo2_test) 992
+superexec-clientapp-2-1  | len(y_test) 992
+superexec-clientapp-2-1  | MODEL:
+superexec-clientapp-2-1  | len(df_test) 1000
+superexec-clientapp-2-1  | len(df_train) 1999
+superexec-clientapp-2-1  | len(X_hr_test) 992
+superexec-clientapp-2-1  | len(X_spo2_test) 992
+superexec-clientapp-2-1  | len(y_test) 992
+superexec-clientapp-3-1  | METRICSS {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.25005242228507996, 'num-examples': 992}
+superexec-clientapp-3-1  | EVALUATE METRICS FROM CLIENT {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.25005242228507996, 'num-examples': 992}
+superexec-clientapp-3-1  | [92mINFO [0m:      
+supernode-3-1            | [92mINFO [0m:      
+supernode-3-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-3-1            | [92mINFO [0m:      Sending: evaluate message (ID: 7ac7fc5167f25a408cdad34831fc3a2b0bdbec5bac073cb365de0c3d9873300e)
+superexec-clientapp-1-1  | METRICSS {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.25005242228507996, 'num-examples': 992}
+superexec-clientapp-1-1  | EVALUATE METRICS FROM CLIENT {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.25005242228507996, 'num-examples': 992}
+supernode-3-1            | [92mINFO [0m:      Sent successfully
+supernode-1-1            | [92mINFO [0m:      
+supernode-1-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-1-1            | [92mINFO [0m:      Sending: evaluate message (ID: bcdab108403ce55a8c86851546fda4ea2912fedf47fc56fa8393ce1d37fc8427)
+superexec-clientapp-1-1  | [92mINFO [0m:      
+supernode-1-1            | [92mINFO [0m:      Sent successfully
+superexec-clientapp-2-1  | METRICSS {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.25005242228507996, 'num-examples': 992}
+superexec-clientapp-2-1  | EVALUATE METRICS FROM CLIENT {'eval_acc': 0.4969758093357086, 'eval_auc': 0.5, 'eval_recall': 1.0, 'eval_precision': 0.4969758093357086, 'eval_loss': 0.25005242228507996, 'num-examples': 992}
+superexec-clientapp-2-1  | [92mINFO [0m:      
+supernode-2-1            | [92mINFO [0m:      
+supernode-2-1            | [92mINFO [0m:      [RUN 4193068173022118104]
+supernode-2-1            | [92mINFO [0m:      Sending: evaluate message (ID: 356c98e7772d0aa1c6a2075aa73e89bafc88cb7222426bbd5b775bd58f644030)
+supernode-2-1            | [92mINFO [0m:      Sent successfully
+ Compose Stopping Gracefully Stopping... press Ctrl+C again to force
+ Container client-superexec-clientapp-3-1 Stopping 
+ Container client-superexec-clientapp-1-1 Stopping 
+ Container client-superexec-clientapp-2-1 Stopping 
+ Container client-superexec-clientapp-2-1 Stopped 
+ Container client-supernode-2-1 Stopping 
+ Container client-superexec-clientapp-1-1 Stopped 
+ Container client-supernode-1-1 Stopping 
+ Container client-superexec-clientapp-3-1 Stopped 
+ Container client-supernode-3-1 Stopping 
+got 3 SIGTERM/SIGINTs, forcefully exiting

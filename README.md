@@ -8,6 +8,8 @@ The goal of this project is to explore, develop, and test machine learning appro
 
 Federated Learning can be useful in scenarios where data privacy, security, and data ownership are important.
 
+This code supplements the thesis in [documentation/thesis.pdf](documentation/thesis.pdf).
+
 ## Main Objectives
 
 - Set up a basic Federated Learning workflow
@@ -16,38 +18,45 @@ Federated Learning can be useful in scenarios where data privacy, security, and 
 - Evaluate model performance, privacy, and scalability
 - Prepare the project for future experiments and extensions
 
-## Planned Structure
+## Structure
 
 ```text
 .
-├── data/               # Local or simulated datasets
-├── notebooks/          # Jupyter notebooks for experiments
+├── input/              # Local or simulated datasets
+├── output/             # Outputs the training
+├── logs/               # Logs of federated learning process
 ├── src/                # Source code
-├── models/             # Saved models or model artifacts
 ├── results/            # Evaluation results and outputs
+├── docker/             # Docker code
 ├── requirements.txt    # Python dependencies
+├── pyproject.toml      # Flower configuration
 └── README.md           # Project documentation
 ```
 
 ## Technologies
 
-Planned technologies may include:
+Technologies include:
 
 - Python
-- PyTorch or TensorFlow
-- Flower / FedML / TensorFlow Federated
+- TensorFlow
+- Flower
 - Pandas
 - Scikit-learn
-- Jupyter Notebook
+- Docker
 
-## Status
+## Run Without Docker
+In this project's directory:
 
-Project setup in progress.
+`$ chmod +x scripts/flwr-run/federation-start.sh && ./scripts/flwr-run/federation-start.sh`
+
+## Run With Docker
+See [docker/README.md](docker/README.md).
+
+## Run Centralized Machine Learning
+In this project's directory:
+
+`$ source .venv/bin/activate && export PYTHONPATH="$(pwd)" && python3 src/centralized/centralized.py &> src/centralized/logs/log.txt &`
 
 ## Author
 
-Add author information here.
-
-cd ~/matej/federated-learning-poc/ && source .venv/bin/activate && git pull && export PYTHONPATH="$(pwd)" && python3 src/centralized/centralized.py &> ~/matej/federated-learning-poc/src/centralized/logs/log.txt &
-
-cd ~/matej/federated-learning-poc/ && git stash && git pull && chmod +x scripts/flwr-run/federation-start.sh && ./scripts/flwr-run/federation-start.sh
+Matej Vesel, intern at Result d.o.o
