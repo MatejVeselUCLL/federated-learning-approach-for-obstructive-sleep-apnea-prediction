@@ -24,6 +24,7 @@
 
 ### ⚙️ Miscellaneous Tasks
 
+- Updated changelog.
 - For presentation.
 - Fixing metrics aggregation
 - Fixing metrics aggregation
